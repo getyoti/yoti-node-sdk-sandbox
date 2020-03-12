@@ -1,12 +1,12 @@
 
-const SandboxClient = require('./client');
-const { Validation } = require('./util');
+const SandboxProfileClient = require('./client');
+const { Validation } = require('../util');
 const fs = require('fs');
 
 /**
- * @class SandboxClientBuilder
+ * @class SandboxProfileClientBuilder
  */
-class SandboxClientBuilder {
+class SandboxProfileClientBuilder {
   /**
    * @param {string} sdkId
    */
@@ -27,7 +27,7 @@ class SandboxClientBuilder {
   /**
    * @param {string} pemString
    *
-   * @returns {SandboxClientBuilder}
+   * @returns {SandboxProfileClientBuilder}
    */
   withPemString(pem) {
     Validation.isString(pem, 'pem');
@@ -38,7 +38,7 @@ class SandboxClientBuilder {
   /**
    * @param {string} filePath
    *
-   * @returns {SandboxClientBuilder}
+   * @returns {SandboxProfileClientBuilder}
    */
   withPemFilePath(filePath) {
     Validation.isString(filePath, 'filePath');
@@ -48,7 +48,7 @@ class SandboxClientBuilder {
   /**
    * @param {string} sandboxUrl
    *
-   * @returns {SandboxClientBuilder}
+   * @returns {SandboxProfileClientBuilder}
    */
   withSandboxUrl(sandboxUrl) {
     this.sandboxUrl = sandboxUrl;
@@ -56,11 +56,11 @@ class SandboxClientBuilder {
   }
 
   /**
-   * @returns {SandboxClient}
+   * @returns {SandboxProfileClient}
    */
   build() {
-    return new SandboxClient(this.sdkId, this.pem, this.sandboxUrl);
+    return new SandboxProfileClient(this.sdkId, this.pem, this.sandboxUrl);
   }
 }
 
-module.exports = SandboxClientBuilder;
+module.exports = SandboxProfileClientBuilder;

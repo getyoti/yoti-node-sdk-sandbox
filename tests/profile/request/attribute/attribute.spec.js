@@ -1,7 +1,7 @@
 const {
   SandboxAttributeBuilder,
   SandboxAnchorBuilder,
-} = require('../../..');
+} = require('../../../..');
 
 const { YotiDate } = require('yoti');
 

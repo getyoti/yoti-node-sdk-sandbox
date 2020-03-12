@@ -23,12 +23,12 @@ The YotiClient is the SDK entry point. To initialise it you need include the fol
 ```javascript
 const fs = require('fs');
 
-const { SandboxClientBuilder } = require('@getyoti/sandbox');
+const { SandboxProfileClientBuilder } = require('@getyoti/sandbox');
 
 const CLIENT_SDK_ID = 'your sdk id';
 const PEM = fs.readFileSync(__dirname + '/keys/your-application-pem-file.pem');
 
-const sandboxClient = new SandboxClientBuilder()
+const sandboxProfileClient = new SandboxClientBuilder()
   .withClientSdkId(CLIENT_SDK_ID)
   .withPemString(PEM)
   .build();
@@ -48,14 +48,14 @@ Please do not open the pem file as this might corrupt the key and you will need 
 const fs = require('fs');
 
 const {
-  SandboxClientBuilder,
+  SandboxProfileClientBuilder,
   TokenRequestBuilder,
 } = require('@getyoti/sandbox');
 
 const CLIENT_SDK_ID = 'your sdk id';
 const PEM = fs.readFileSync(__dirname + '/keys/your-application-pem-file.pem');
 
-const sandboxClient = new SandboxClientBuilder()
+const sandboxProfileClient = new SandboxProfileClientBuilder()
   .withClientSdkId(CLIENT_SDK_ID)
   .withPemString(PEM)
   .build();
@@ -64,7 +64,7 @@ const tokenRequest = new TokenRequestBuilder()
   .withFullName(SOME_VALUE)
   .build();
 
-sandboxClient.setupSharingProfile(tokenRequest)
+sandboxProfileClient.setupSharingProfile(tokenRequest)
   .then((response) => {
     const token = response.getToken();
     // Use token to get activity details.

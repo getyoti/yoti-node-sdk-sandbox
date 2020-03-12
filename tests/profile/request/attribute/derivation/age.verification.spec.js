@@ -1,7 +1,7 @@
 const {
   SandboxAgeVerificationBuilder,
   SandboxAnchorBuilder,
-} = require('../../../..');
+} = require('../../../../..');
 
 const { YotiDate } = require('yoti');
 
