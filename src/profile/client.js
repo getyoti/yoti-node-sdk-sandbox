@@ -1,12 +1,12 @@
 
-const TokenResponse = require('./profile/response/token');
+const TokenResponse = require('./response/token');
 const { RequestBuilder, Payload } = require('yoti');
-const { Validation } = require('./util');
+const { Validation } = require('../util');
 
 /**
- * @class SandboxClient
+ * @class SandboxProfileClient
  */
-class SandboxClient {
+class SandboxProfileClient {
   /**
    * @param {string} sdkId
    * @param {string} pem
@@ -56,4 +56,4 @@ class SandboxClient {
   }
 }
 
-module.exports = SandboxClient;
+module.exports = SandboxProfileClient;

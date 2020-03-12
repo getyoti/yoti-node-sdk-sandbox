@@ -1,6 +1,6 @@
 const {
   SandboxAnchorBuilder,
-} = require('../../..');
+} = require('../../../..');
 
 const { YotiDate } = require('yoti');
 
