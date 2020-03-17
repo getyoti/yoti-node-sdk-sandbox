@@ -28,27 +28,19 @@ describe('SandboxClient', () => {
       .build();
     expect(sandboxClient).toBeInstanceOf(SandboxClient);
   });
-  it('should build for application', () => {
-    const sandboxClient = new SandboxProfileClientBuilder()
-      .forApplication(SOME_SDK_ID)
-      .withPemFilePath(SOME_PEM_FILE_PATH)
-      .withSandboxUrl(SOME_SANDBOX_URL)
-      .build();
-    expect(sandboxClient).toBeInstanceOf(SandboxClient);
-  });
   describe('#constructor', () => {
     it('should throw for missing app ID', () => {
       expect(() => new SandboxProfileClientBuilder().build())
         .toThrow(new TypeError('sdkId must be a string'));
     });
     it('should throw for missing key', () => {
-      expect(() => new SandboxProfileClientBuilder().forApplication(SOME_SDK_ID).build())
+      expect(() => new SandboxProfileClientBuilder().withClientSdkId(SOME_SDK_ID).build())
         .toThrow(new TypeError('pem must be a string'));
     });
   });
   describe('#setupSharingProfile', () => {
     const sandboxClient = new SandboxProfileClientBuilder()
-      .forApplication(SOME_SDK_ID)
+      .withClientSdkId(SOME_SDK_ID)
       .withPemString(SOME_PEM_STRING)
       .withSandboxUrl(SOME_SANDBOX_URL)
       .build();
