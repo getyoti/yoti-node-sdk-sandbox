@@ -1,5 +1,5 @@
 {
-  "name": "@getyoti/sandbox",
+  "name": "@getyoti/sdk-sandbox",
   "version": "1.0.0",
   "description": "Yoti NodeJS Sandbox for back-end integration",
   "scripts": {
