@@ -1,4 +1,4 @@
-# Yoti NodeJS SDK Sandbox
+# Yoti NodeJS Sandbox SDK
 
 Welcome to the Yoti NodeJS Sandbox. This repo contains the tools you need to test your NodeJS back-end integration.
 
