@@ -16,15 +16,6 @@ class SandboxProfileClientBuilder {
   }
 
   /**
-   * @param {string} sdkId
-   *
-   * @deprecated 4.0.0
-   */
-  forApplication(sdkId) {
-    return this.withClientSdkId(sdkId);
-  }
-
-  /**
    * @param {string} pemString
    *
    * @returns {SandboxProfileClientBuilder}
