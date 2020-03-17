@@ -13,7 +13,7 @@ To import the Yoti SDK inside your project, you can use your favourite dependenc
 If you are using NPM, you can use the following command to set the Yoti SDK as a dependency:
 
 ```shell
-npm install @getyoti/sandbox
+npm install @getyoti/sdk-sandbox
 ```
 
 ## Configuration
@@ -32,7 +32,7 @@ const fs = require('fs');
 const {
   SandboxProfileClientBuilder,
   TokenRequestBuilder,
-} = require('@getyoti/sandbox');
+} = require('@getyoti/sdk-sandbox');
 
 const CLIENT_SDK_ID = 'your sdk id';
 const PEM = fs.readFileSync(__dirname + '/keys/your-application-pem-file.pem');
