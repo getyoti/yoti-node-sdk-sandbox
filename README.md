@@ -31,6 +31,7 @@ const fs = require('fs');
 
 const {
   SandboxProfileClientBuilder,
+  SandboxAgeVerificationBuilder,
   TokenRequestBuilder,
 } = require('@getyoti/sdk-sandbox');
 
@@ -42,8 +43,28 @@ const sandboxProfileClient = new SandboxProfileClientBuilder()
   .withPemString(PEM)
   .build();
 
+const ageVerification = new SandboxAgeVerificationBuilder()
+  .withDateOfBirthString('1980-01-01')
+  .withAgeOver(18)
+  .build();
+
 const tokenRequest = new TokenRequestBuilder()
-  .withFullName(SOME_VALUE)
+  .withRememberMeId('some remember me ID')
+  .withGivenNames('some given names')
+  .withFamilyName('some family name')
+  .withFullName('some full name')
+  .withDateOfBirthString('1980-01-01')
+  .withAgeVerification(ageVerification) {
+  .withGender('some gender')
+  .withPhoneNumber('some phone number')
+  .withNationality('some nationality')
+  .withStructuredPostalAddress(JSON.stringify({
+    building_number: 1,
+    address_line1: 'some address',
+  }))
+  .withBase64Selfie('some base64 encoded selfie')
+  .withEmailAddress('some@email')
+  .withDocumentDetails('PASSPORT USA 1234abc')
   .build();
 
 sandboxProfileClient.setupSharingProfile(tokenRequest)
