@@ -54,7 +54,7 @@ const tokenRequest = new TokenRequestBuilder()
   .withFamilyName('some family name')
   .withFullName('some full name')
   .withDateOfBirthString('1980-01-01')
-  .withAgeVerification(ageVerification) {
+  .withAgeVerification(ageVerification)
   .withGender('some gender')
   .withPhoneNumber('some phone number')
   .withNationality('some nationality')
