@@ -37,8 +37,8 @@ const {
 
 const yoti = require('yoti');
 
-const CLIENT_SDK_ID = 'your sdk id';
-const PEM = fs.readFileSync(__dirname + '/keys/your-pem-file.pem');
+const CLIENT_SDK_ID = 'CLIENT_SDK_ID';
+const PEM = fs.readFileSync('/path/to/your-pem-file.pem');
 
 const sandboxProfileClient = new SandboxProfileClientBuilder()
   .withClientSdkId(CLIENT_SDK_ID)
