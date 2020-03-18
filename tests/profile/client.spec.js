@@ -4,8 +4,9 @@ const { SandboxProfileClientBuilder, TokenRequestBuilder } = require('../..');
 const SandboxClient = require('../../src/profile/client');
 
 const SOME_SDK_ID = 'someSdkId';
+const DEFAULT_SANDBOX_URL = 'https://api.yoti.com/sandbox/v1';
 const SOME_SANDBOX_URL = 'https://somesandbox.yoti.com/api/v1';
-const SOME_ENDPOINT_PATTERN = new RegExp(`^/api/v1/apps/${SOME_SDK_ID}/tokens`);
+const SOME_ENDPOINT_PATTERN = new RegExp(`^/sandbox/v1/apps/${SOME_SDK_ID}/tokens`);
 const SOME_PEM_FILE_PATH = './tests/sample-data/keys/test.pem';
 const SOME_PEM_STRING = fs.readFileSync(SOME_PEM_FILE_PATH, 'utf8');
 const SOME_TOKEN_REQUEST = new TokenRequestBuilder().build();
@@ -16,7 +17,6 @@ describe('SandboxClient', () => {
     const sandboxClient = new SandboxProfileClientBuilder()
       .withClientSdkId(SOME_SDK_ID)
       .withPemString(SOME_PEM_STRING)
-      .withSandboxUrl(SOME_SANDBOX_URL)
       .build();
     expect(sandboxClient).toBeInstanceOf(SandboxClient);
   });
@@ -24,6 +24,13 @@ describe('SandboxClient', () => {
     const sandboxClient = new SandboxProfileClientBuilder()
       .withClientSdkId(SOME_SDK_ID)
       .withPemFilePath(SOME_PEM_FILE_PATH)
+      .build();
+    expect(sandboxClient).toBeInstanceOf(SandboxClient);
+  });
+  it('should build with custom sandbox URL', () => {
+    const sandboxClient = new SandboxProfileClientBuilder()
+      .withClientSdkId(SOME_SDK_ID)
+      .withPemString(SOME_PEM_STRING)
       .withSandboxUrl(SOME_SANDBOX_URL)
       .build();
     expect(sandboxClient).toBeInstanceOf(SandboxClient);
@@ -42,7 +49,6 @@ describe('SandboxClient', () => {
     const sandboxClient = new SandboxProfileClientBuilder()
       .withClientSdkId(SOME_SDK_ID)
       .withPemString(SOME_PEM_STRING)
-      .withSandboxUrl(SOME_SANDBOX_URL)
       .build();
 
     /**
@@ -63,7 +69,7 @@ describe('SandboxClient', () => {
     });
 
     it('should return token from sandbox', (done) => {
-      nock(SOME_SANDBOX_URL)
+      nock(DEFAULT_SANDBOX_URL)
         .post(SOME_ENDPOINT_PATTERN, JSON.stringify(SOME_TOKEN_REQUEST))
         .reply(200, { token: SOME_TOKEN });
 
@@ -75,7 +81,7 @@ describe('SandboxClient', () => {
         .catch(done);
     });
     it('should throw error when invalid response is returned', (done) => {
-      nock(SOME_SANDBOX_URL)
+      nock(DEFAULT_SANDBOX_URL)
         .post(SOME_ENDPOINT_PATTERN, JSON.stringify(SOME_TOKEN_REQUEST))
         .reply(200, '""');
 
@@ -90,7 +96,7 @@ describe('SandboxClient', () => {
         });
     });
     it('should throw error when response has no token', (done) => {
-      nock(SOME_SANDBOX_URL)
+      nock(DEFAULT_SANDBOX_URL)
         .post(SOME_ENDPOINT_PATTERN, JSON.stringify(SOME_TOKEN_REQUEST))
         .reply(200, '{}');
 
@@ -115,7 +121,7 @@ describe('SandboxClient', () => {
       },
     ].forEach((invalidResponse) => {
       it(`should throw error when response is ${invalidResponse.status}`, (done) => {
-        nock(SOME_SANDBOX_URL)
+        nock(DEFAULT_SANDBOX_URL)
           .post(SOME_ENDPOINT_PATTERN, JSON.stringify(SOME_TOKEN_REQUEST))
           .reply(invalidResponse.status, '{}');
 
