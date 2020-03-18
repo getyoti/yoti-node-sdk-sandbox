@@ -35,6 +35,8 @@ const {
   TokenRequestBuilder,
 } = require('@getyoti/sdk-sandbox');
 
+const yoti = require('yoti');
+
 const CLIENT_SDK_ID = 'your sdk id';
 const PEM = fs.readFileSync(__dirname + '/keys/your-pem-file.pem');
 
@@ -70,7 +72,13 @@ const tokenRequest = new TokenRequestBuilder()
 sandboxProfileClient.setupSharingProfile(tokenRequest)
   .then((response) => {
     const token = response.getToken();
+
     // Use token to get activity details.
+    const yotiClient = new yoti.Client(CLIENT_SDK_ID, PEM);
+    yotiClient.getActivityDetails(token)
+      .then((activityDetails) => {
+        // Handle response here.
+      });
   })
   .catch((err) => {
     // Handle unhappy path.
