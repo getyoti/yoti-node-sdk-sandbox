@@ -1,7 +1,12 @@
 
 const TokenResponse = require('./response/token');
-const { RequestBuilder, Payload } = require('yoti');
+const { RequestBuilder, Payload, constants } = require('yoti');
 const { Validation } = require('../util');
+
+/**
+ * Default Sandbox API URL.
+ */
+const SANDBOX_API_URL = `${constants.API_BASE_URL}/sandbox/v1`;
 
 /**
  * @class SandboxProfileClient
@@ -20,8 +25,12 @@ class SandboxProfileClient {
     Validation.isString(pem, 'pem');
     this.pem = pem;
 
-    Validation.isString(sandboxUrl, 'sandboxUrl');
-    this.sandboxUrl = sandboxUrl;
+    if (sandboxUrl) {
+      Validation.isString(sandboxUrl, 'sandboxUrl');
+      this.sandboxUrl = sandboxUrl;
+    } else {
+      this.sandboxUrl = SANDBOX_API_URL;
+    }
   }
 
   /**
