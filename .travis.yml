@@ -24,12 +24,10 @@ jobs:
       script:
         - npm test
     - <<: *test-compatibility
-      node_js: "8"
-    - <<: *test-compatibility
-      node_js: "9"
-    - <<: *test-compatibility
       node_js: "10"
     - <<: *test-compatibility
       node_js: "11"
     - <<: *test-compatibility
       node_js: "12"
+    - <<: *test-compatibility
+      node_js: "13"
