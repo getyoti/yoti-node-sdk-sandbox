@@ -12,7 +12,7 @@ jobs:
       before_install: npm install -g npm@latest
       install: npm ci
       script:
-        - npm audit --production
+        - npm audit
         - npm test
     - &test-compatibility
       stage: Compatibility
@@ -23,8 +23,6 @@ jobs:
         - npm update
       script:
         - npm test
-    - <<: *test-compatibility
-      node_js: "6"
     - <<: *test-compatibility
       node_js: "8"
     - <<: *test-compatibility
