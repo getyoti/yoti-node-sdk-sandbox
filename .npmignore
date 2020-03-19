@@ -4,3 +4,5 @@ coverage
 sonar-project.properties
 .travis.yml
 .dependabot
+.eslintignore
+.eslintrc.js
