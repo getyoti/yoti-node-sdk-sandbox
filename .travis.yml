@@ -1,0 +1,33 @@
+language: node_js
+
+cache: npm
+
+git:
+  depth: 1
+
+jobs:
+  include:
+    - stage: Test
+      node_js: "10"
+      before_install: npm install -g npm@latest
+      install: npm ci
+      script:
+        - npm audit
+        - npm test
+    - &test-compatibility
+      stage: Compatibility
+      node_js: "node"
+      os: linux
+      install:
+        - npm install
+        - npm update
+      script:
+        - npm test
+    - <<: *test-compatibility
+      node_js: "10"
+    - <<: *test-compatibility
+      node_js: "11"
+    - <<: *test-compatibility
+      node_js: "12"
+    - <<: *test-compatibility
+      node_js: "13"
