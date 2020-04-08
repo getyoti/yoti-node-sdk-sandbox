@@ -24,18 +24,10 @@ npm install @getyoti/sdk-sandbox
 
 Please do not open the pem file as this might corrupt the key and you will need to create a new application.
 
-## Profile Token Creation
-
 ```javascript
+const { SandboxProfileClientBuilder } = require('@getyoti/sdk-sandbox');
+const { Client } = require('yoti');
 const fs = require('fs');
-
-const {
-  SandboxProfileClientBuilder,
-  SandboxAgeVerificationBuilder,
-  TokenRequestBuilder,
-} = require('@getyoti/sdk-sandbox');
-
-const yoti = require('yoti');
 
 const SANDBOX_CLIENT_SDK_ID = 'SANDBOX_CLIENT_SDK_ID';
 const PEM = fs.readFileSync('/path/to/your-pem-file.pem', 'utf8');
@@ -45,42 +37,11 @@ const sandboxProfileClient = new SandboxProfileClientBuilder()
   .withPemString(PEM)
   .build();
 
-const ageVerification = new SandboxAgeVerificationBuilder()
-  .withDateOfBirthString('1980-01-01')
-  .withAgeOver(18)
-  .build();
-
-const tokenRequest = new TokenRequestBuilder()
-  .withRememberMeId('some remember me ID')
-  .withGivenNames('some given names')
-  .withFamilyName('some family name')
-  .withFullName('some full name')
-  .withDateOfBirthString('1980-01-01')
-  .withAgeVerification(ageVerification)
-  .withGender('some gender')
-  .withPhoneNumber('some phone number')
-  .withNationality('some nationality')
-  .withStructuredPostalAddress(JSON.stringify({
-    building_number: 1,
-    address_line1: 'some address',
-  }))
-  .withBase64Selfie('some base64 encoded selfie')
-  .withEmailAddress('some@email')
-  .withDocumentDetails('PASSPORT USA 1234abc')
-  .build();
-
-sandboxProfileClient.setupSharingProfile(tokenRequest)
-  .then((response) => {
-    const token = response.getToken();
-
-    // Use token to get activity details.
-    const yotiClient = new yoti.Client(SANDBOX_CLIENT_SDK_ID, PEM);
-    yotiClient.getActivityDetails(token)
-      .then((activityDetails) => {
-        // Handle response here.
-      });
-  })
-  .catch((err) => {
-    // Handle unhappy path.
-  });
+const yotiClient = new Client(SANDBOX_CLIENT_SDK_ID, PEM);
 ```
+
+> Note: To point the client at the sandbox, set environment variable `YOTI_CONNECT_API` to https://api.yoti.com/sandbox/v1
+
+## Examples
+
+- See [examples/profile](examples/profile) for a general example of how to use the Profile Sandbox in your tests.

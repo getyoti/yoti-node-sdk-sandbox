@@ -1,0 +1,22 @@
+{
+  "name": "@getyoti/sdk-sandbox-profile-example",
+  "description": "Yoti NodeJS Profile Sandbox Example",
+  "private": true,
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "yoti": "^3.9.0"
+  },
+  "devDependencies": {
+    "@getyoti/sdk-sandbox": "^1.0.0",
+    "dotenv": "^8.2.0",
+    "jest": "^25.1.0"
+  },
+  "jest": {
+    "verbose": true
+  }
+}
