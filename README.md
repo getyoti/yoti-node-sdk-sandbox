@@ -22,6 +22,8 @@ npm install @getyoti/sdk-sandbox
 
 * `/path/to/your-pem-file.pem` is the path to the application pem file. It can be downloaded only once from the Keys tab in your Yoti Hub.
 
+* Point the Yoti client at the sandbox by setting environment variable `YOTI_CONNECT_API` to https://api.yoti.com/sandbox/v1
+
 Please do not open the pem file as this might corrupt the key and you will need to create a new application.
 
 ```javascript
@@ -39,8 +41,6 @@ const sandboxProfileClient = new SandboxProfileClientBuilder()
 
 const yotiClient = new Client(SANDBOX_CLIENT_SDK_ID, PEM);
 ```
-
-> Note: To point the client at the sandbox, set environment variable `YOTI_CONNECT_API` to https://api.yoti.com/sandbox/v1
 
 ## Examples
 

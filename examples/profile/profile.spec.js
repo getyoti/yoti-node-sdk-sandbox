@@ -37,7 +37,7 @@ describe('Sandbox Example', () => {
     ];
 
     const ageVerification = new SandboxAgeVerificationBuilder()
-      .withDateOfBirthString('1980-01-01')
+      .withDateOfBirthString('1980-01-02')
       .withAgeOver(18)
       .build();
 
