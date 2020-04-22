@@ -24,7 +24,7 @@ npm install @getyoti/sdk-sandbox
 
 * Point the Yoti client at the sandbox by setting environment variable `YOTI_CONNECT_API` to https://api.yoti.com/sandbox/v1
 
-Please do not open the pem file as this might corrupt the key and you will need to create a new application.
+Please do not open the pem file as this might corrupt the key and you will need to recreate the keys on the Yoti Hub.
 
 ```javascript
 const { SandboxProfileClientBuilder } = require('@getyoti/sdk-sandbox');
