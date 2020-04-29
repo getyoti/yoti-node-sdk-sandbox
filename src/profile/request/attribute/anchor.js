@@ -1,5 +1,4 @@
-const { YotiDate } = require('yoti');
-const Validation = require('yoti/src/yoti_common/validation');
+const { Validation } = require('../../../util');
 
 /**
  * @class SandboxAnchor
@@ -21,7 +20,7 @@ class SandboxAnchor {
     Validation.isString(subType, 'subType');
     this.subType = subType;
 
-    Validation.instanceOf(timestamp, YotiDate, 'timestamp');
+    Validation.isYotiDate(timestamp, 'timestamp');
     this.timestamp = timestamp;
   }
 

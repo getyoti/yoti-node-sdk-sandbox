@@ -13,7 +13,7 @@ class SandboxAgeVerificationBuilder {
    * @returns {SandboxAgeVerificationBuilder}
    */
   withDateOfBirth(value) {
-    Validation.instanceOf(value, YotiDate, 'value');
+    Validation.isYotiDate(value, 'value');
     this.dateOfBirth = value;
     return this;
   }

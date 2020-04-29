@@ -35,7 +35,7 @@ class SandboxAnchorBuilder {
   }
 
   /**
-   * @param {DateTime} timestamp
+   * @param {YotiDate} timestamp
    *
    * @returns {SandboxAnchorBuilder}
    */
