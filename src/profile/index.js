@@ -3,6 +3,8 @@ const SandboxAttributeBuilder = require('./request/attribute/attribute.builder')
 const SandboxAgeVerificationBuilder = require('./request/attribute/derivation/age.verification.builder');
 const SandboxAnchorBuilder = require('./request/attribute/anchor.builder');
 const TokenRequestBuilder = require('./request/token.builder');
+const SandboxAttributeIssuanceDetailsBuilder = require('./request/extra_data/third_party/attribute.issuance.details.builder');
+const SandboxExtraDataBuilder = require('./request/extra_data/extra.data.builder');
 
 module.exports = {
   SandboxProfileClientBuilder,
@@ -10,4 +12,6 @@ module.exports = {
   SandboxAgeVerificationBuilder,
   SandboxAnchorBuilder,
   TokenRequestBuilder,
+  SandboxAttributeIssuanceDetailsBuilder,
+  SandboxExtraDataBuilder,
 };
