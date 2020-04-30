@@ -5,10 +5,12 @@ class TokenRequest {
   /**
    * @param {string} rememberMeId
    * @param {SandboxAttribute[]} sandboxAttributes
+   * @param {SandboxExtraData} extraData
    */
-  constructor(rememberMeId, sandboxAttributes) {
+  constructor(rememberMeId, sandboxAttributes, extraData) {
     this.rememberMeId = rememberMeId;
     this.sandboxAttributes = sandboxAttributes;
+    this.extraData = extraData;
   }
 
   /**
@@ -18,6 +20,7 @@ class TokenRequest {
     return {
       remember_me_id: this.rememberMeId,
       profile_attributes: this.sandboxAttributes,
+      extra_data: this.extraData,
     };
   }
 }

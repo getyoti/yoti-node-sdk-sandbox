@@ -2,6 +2,7 @@ const {
   TokenRequestBuilder,
   SandboxAgeVerificationBuilder,
   SandboxAnchorBuilder,
+  SandboxExtraDataBuilder,
 } = require('../../..');
 
 const { YotiDate } = require('yoti');
@@ -329,6 +330,19 @@ describe('TokenRequest', () => {
       value: SOME_DATE_OF_BIRTH_STRING,
       derivation: 'age_over:18',
     });
+  });
+  it('should build with extra data', () => {
+    const extraData = new SandboxExtraDataBuilder().build();
+
+    const tokenRequest = new TokenRequestBuilder()
+      .withExtraData(extraData)
+      .build();
+
+    expect(JSON.stringify(tokenRequest))
+      .toEqual(JSON.stringify({
+        profile_attributes: [],
+        extra_data: extraData,
+      }));
   });
 });
 
