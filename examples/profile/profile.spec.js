@@ -9,6 +9,8 @@ const {
   SandboxProfileClientBuilder,
   SandboxAgeVerificationBuilder,
   SandboxAnchorBuilder,
+  SandboxExtraDataBuilder,
+  SandboxAttributeIssuanceDetailsBuilder,
   TokenRequestBuilder,
 } = require('@getyoti/sdk-sandbox');
 
@@ -41,6 +43,16 @@ describe('Sandbox Example', () => {
       .withAgeOver(18)
       .build();
 
+    const extraData = new SandboxExtraDataBuilder()
+      .withDataEntry(
+        new SandboxAttributeIssuanceDetailsBuilder()
+          .withIssuanceToken('some-token')
+          .withDefinition('some-definition')
+          .withExpiryDate(YotiDate.fromDateString('2020-01-01T00:00:00Z'))
+          .build()
+      )
+      .build();
+
     const tokenRequest = new TokenRequestBuilder()
       .withRememberMeId('Some Remember Me ID')
       .withGivenNames('Some Given Names', anchors)
@@ -58,6 +70,7 @@ describe('Sandbox Example', () => {
       }))
       .withBase64Selfie(Buffer.from('Some Selfie').toString('base64'))
       .withDocumentDetails('PASSPORT USA 1234abc', anchors)
+      .withExtraData(extraData)
       .build();
 
     const sandboxProfileClient = new SandboxProfileClientBuilder()
@@ -110,5 +123,13 @@ describe('Sandbox Example', () => {
       .toEqual('PASSPORT');
     expect(profile.getGivenNames().getVerifiers()[0].getValue())
       .toEqual('YOTI_ADMIN');
+
+    const attributeIssuanceDetails = activityDetails.getExtraData().getAttributeIssuanceDetails();
+    expect(attributeIssuanceDetails.getToken())
+      .toEqual(Buffer.from('some-token').toString('base64'));
+    expect(attributeIssuanceDetails.getExpiryDate().getMicrosecondTimestamp())
+      .toEqual('2020-01-01T00:00:00.000000Z');
+    expect(attributeIssuanceDetails.getIssuingAttributes()[0].getName())
+      .toEqual('some-definition');
   });
 });
