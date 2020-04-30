@@ -19,7 +19,7 @@ class SandboxIssuingAttributes {
    */
   toJSON() {
     return {
-      expiry_date: this.expiryDate,
+      expiry_date: this.expiryDate.getMicrosecondTimestamp(),
       definitions: this.definitions,
     };
   }

@@ -1,5 +1,4 @@
 const YotiValidation = require('yoti/src/yoti_common/validation');
-const { YotiDate } = require('yoti');
 
 class Validation extends YotiValidation {
   /**
@@ -10,11 +9,13 @@ class Validation extends YotiValidation {
    */
   static isYotiDate(value, name) {
     if (
-      !(value instanceof Date) ||
-      value.constructor.name !== YotiDate.name
+      (value instanceof Date) &&
+      typeof value.getMicrosecondTimestamp === 'function'
     ) {
-      throw TypeError(`${name} must be instance of ${YotiDate.name}`);
+      return;
     }
+
+    throw TypeError(`${name} must be instance of YotiDate`);
   }
 }
 
