@@ -1,5 +1,5 @@
 const { YotiDate } = require('yoti');
-const { SandboxAttributeIssuanceDetailsBuilder } = require('../../../../../');
+const { SandboxAttributeIssuanceDetailsBuilder } = require('../../../../..');
 const Definition = require('../../../../../src/profile/request/extra_data/third_party/definition');
 const SandboxAttributeIssuanceDetails = require('../../../../../src/profile/request/extra_data/third_party/attribute.issuance.details');
 
