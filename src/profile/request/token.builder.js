@@ -93,7 +93,7 @@ class TokenRequestBuilder {
    * @returns {this}
    */
   withDateOfBirth(value, anchors = null) {
-    Validation.instanceOf(value, YotiDate, 'value');
+    Validation.isYotiDate(value, 'value');
     const sandboxAttribute = createAttribute(
       constants.ATTR_DATE_OF_BIRTH,
       value.toISODateString(),
