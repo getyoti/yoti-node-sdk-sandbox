@@ -26,7 +26,6 @@ describe('SandboxAgeVerification', () => {
     const expectedData = {
       name: 'date_of_birth',
       value: SOME_DATE_OF_BIRTH_STRING,
-      optional: false,
       derivation: SOME_AGE_OVER_DERIVATION_VALUE,
     };
 
@@ -51,7 +50,6 @@ describe('SandboxAgeVerification', () => {
     const expectedData = {
       name: 'date_of_birth',
       value: SOME_DATE_OF_BIRTH_STRING,
-      optional: false,
       derivation: SOME_AGE_OVER_DERIVATION_VALUE,
     };
 
@@ -68,7 +66,6 @@ describe('SandboxAgeVerification', () => {
     const expectedData = {
       name: 'date_of_birth',
       value: SOME_DATE_OF_BIRTH_STRING,
-      optional: false,
       derivation: SOME_AGE_UNDER_DERIVATION_VALUE,
     };
 
@@ -93,7 +90,6 @@ describe('SandboxAgeVerification', () => {
     const expectedData = {
       name: 'date_of_birth',
       value: SOME_DATE_OF_BIRTH_STRING,
-      optional: false,
       derivation: SOME_AGE_OVER_DERIVATION_VALUE,
       anchors: [
         sandboxAnchor,

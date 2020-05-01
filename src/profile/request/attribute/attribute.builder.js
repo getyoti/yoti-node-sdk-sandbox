@@ -44,6 +44,8 @@ class SandboxAttributeBuilder {
   }
 
   /**
+   * @deprecated Since 1.1.0
+   *
    * @param {boolean} optional
    *
    * @returns {SandboxAttributeBuilder}
