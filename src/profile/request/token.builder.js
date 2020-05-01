@@ -226,7 +226,6 @@ class TokenRequestBuilder {
     const sandboxAttribute = new SandboxAttributeBuilder()
       .withName(constants.ATTR_DOCUMENT_DETAILS)
       .withValue(value)
-      .withOptional(true)
       .withAnchors(anchors)
       .build();
     return this.withAttribute(sandboxAttribute);
