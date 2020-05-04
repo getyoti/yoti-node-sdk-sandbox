@@ -69,7 +69,7 @@ describe('SandboxAttribute', () => {
     expect(JSON.stringify(sandboxAttribute))
       .toBe(JSON.stringify(expectedData));
   });
-  it('should build with optional true', () => {
+  it('should not include optional property in JSON', () => {
     const sandboxAttribute = new SandboxAttributeBuilder()
       .withName(SOME_NAME)
       .withValue(SOME_VALUE)
