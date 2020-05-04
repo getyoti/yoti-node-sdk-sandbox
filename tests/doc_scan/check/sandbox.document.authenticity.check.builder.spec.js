@@ -16,6 +16,8 @@ const SOME_BREAKDOWN = new SandboxBreakdownResponseBuilder()
   .withSubCheck('some-check')
   .build();
 
+const SOME_FILTER = new SandboxDocumentFilterBuilder().build();
+
 describe('SandboxDocumentAuthenticityCheckBuilder', () => {
   describe('#withRecommendation', () => {
     it('Should build SandboxDocumentAuthenticityCheck with recommendation', () => {
@@ -30,9 +32,7 @@ describe('SandboxDocumentAuthenticityCheckBuilder', () => {
         .toEqual(JSON.stringify({
           result: {
             report: {
-              recommendation: {
-                value: 'some-value',
-              },
+              recommendation: SOME_RECOMMENDATION,
               breakdown: [],
             },
           },
@@ -54,14 +54,8 @@ describe('SandboxDocumentAuthenticityCheckBuilder', () => {
         .toEqual(JSON.stringify({
           result: {
             report: {
-              recommendation: {
-                value: 'some-value',
-              },
-              breakdown: [{
-                sub_check: 'some-check',
-                result: 'some-result',
-                details: [],
-              }],
+              recommendation: SOME_RECOMMENDATION,
+              breakdown: [SOME_BREAKDOWN],
             },
           },
         }));
@@ -82,14 +76,8 @@ describe('SandboxDocumentAuthenticityCheckBuilder', () => {
         .toEqual(JSON.stringify({
           result: {
             report: {
-              recommendation: {
-                value: 'some-value',
-              },
-              breakdown: [{
-                sub_check: 'some-check',
-                result: 'some-result',
-                details: [],
-              }],
+              recommendation: SOME_RECOMMENDATION,
+              breakdown: [SOME_BREAKDOWN],
             },
           },
         }));
@@ -100,7 +88,7 @@ describe('SandboxDocumentAuthenticityCheckBuilder', () => {
     it('Should build SandboxDocumentAuthenticityCheck with document filter', () => {
       const check = new SandboxDocumentAuthenticityCheckBuilder()
         .withRecommendation(SOME_RECOMMENDATION)
-        .withDocumentFilter(new SandboxDocumentFilterBuilder().build())
+        .withDocumentFilter(SOME_FILTER)
         .build();
 
       expect(check)
@@ -110,16 +98,11 @@ describe('SandboxDocumentAuthenticityCheckBuilder', () => {
         .toEqual(JSON.stringify({
           result: {
             report: {
-              recommendation: {
-                value: 'some-value',
-              },
+              recommendation: SOME_RECOMMENDATION,
               breakdown: [],
             },
           },
-          document_filter: {
-            document_types: [],
-            country_codes: [],
-          },
+          document_filter: SOME_FILTER,
         }));
     });
   });

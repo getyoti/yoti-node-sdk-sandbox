@@ -16,6 +16,8 @@ const SOME_BREAKDOWN = new SandboxBreakdownResponseBuilder()
   .withSubCheck('some-check')
   .build();
 
+const LIVENESS_TYPE_ZOOM = 'ZOOM';
+
 describe('SandboxZoomLivenessCheckBuilder', () => {
   describe('#withRecommendation', () => {
     it('Should build SandboxZoomLivenessCheck with recommendation', () => {
@@ -33,13 +35,11 @@ describe('SandboxZoomLivenessCheckBuilder', () => {
         .toEqual(JSON.stringify({
           result: {
             report: {
-              recommendation: {
-                value: 'some-value',
-              },
+              recommendation: SOME_RECOMMENDATION,
               breakdown: [],
             },
           },
-          liveness_type: 'ZOOM',
+          liveness_type: LIVENESS_TYPE_ZOOM,
         }));
     });
   });
@@ -61,17 +61,11 @@ describe('SandboxZoomLivenessCheckBuilder', () => {
         .toEqual(JSON.stringify({
           result: {
             report: {
-              recommendation: {
-                value: 'some-value',
-              },
-              breakdown: [{
-                sub_check: 'some-check',
-                result: 'some-result',
-                details: [],
-              }],
+              recommendation: SOME_RECOMMENDATION,
+              breakdown: [SOME_BREAKDOWN],
             },
           },
-          liveness_type: 'ZOOM',
+          liveness_type: LIVENESS_TYPE_ZOOM,
         }));
     });
   });
@@ -93,17 +87,11 @@ describe('SandboxZoomLivenessCheckBuilder', () => {
         .toEqual(JSON.stringify({
           result: {
             report: {
-              recommendation: {
-                value: 'some-value',
-              },
-              breakdown: [{
-                sub_check: 'some-check',
-                result: 'some-result',
-                details: [],
-              }],
+              recommendation: SOME_RECOMMENDATION,
+              breakdown: [SOME_BREAKDOWN],
             },
           },
-          liveness_type: 'ZOOM',
+          liveness_type: LIVENESS_TYPE_ZOOM,
         }));
     });
   });

@@ -60,8 +60,10 @@ describe('SandboxDocumentTextDataExtractionTaskBuilder', () => {
 
   describe('#withDocumentFilter', () => {
     it('Builds SandboxDocumentTextDataExtractionTask with document filter', () => {
+      const SOME_FILTER = new SandboxDocumentFilterBuilder().build();
+
       const task = new SandboxDocumentTextDataExtractionTaskBuilder()
-        .withDocumentFilter(new SandboxDocumentFilterBuilder().build())
+        .withDocumentFilter(SOME_FILTER)
         .build();
 
       expect(task).toBeInstanceOf(SandboxDocumentTextDataExtractionTask);
@@ -71,10 +73,7 @@ describe('SandboxDocumentTextDataExtractionTaskBuilder', () => {
           result: {
             document_fields: {},
           },
-          document_filter: {
-            document_types: [],
-            country_codes: [],
-          },
+          document_filter: SOME_FILTER,
         }));
     });
   });
