@@ -16,6 +16,8 @@ const SOME_BREAKDOWN = new SandboxBreakdownResponseBuilder()
   .withSubCheck('some-check')
   .build();
 
+const SOME_FILTER = new SandboxDocumentFilterBuilder().build();
+
 describe('SandboxDocumentTextDataCheckBuilder', () => {
   describe('#withRecommendation', () => {
     it('Should build SandboxDocumentTextDataCheck with recommendation', () => {
@@ -30,9 +32,7 @@ describe('SandboxDocumentTextDataCheckBuilder', () => {
         .toEqual(JSON.stringify({
           result: {
             report: {
-              recommendation: {
-                value: 'some-value',
-              },
+              recommendation: SOME_RECOMMENDATION,
               breakdown: [],
             },
             document_fields: {},
@@ -55,14 +55,8 @@ describe('SandboxDocumentTextDataCheckBuilder', () => {
         .toEqual(JSON.stringify({
           result: {
             report: {
-              recommendation: {
-                value: 'some-value',
-              },
-              breakdown: [{
-                sub_check: 'some-check',
-                result: 'some-result',
-                details: [],
-              }],
+              recommendation: SOME_RECOMMENDATION,
+              breakdown: [SOME_BREAKDOWN],
             },
             document_fields: {},
           },
@@ -84,14 +78,8 @@ describe('SandboxDocumentTextDataCheckBuilder', () => {
         .toEqual(JSON.stringify({
           result: {
             report: {
-              recommendation: {
-                value: 'some-value',
-              },
-              breakdown: [{
-                sub_check: 'some-check',
-                result: 'some-result',
-                details: [],
-              }],
+              recommendation: SOME_RECOMMENDATION,
+              breakdown: [SOME_BREAKDOWN],
             },
             document_fields: {},
           },
@@ -101,11 +89,13 @@ describe('SandboxDocumentTextDataCheckBuilder', () => {
 
   describe('#withDocumentFields', () => {
     it('Should build SandboxDocumentTextDataCheck with document fields', () => {
+      const SOME_DOCUMENT_FIELDS = {
+        'some-key': 'some-value',
+      };
+
       const check = new SandboxDocumentTextDataCheckBuilder()
         .withRecommendation(SOME_RECOMMENDATION)
-        .withDocumentFields({
-          'some-key': 'some-value',
-        })
+        .withDocumentFields(SOME_DOCUMENT_FIELDS)
         .build();
 
       expect(check)
@@ -115,14 +105,10 @@ describe('SandboxDocumentTextDataCheckBuilder', () => {
         .toEqual(JSON.stringify({
           result: {
             report: {
-              recommendation: {
-                value: 'some-value',
-              },
+              recommendation: SOME_RECOMMENDATION,
               breakdown: [],
             },
-            document_fields: {
-              'some-key': 'some-value',
-            },
+            document_fields: SOME_DOCUMENT_FIELDS,
           },
         }));
     });
@@ -143,9 +129,7 @@ describe('SandboxDocumentTextDataCheckBuilder', () => {
         .toEqual(JSON.stringify({
           result: {
             report: {
-              recommendation: {
-                value: 'some-value',
-              },
+              recommendation: SOME_RECOMMENDATION,
               breakdown: [],
             },
             document_fields: {
@@ -171,17 +155,12 @@ describe('SandboxDocumentTextDataCheckBuilder', () => {
         .toEqual(JSON.stringify({
           result: {
             report: {
-              recommendation: {
-                value: 'some-value',
-              },
+              recommendation: SOME_RECOMMENDATION,
               breakdown: [],
             },
             document_fields: {},
           },
-          document_filter: {
-            document_types: [],
-            country_codes: [],
-          },
+          document_filter: SOME_FILTER,
         }));
     });
   });
