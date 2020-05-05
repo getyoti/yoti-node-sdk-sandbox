@@ -3,15 +3,15 @@ const SandboxZoomLivenessCheck = require('../../../src/doc_scan/check/sandbox.zo
 
 const {
   SandboxZoomLivenessCheckBuilder,
-  SandboxRecommendationResponseBuilder,
-  SandboxBreakdownResponseBuilder,
+  SandboxRecommendationBuilder,
+  SandboxBreakdownBuilder,
 } = require('../../..');
 
-const SOME_RECOMMENDATION = new SandboxRecommendationResponseBuilder()
+const SOME_RECOMMENDATION = new SandboxRecommendationBuilder()
   .withValue('some-value')
   .build();
 
-const SOME_BREAKDOWN = new SandboxBreakdownResponseBuilder()
+const SOME_BREAKDOWN = new SandboxBreakdownBuilder()
   .withResult('some-result')
   .withSubCheck('some-check')
   .build();

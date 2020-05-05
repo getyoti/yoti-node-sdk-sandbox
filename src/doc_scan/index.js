@@ -2,8 +2,8 @@ const DocScanSandboxClientBuilder = require('./doc.scan.sandbox.client.builder')
 const SandboxCheckReportsBuilder = require('./sandbox.check.reports.builder');
 const SandboxTaskResultsBuilder = require('./sandbox.task.results.builder');
 const SandboxExpectationBuilder = require('./sandbox.expectation.builder');
-const SandboxBreakdownResponseBuilder = require('./sandbox.breakdown.response.builder');
-const SandboxRecommendationResponseBuilder = require('./sandbox.recommendation.response.builder');
+const SandboxBreakdownBuilder = require('./sandbox.breakdown.builder');
+const SandboxRecommendationBuilder = require('./sandbox.recommendation.builder');
 const SandboxDocumentAuthenticityCheckBuilder = require('./check/sandbox.document.authenticity.check.builder');
 const SandboxDocumentFaceMatchCheckBuilder = require('./check/sandbox.document.face.match.check.builder');
 const SandboxZoomLivenessCheckBuilder = require('./check/sandbox.zoom.liveness.check.builder');
@@ -15,8 +15,8 @@ module.exports = {
   DocScanSandboxClientBuilder,
   SandboxCheckReportsBuilder,
   SandboxTaskResultsBuilder,
-  SandboxBreakdownResponseBuilder,
-  SandboxRecommendationResponseBuilder,
+  SandboxBreakdownBuilder,
+  SandboxRecommendationBuilder,
   SandboxDocumentAuthenticityCheckBuilder,
   SandboxDocumentFaceMatchCheckBuilder,
   SandboxZoomLivenessCheckBuilder,

@@ -1,6 +1,6 @@
 const Validation = require('yoti/src/yoti_common/validation');
 
-class SandboxRecommendationResponse {
+class SandboxRecommendation {
   /**
    * @param {string} value
    * @param {string} reason
@@ -26,4 +26,4 @@ class SandboxRecommendationResponse {
   }
 }
 
-module.exports = SandboxRecommendationResponse;
+module.exports = SandboxRecommendation;

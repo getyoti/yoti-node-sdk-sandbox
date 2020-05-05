@@ -1,8 +1,8 @@
 const Validation = require('yoti/src/yoti_common/validation');
-const SandboxBreakdownResponse = require('./sandbox.breakdown.response');
+const SandboxBreakdown = require('./sandbox.breakdown');
 const SandboxDetail = require('./sandbox.detail');
 
-class SandboxBreakdownResponseBuilder {
+class SandboxBreakdownBuilder {
   constructor() {
     this.details = [];
   }
@@ -41,14 +41,14 @@ class SandboxBreakdownResponseBuilder {
   }
 
   /**
-   * @returns {SandboxBreakdownResponse}
+   * @returns {SandboxBreakdown}
    */
   build() {
     Validation.notNullOrEmpty(this.subCheck, 'subCheck');
     Validation.notNullOrEmpty(this.result, 'result');
 
-    return new SandboxBreakdownResponse(this.subCheck, this.result, this.details);
+    return new SandboxBreakdown(this.subCheck, this.result, this.details);
   }
 }
 
-module.exports = SandboxBreakdownResponseBuilder;
+module.exports = SandboxBreakdownBuilder;

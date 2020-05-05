@@ -1,7 +1,7 @@
 const {
   SandboxCheckReportsBuilder,
   SandboxDocumentTextDataCheckBuilder,
-  SandboxRecommendationResponseBuilder,
+  SandboxRecommendationBuilder,
   SandboxDocumentAuthenticityCheckBuilder,
   SandboxZoomLivenessCheckBuilder,
   SandboxDocumentFaceMatchCheckBuilder,
@@ -9,7 +9,7 @@ const {
 const SandboxCheckReports = require('../../src/doc_scan/sandbox.check.reports');
 
 const SOME_VALUE = 'some-value';
-const SOME_RECOMMENDATION = new SandboxRecommendationResponseBuilder()
+const SOME_RECOMMENDATION = new SandboxRecommendationBuilder()
   .withValue(SOME_VALUE)
   .build();
 

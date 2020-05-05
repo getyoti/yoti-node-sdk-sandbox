@@ -1,6 +1,6 @@
 const Validation = require('yoti/src/yoti_common/validation');
-const SandboxRecommendationResponse = require('../sandbox.recommendation.response');
-const SandboxBreakdownResponse = require('../sandbox.breakdown.response');
+const SandboxRecommendation = require('../sandbox.recommendation');
+const SandboxBreakdown = require('../sandbox.breakdown');
 
 /**
  * Base check builder.
@@ -15,34 +15,34 @@ class SandboxCheckBuilder {
   }
 
   /**
-   * @param {SandboxRecommendationResponse} recommendation
+   * @param {SandboxRecommendation} recommendation
    *
    * @returns {this}
    */
   withRecommendation(recommendation) {
-    Validation.instanceOf(recommendation, SandboxRecommendationResponse, 'recommendation');
+    Validation.instanceOf(recommendation, SandboxRecommendation, 'recommendation');
     this.recommendation = recommendation;
     return this;
   }
 
   /**
-   * @param {SandboxBreakdownResponse} recommendation
+   * @param {SandboxBreakdown} recommendation
    *
    * @returns {this}
    */
   withBreakdown(breakdown) {
-    Validation.instanceOf(breakdown, SandboxBreakdownResponse, 'breakdown');
+    Validation.instanceOf(breakdown, SandboxBreakdown, 'breakdown');
     this.breakdown.push(breakdown);
     return this;
   }
 
   /**
-   * @param {SandboxBreakdownResponse[]} recommendation
+   * @param {SandboxBreakdown[]} recommendation
    *
    * @returns {this}
    */
   withBreakdownList(breakdownList) {
-    Validation.isArrayOfType(breakdownList, SandboxBreakdownResponse, 'breakdownList');
+    Validation.isArrayOfType(breakdownList, SandboxBreakdown, 'breakdownList');
     this.breakdown = breakdownList;
     return this;
   }
