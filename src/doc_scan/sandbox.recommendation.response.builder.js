@@ -3,27 +3,6 @@ const SandboxRecommendationResponse = require('./sandbox.recommendation.response
 
 class SandboxRecommendationResponseBuilder {
   /**
-   * @returns {SandboxRecommendationResponse}
-   */
-  static approvedRecommendation() {
-    return new SandboxRecommendationResponse('APPROVE');
-  }
-
-  /**
-   * @returns {SandboxRecommendationResponse}
-   */
-  static notAvailableRecommendation() {
-    return new SandboxRecommendationResponse('NOT_AVAILABLE', 'PICTURE_TOO_DARK', 'BETTER_LIGHTING');
-  }
-
-  /**
-   * @returns {SandboxRecommendationResponse}
-   */
-  static rejectedRecommendation() {
-    return new SandboxRecommendationResponse('REJECT', 'NOT_GENUINE');
-  }
-
-  /**
    * @param {string} value
    *
    * @returns {this}

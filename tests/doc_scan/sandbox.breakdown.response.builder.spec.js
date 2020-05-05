@@ -30,34 +30,4 @@ describe('SandboxBreakdownResponseBuilder', () => {
         }));
     });
   });
-
-  describe('#passForCheck', () => {
-    it('builds a PASS SandboxBreakdownResponse', () => {
-      const sandboxBreakdownResponse = SandboxBreakdownResponseBuilder.passForCheck(SOME_SUB_CHECK);
-
-      expect(sandboxBreakdownResponse).toBeInstanceOf(SandboxBreakdownResponse);
-
-      expect(JSON.stringify(sandboxBreakdownResponse))
-        .toEqual(JSON.stringify({
-          sub_check: SOME_SUB_CHECK,
-          result: 'PASS',
-          details: [],
-        }));
-    });
-  });
-
-  describe('#failForCheck', () => {
-    it('builds a FAIL SandboxBreakdownResponse', () => {
-      const sandboxBreakdownResponse = SandboxBreakdownResponseBuilder.failForCheck(SOME_SUB_CHECK);
-
-      expect(sandboxBreakdownResponse).toBeInstanceOf(SandboxBreakdownResponse);
-
-      expect(JSON.stringify(sandboxBreakdownResponse))
-        .toEqual(JSON.stringify({
-          sub_check: SOME_SUB_CHECK,
-          result: 'FAIL',
-          details: [],
-        }));
-    });
-  });
 });

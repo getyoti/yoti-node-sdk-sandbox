@@ -26,46 +26,4 @@ describe('SandboxRecommendationResponseBuilder', () => {
         }));
     });
   });
-
-  describe('#approvedRecommendation', () => {
-    it('builds a SandboxRecommendationResponse with approved recommendation', () => {
-      const recommendation = SandboxRecommendationResponseBuilder.approvedRecommendation();
-
-      expect(recommendation).toBeInstanceOf(SandboxRecommendationResponse);
-
-      expect(JSON.stringify(recommendation))
-        .toEqual(JSON.stringify({
-          value: 'APPROVE',
-        }));
-    });
-  });
-
-  describe('#notAvailableRecommendation', () => {
-    it('builds a SandboxRecommendationResponse with not available recommendation', () => {
-      const recommendation = SandboxRecommendationResponseBuilder.notAvailableRecommendation();
-
-      expect(recommendation).toBeInstanceOf(SandboxRecommendationResponse);
-
-      expect(JSON.stringify(recommendation))
-        .toEqual(JSON.stringify({
-          value: 'NOT_AVAILABLE',
-          reason: 'PICTURE_TOO_DARK',
-          recovery_suggestion: 'BETTER_LIGHTING',
-        }));
-    });
-  });
-
-  describe('#rejectedRecommendation', () => {
-    it('builds a SandboxRecommendationResponse with rejected recommendation', () => {
-      const recommendation = SandboxRecommendationResponseBuilder.rejectedRecommendation();
-
-      expect(recommendation).toBeInstanceOf(SandboxRecommendationResponse);
-
-      expect(JSON.stringify(recommendation))
-        .toEqual(JSON.stringify({
-          value: 'REJECT',
-          reason: 'NOT_GENUINE',
-        }));
-    });
-  });
 });
