@@ -8,26 +8,6 @@ class SandboxBreakdownResponseBuilder {
   }
 
   /**
-   * @param {string} check
-   *
-   * @returns {SandboxBreakdownResponse}
-   */
-  static passForCheck(check) {
-    Validation.isString(check, 'check');
-    return new SandboxBreakdownResponse(check, 'PASS', []);
-  }
-
-  /**
-   * @param {string} check
-   *
-   * @returns {SandboxBreakdownResponse}
-   */
-  static failForCheck(check) {
-    Validation.isString(check, 'check');
-    return new SandboxBreakdownResponse(check, 'FAIL', []);
-  }
-
-  /**
    * @param {string} subCheck
    *
    * @returns {this}
