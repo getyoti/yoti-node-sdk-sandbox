@@ -14,7 +14,7 @@ class SandboxRecommendationBuilder {
   }
 
   /**
-   * @param {string} value
+   * @param {string} reason
    *
    * @returns {this}
    */
@@ -25,7 +25,7 @@ class SandboxRecommendationBuilder {
   }
 
   /**
-   * @param {string} value
+   * @param {string} recoverySuggestion
    *
    * @returns {this}
    */

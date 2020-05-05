@@ -7,7 +7,7 @@ const {
 } = require('./src/profile');
 
 const {
-  DocScanSandboxClientBuilder,
+  SandboxDocScanClientBuilder,
   SandboxCheckReportsBuilder,
   SandboxTaskResultsBuilder,
   SandboxBreakdownBuilder,
@@ -27,7 +27,7 @@ module.exports = {
   SandboxAgeVerificationBuilder,
   SandboxAnchorBuilder,
   TokenRequestBuilder,
-  DocScanSandboxClientBuilder,
+  SandboxDocScanClientBuilder,
   SandboxCheckReportsBuilder,
   SandboxTaskResultsBuilder,
   SandboxBreakdownBuilder,

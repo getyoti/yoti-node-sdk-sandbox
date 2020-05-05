@@ -70,9 +70,9 @@ const docScanClient = new DocScanClient(SANDBOX_CLIENT_SDK_ID, PEM);
 #### Doc Scan Sandbox Client
 
 ```javascript
-const { DocScanSandboxClientBuilder } = require('@getyoti/sdk-sandbox');
+const { SandboxDocScanClientBuilder } = require('@getyoti/sdk-sandbox');
 
-const sandboxClient = new DocScanSandboxClientBuilder()
+const sandboxClient = new SandboxDocScanClientBuilder()
   .withClientSdkId(SANDBOX_CLIENT_SDK_ID)
   .withPemString(PEM)
   .build();

@@ -1,4 +1,4 @@
-const DocScanSandboxClientBuilder = require('./doc.scan.sandbox.client.builder');
+const SandboxDocScanClientBuilder = require('./sandbox.doc.scan.client.builder');
 const SandboxCheckReportsBuilder = require('./sandbox.check.reports.builder');
 const SandboxTaskResultsBuilder = require('./sandbox.task.results.builder');
 const SandboxExpectationBuilder = require('./sandbox.expectation.builder');
@@ -12,7 +12,7 @@ const SandboxDocumentTextDataExtractionTaskBuilder = require('./task/sandbox.doc
 const SandboxDocumentFilterBuilder = require('./sandbox.document.filter.builder');
 
 module.exports = {
-  DocScanSandboxClientBuilder,
+  SandboxDocScanClientBuilder,
   SandboxCheckReportsBuilder,
   SandboxTaskResultsBuilder,
   SandboxBreakdownBuilder,

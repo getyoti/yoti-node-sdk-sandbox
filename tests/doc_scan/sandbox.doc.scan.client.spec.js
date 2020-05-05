@@ -5,7 +5,7 @@ const nock = require('nock');
 
 
 const {
-  DocScanSandboxClientBuilder,
+  SandboxDocScanClientBuilder,
   SandboxExpectationBuilder,
   SandboxCheckReportsBuilder,
 } = require('../..');
@@ -17,8 +17,8 @@ const SOME_URL = 'https://example.com/';
 const SOME_SDK_ID = 'some-sdk-id';
 const SOME_SESSION_ID = 'some-session-id';
 
-describe('DocScanSandboxClient', () => {
-  const client = new DocScanSandboxClientBuilder()
+describe('SandboxDocScanClient', () => {
+  const client = new SandboxDocScanClientBuilder()
     .withClientSdkId(SOME_SDK_ID)
     .withPemString(SOME_PEM)
     .withSandboxUrl(SOME_URL)
