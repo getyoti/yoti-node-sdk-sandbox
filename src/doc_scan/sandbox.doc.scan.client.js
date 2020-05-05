@@ -6,9 +6,9 @@ const DocScanSandboxError = require('./doc.scan.sandbox.error');
 const DOC_SCAN_SANDBOX_API_BASE_URL = `${constants.API_BASE_URL}/sandbox/idverify/v1`;
 
 /**
- * @class DocScanSandboxClient
+ * @class SandboxDocScanClient
  */
-class DocScanSandboxClient {
+class SandboxDocScanClient {
   /**
    * @param {string} sdkId
    * @param {string|Buffer} pem
@@ -80,4 +80,4 @@ class DocScanSandboxClient {
   }
 }
 
-module.exports = DocScanSandboxClient;
+module.exports = SandboxDocScanClient;

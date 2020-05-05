@@ -1,10 +1,10 @@
 const { Validation } = require('../util');
-const DocScanSandboxClient = require('./doc.scan.sandbox.client');
+const SandboxDocScanClient = require('./sandbox.doc.scan.client');
 
 /**
- * @class DocScanSandboxClientBuilder
+ * @class SandboxDocScanClientBuilder
  */
-class DocScanSandboxClientBuilder {
+class SandboxDocScanClientBuilder {
   /**
    * @param {string} sdkId
    */
@@ -37,11 +37,11 @@ class DocScanSandboxClientBuilder {
   }
 
   /**
-   * @returns {DocScanSandboxClient}
+   * @returns {SandboxDocScanClient}
    */
   build() {
-    return new DocScanSandboxClient(this.sdkId, this.pem, this.sandboxUrl);
+    return new SandboxDocScanClient(this.sdkId, this.pem, this.sandboxUrl);
   }
 }
 
-module.exports = DocScanSandboxClientBuilder;
+module.exports = SandboxDocScanClientBuilder;
