@@ -1,4 +1,4 @@
-const Validation = require('yoti/src/yoti_common/validation');
+const { Validation } = require('../../util');
 const SandboxRecommendation = require('../sandbox.recommendation');
 const SandboxBreakdown = require('../sandbox.breakdown');
 
@@ -26,7 +26,7 @@ class SandboxCheckBuilder {
   }
 
   /**
-   * @param {SandboxBreakdown} recommendation
+   * @param {SandboxBreakdown} breakdown
    *
    * @returns {this}
    */
@@ -37,7 +37,7 @@ class SandboxCheckBuilder {
   }
 
   /**
-   * @param {SandboxBreakdown[]} recommendation
+   * @param {SandboxBreakdown[]} breakdownList
    *
    * @returns {this}
    */

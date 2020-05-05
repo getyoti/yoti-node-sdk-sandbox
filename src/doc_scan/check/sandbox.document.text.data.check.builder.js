@@ -1,4 +1,4 @@
-const Validation = require('yoti/src/yoti_common/validation');
+const { Validation } = require('../../util');
 const SandboxDocumentCheckBuilder = require('./sandbox.document.check.builder');
 const SandboxDocumentTextDataCheck = require('./sandbox.document.text.data.check');
 const SandboxCheckReport = require('./sandbox.check.report');

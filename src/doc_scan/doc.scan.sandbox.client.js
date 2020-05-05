@@ -1,8 +1,9 @@
-const { RequestBuilder, Payload } = require('yoti');
-const Validation = require('yoti/src/yoti_common/validation');
+const { RequestBuilder, Payload, constants } = require('yoti');
+const { Validation } = require('../util');
 const SandboxExpectation = require('./sandbox.expectation');
 const DocScanSandboxError = require('./doc.scan.sandbox.error');
-const DocScanSandboxConstants = require('./doc.scan.sandbox.constants');
+
+const DOC_SCAN_SANDBOX_API_BASE_URL = `${constants.API_BASE_URL}/sandbox/idverify/v1`;
 
 /**
  * @class DocScanSandboxClient
@@ -24,7 +25,7 @@ class DocScanSandboxClient {
       Validation.isString(sandboxUrl, 'sandboxUrl');
       this.sandboxUrl = sandboxUrl;
     } else {
-      this.sandboxUrl = DocScanSandboxConstants.DOC_SCAN_SANDBOX_API_BASE_URL;
+      this.sandboxUrl = DOC_SCAN_SANDBOX_API_BASE_URL;
     }
   }
 

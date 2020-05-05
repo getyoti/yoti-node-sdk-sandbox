@@ -1,4 +1,4 @@
-const Validation = require('yoti/src/yoti_common/validation');
+const { Validation } = require('../util');
 const SandboxRecommendation = require('./sandbox.recommendation');
 
 class SandboxRecommendationBuilder {
