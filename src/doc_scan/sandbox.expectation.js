@@ -1,4 +1,4 @@
-const Validation = require('yoti/src/yoti_common/validation');
+const { Validation } = require('../util');
 const SandboxTaskResults = require('./sandbox.task.results');
 const SandboxCheckReports = require('./sandbox.check.reports');
 

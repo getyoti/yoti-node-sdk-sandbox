@@ -1,5 +1,5 @@
 const { DocScanConstants } = require('yoti');
-const Validation = require('yoti/src/yoti_common/validation');
+const { Validation } = require('../util');
 const SandboxDocumentTextDataExtractionTask = require('./task/sandbox.document.text.data.extraction.task');
 
 class SandboxTaskResults {

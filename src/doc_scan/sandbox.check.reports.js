@@ -1,4 +1,4 @@
-const Validation = require('yoti/src/yoti_common/validation');
+const { Validation } = require('../util');
 const { DocScanConstants } = require('yoti');
 const SandboxDocumentTextDataCheck = require('./check/sandbox.document.text.data.check');
 const SandboxDocumentFaceMatchCheck = require('./check/sandbox.document.face.match.check');
