@@ -3,15 +3,15 @@ const SandboxDocumentAuthenticityCheck = require('../../../src/doc_scan/check/sa
 const {
   SandboxDocumentFilterBuilder,
   SandboxDocumentAuthenticityCheckBuilder,
-  SandboxRecommendationResponseBuilder,
-  SandboxBreakdownResponseBuilder,
+  SandboxRecommendationBuilder,
+  SandboxBreakdownBuilder,
 } = require('../../..');
 
-const SOME_RECOMMENDATION = new SandboxRecommendationResponseBuilder()
+const SOME_RECOMMENDATION = new SandboxRecommendationBuilder()
   .withValue('some-value')
   .build();
 
-const SOME_BREAKDOWN = new SandboxBreakdownResponseBuilder()
+const SOME_BREAKDOWN = new SandboxBreakdownBuilder()
   .withResult('some-result')
   .withSubCheck('some-check')
   .build();

@@ -1,7 +1,7 @@
 const Validation = require('yoti/src/yoti_common/validation');
-const SandboxRecommendationResponse = require('./sandbox.recommendation.response');
+const SandboxRecommendation = require('./sandbox.recommendation');
 
-class SandboxRecommendationResponseBuilder {
+class SandboxRecommendationBuilder {
   /**
    * @param {string} value
    *
@@ -36,11 +36,11 @@ class SandboxRecommendationResponseBuilder {
   }
 
   /**
-   * @returns {SandboxRecommendationResponse}
+   * @returns {SandboxRecommendation}
    */
   build() {
-    return new SandboxRecommendationResponse(this.value, this.reason, this.recoverySuggestion);
+    return new SandboxRecommendation(this.value, this.reason, this.recoverySuggestion);
   }
 }
 
-module.exports = SandboxRecommendationResponseBuilder;
+module.exports = SandboxRecommendationBuilder;

@@ -1,7 +1,7 @@
 const Validation = require('yoti/src/yoti_common/validation');
 const SandboxDetail = require('./sandbox.detail');
 
-class SandboxBreakdownResponse {
+class SandboxBreakdown {
   /**
    * @param {string} subCheck
    * @param {string} result
@@ -27,4 +27,4 @@ class SandboxBreakdownResponse {
   }
 }
 
-module.exports = SandboxBreakdownResponse;
+module.exports = SandboxBreakdown;

@@ -1,17 +1,17 @@
 const Validation = require('yoti/src/yoti_common/validation');
-const SandboxRecommendationResponse = require('../sandbox.recommendation.response');
-const SandboxBreakdownResponse = require('../sandbox.breakdown.response');
+const SandboxRecommendation = require('../sandbox.recommendation');
+const SandboxBreakdown = require('../sandbox.breakdown');
 
 class SandboxCheckReport {
   /**
-   * @param {SandboxRecommendationResponse} recommendation
-   * @param {SandboxBreakdownResponse} breakdown
+   * @param {SandboxRecommendation} recommendation
+   * @param {SandboxBreakdown} breakdown
    */
   constructor(recommendation, breakdown) {
-    Validation.instanceOf(recommendation, SandboxRecommendationResponse, 'recommendation');
+    Validation.instanceOf(recommendation, SandboxRecommendation, 'recommendation');
     this.recommendation = recommendation;
 
-    Validation.isArrayOfType(breakdown, SandboxBreakdownResponse, 'breakdown');
+    Validation.isArrayOfType(breakdown, SandboxBreakdown, 'breakdown');
     this.breakdown = breakdown;
   }
 
