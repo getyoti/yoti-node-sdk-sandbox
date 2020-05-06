@@ -2,8 +2,7 @@ version: '3'
 
 services:
   app:
-    build: ./app
-    working_dir: /usr/src/app
+    image: davidgrayston/doc-scan-demo
     env_file:
         - ./.env
     environment:
