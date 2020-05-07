@@ -17,10 +17,6 @@ Given('I switch to the iframe', async function () {
   await this.switchToIframe();
 });
 
-Given('I switch to the parent window', async function () {
-  await this.switchToParentWindow();
-});
-
 Given('I upload a document', async function () {
   await this.uploadDocument();
 });
