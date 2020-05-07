@@ -16,12 +16,12 @@ class SandboxProfileClientBuilder {
   }
 
   /**
-   * @param {string} pemString
+   * @param {string|Buffer} pemString
    *
    * @returns {SandboxProfileClientBuilder}
    */
   withPemString(pem) {
-    Validation.isString(pem, 'pem');
+    Validation.notNullOrEmpty(pem, 'pem');
     this.pem = pem;
     return this;
   }

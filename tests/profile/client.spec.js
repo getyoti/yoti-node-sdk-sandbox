@@ -9,6 +9,7 @@ const SOME_SANDBOX_URL = 'https://somesandbox.yoti.com/api/v1';
 const SOME_ENDPOINT_PATTERN = new RegExp(`^/sandbox/v1/apps/${SOME_SDK_ID}/tokens`);
 const SOME_PEM_FILE_PATH = './tests/sample-data/keys/test.pem';
 const SOME_PEM_STRING = fs.readFileSync(SOME_PEM_FILE_PATH, 'utf8');
+const SOME_PEM_BUFFER = Buffer.from(SOME_PEM_STRING);
 const SOME_TOKEN_REQUEST = new TokenRequestBuilder().build();
 const SOME_TOKEN = 'someToken';
 
@@ -17,6 +18,13 @@ describe('SandboxClient', () => {
     const sandboxClient = new SandboxProfileClientBuilder()
       .withClientSdkId(SOME_SDK_ID)
       .withPemString(SOME_PEM_STRING)
+      .build();
+    expect(sandboxClient).toBeInstanceOf(SandboxClient);
+  });
+  it('should build with pem buffer', () => {
+    const sandboxClient = new SandboxProfileClientBuilder()
+      .withClientSdkId(SOME_SDK_ID)
+      .withPemString(SOME_PEM_BUFFER)
       .build();
     expect(sandboxClient).toBeInstanceOf(SandboxClient);
   });
@@ -42,7 +50,7 @@ describe('SandboxClient', () => {
     });
     it('should throw for missing key', () => {
       expect(() => new SandboxProfileClientBuilder().withClientSdkId(SOME_SDK_ID).build())
-        .toThrow(new TypeError('pem must be a string'));
+        .toThrow(new TypeError('pem cannot be null or empty'));
     });
   });
   describe('#setupSharingProfile', () => {

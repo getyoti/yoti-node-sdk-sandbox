@@ -14,7 +14,7 @@ const SANDBOX_API_URL = `${constants.API_BASE_URL}/sandbox/v1`;
 class SandboxProfileClient {
   /**
    * @param {string} sdkId
-   * @param {string} pem
+   * @param {string|Buffer} pem
    * @param {string} sandboxUrl
    */
   constructor(sdkId, pem, sandboxUrl) {
@@ -22,7 +22,7 @@ class SandboxProfileClient {
     this.sdkId = sdkId;
     this.endpoint = `/apps/${sdkId}/tokens`;
 
-    Validation.isString(pem, 'pem');
+    Validation.notNullOrEmpty(pem, 'pem');
     this.pem = pem;
 
     if (sandboxUrl) {
