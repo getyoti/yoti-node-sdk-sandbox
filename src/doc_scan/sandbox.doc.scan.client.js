@@ -1,6 +1,6 @@
 const { RequestBuilder, Payload, constants } = require('yoti');
 const { Validation } = require('../util');
-const SandboxResponseConfig = require('./sandbox.response.config');
+const SandboxResponseConfig = require('./request/sandbox.response.config');
 const DocScanSandboxError = require('./doc.scan.sandbox.error');
 
 const DOC_SCAN_SANDBOX_API_BASE_URL = `${constants.API_BASE_URL}/sandbox/idverify/v1`;
