@@ -2,7 +2,7 @@ Feature: Demo
 
   Scenario: Should create session and get the session result
     Given I am on "/"
-    And I set the expectation for the session
+    And I configure the session response
 
     And I switch to the iframe
     And I choose "PASSPORT"

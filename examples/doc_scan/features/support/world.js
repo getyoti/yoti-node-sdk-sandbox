@@ -13,7 +13,7 @@ const {
   SandboxRecommendationBuilder,
   SandboxDocumentAuthenticityCheckBuilder,
   SandboxCheckReportsBuilder,
-  SandboxExpectationBuilder,
+  SandboxResponseConfigBuilder,
   SandboxDocumentTextDataCheckBuilder,
   SandboxTaskResultsBuilder,
   SandboxDocumentTextDataExtractionTaskBuilder,
@@ -61,11 +61,11 @@ class World {
   /**
    * Set sandbox expectation for the current session.
    */
-  async setExpectationForSession() {
+  async configureSessionResponse() {
     const iframeUrl = await this.webDriver.findElement(By.tagName('iframe')).getAttribute('src');
     const sessionId = new URL(iframeUrl).searchParams.get('sessionID');
 
-    const expectation = new SandboxExpectationBuilder()
+    const responseConfig = new SandboxResponseConfigBuilder()
       .withCheckReports(
         new SandboxCheckReportsBuilder()
           .withAsyncReportDelay(5)
@@ -126,7 +126,7 @@ class World {
       )
       .build();
 
-    await this.sandboxClient.setExpectationForSession(sessionId, expectation);
+    await this.sandboxClient.configureSessionResponse(sessionId, responseConfig);
   }
 
   /**

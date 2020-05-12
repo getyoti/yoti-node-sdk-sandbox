@@ -5,8 +5,8 @@ Given('I am on {string}', async function (path) {
   await this.visit(path);
 });
 
-Given('I set the expectation for the session', async function () {
-  await this.setExpectationForSession();
+Given('I configure the session response', async function () {
+  await this.configureSessionResponse();
 });
 
 Given('I click on {string}', async function (text) {
