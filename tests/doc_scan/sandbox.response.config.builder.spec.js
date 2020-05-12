@@ -1,10 +1,10 @@
 const {
-  SandboxExpectationBuilder,
+  SandboxResponseConfigBuilder,
   SandboxCheckReportsBuilder,
   SandboxTaskResultsBuilder,
   SandboxDocumentTextDataExtractionTaskBuilder,
 } = require('../..');
-const SandboxExpectation = require('../../src/doc_scan/sandbox.expectation');
+const SandboxResponseConfig = require('../../src/doc_scan/sandbox.response.config');
 
 const SOME_CHECK_REPORTS = new SandboxCheckReportsBuilder().build();
 const SOME_TASK = new SandboxDocumentTextDataExtractionTaskBuilder()
@@ -13,16 +13,16 @@ const SOME_TASK_RESULTS = new SandboxTaskResultsBuilder()
   .withDocumentTextDataExtractionTask(SOME_TASK)
   .build();
 
-describe('SandboxExpectationBuilder', () => {
+describe('SandboxResponseConfigBuilder', () => {
   describe('#build', () => {
-    it('builds a SandboxExpectation with check reports', () => {
-      const expectation = new SandboxExpectationBuilder()
+    it('builds a SandboxResponseConfig with check reports', () => {
+      const responseConfig = new SandboxResponseConfigBuilder()
         .withCheckReports(SOME_CHECK_REPORTS)
         .build();
 
-      expect(expectation).toBeInstanceOf(SandboxExpectation);
+      expect(responseConfig).toBeInstanceOf(SandboxResponseConfig);
 
-      expect(JSON.stringify(expectation))
+      expect(JSON.stringify(responseConfig))
         .toEqual(JSON.stringify({
           check_reports: SOME_CHECK_REPORTS,
         }));
@@ -30,15 +30,15 @@ describe('SandboxExpectationBuilder', () => {
   });
 
   describe('#withTaskResults', () => {
-    it('builds a SandboxExpectation with task results', () => {
-      const expectation = new SandboxExpectationBuilder()
+    it('builds a SandboxResponseConfig with task results', () => {
+      const responseConfig = new SandboxResponseConfigBuilder()
         .withCheckReports(SOME_CHECK_REPORTS)
         .withTaskResults(SOME_TASK_RESULTS)
         .build();
 
-      expect(expectation).toBeInstanceOf(SandboxExpectation);
+      expect(responseConfig).toBeInstanceOf(SandboxResponseConfig);
 
-      expect(JSON.stringify(expectation))
+      expect(JSON.stringify(responseConfig))
         .toEqual(JSON.stringify({
           task_results: SOME_TASK_RESULTS,
           check_reports: SOME_CHECK_REPORTS,

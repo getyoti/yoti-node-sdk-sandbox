@@ -2,7 +2,7 @@ const { Validation } = require('../util');
 const SandboxTaskResults = require('./sandbox.task.results');
 const SandboxCheckReports = require('./sandbox.check.reports');
 
-class SandboxExpectation {
+class SandboxResponseConfig {
   /**
    * @param {SandboxTaskResults} taskResults
    * @param {SandboxCheckReports} checkReports
@@ -25,4 +25,4 @@ class SandboxExpectation {
   }
 }
 
-module.exports = SandboxExpectation;
+module.exports = SandboxResponseConfig;

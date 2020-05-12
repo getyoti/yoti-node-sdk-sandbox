@@ -6,7 +6,7 @@ const nock = require('nock');
 
 const {
   SandboxDocScanClientBuilder,
-  SandboxExpectationBuilder,
+  SandboxResponseConfigBuilder,
   SandboxCheckReportsBuilder,
 } = require('../..');
 
@@ -24,73 +24,73 @@ describe('SandboxDocScanClient', () => {
     .withSandboxUrl(SOME_URL)
     .build();
 
-  describe('#setExpectationForSession', () => {
+  describe('#configureSessionResponse', () => {
     it('Resolves on success', () => {
-      const SOME_EXPECTATION = new SandboxExpectationBuilder()
+      const SOME_RESPONSE_CONFIG = new SandboxResponseConfigBuilder()
         .withCheckReports(new SandboxCheckReportsBuilder().build())
         .build();
 
       nock(SOME_URL)
         .put(
           new RegExp(`^/sessions/${SOME_SESSION_ID}/response-config`),
-          JSON.stringify(SOME_EXPECTATION)
+          JSON.stringify(SOME_RESPONSE_CONFIG)
         )
         .reply(200);
 
-      expect(client.setExpectationForSession(SOME_SESSION_ID, SOME_EXPECTATION))
+      expect(client.configureSessionResponse(SOME_SESSION_ID, SOME_RESPONSE_CONFIG))
         .resolves
         .toBeUndefined();
     });
 
     it('Rejects on failure', () => {
-      const SOME_EXPECTATION = new SandboxExpectationBuilder()
+      const SOME_RESPONSE_CONFIG = new SandboxResponseConfigBuilder()
         .withCheckReports(new SandboxCheckReportsBuilder().build())
         .build();
 
       nock(SOME_URL)
         .put(
           new RegExp(`^/sessions/${SOME_SESSION_ID}/response-config`),
-          JSON.stringify(SOME_EXPECTATION)
+          JSON.stringify(SOME_RESPONSE_CONFIG)
         )
         .reply(400, {});
 
-      return expect(client.setExpectationForSession(SOME_SESSION_ID, SOME_EXPECTATION))
+      return expect(client.configureSessionResponse(SOME_SESSION_ID, SOME_RESPONSE_CONFIG))
         .rejects
         .toEqual(new DocScanSandboxError(new Error('Bad Request')));
     });
   });
 
-  describe('#setExpectationForApplication', () => {
+  describe('#configureApplicationResponse', () => {
     it('Resolves on success', () => {
-      const SOME_EXPECTATION = new SandboxExpectationBuilder()
+      const SOME_RESPONSE_CONFIG = new SandboxResponseConfigBuilder()
         .withCheckReports(new SandboxCheckReportsBuilder().build())
         .build();
 
       nock(SOME_URL)
         .put(
           new RegExp(`^/apps/${SOME_SDK_ID}/response-config`),
-          JSON.stringify(SOME_EXPECTATION)
+          JSON.stringify(SOME_RESPONSE_CONFIG)
         )
         .reply(200);
 
-      expect(client.setExpectationForApplication(SOME_EXPECTATION))
+      expect(client.configureApplicationResponse(SOME_RESPONSE_CONFIG))
         .resolves
         .toBeUndefined();
     });
 
     it('Rejects on failure', () => {
-      const SOME_EXPECTATION = new SandboxExpectationBuilder()
+      const SOME_RESPONSE_CONFIG = new SandboxResponseConfigBuilder()
         .withCheckReports(new SandboxCheckReportsBuilder().build())
         .build();
 
       nock(SOME_URL)
         .put(
           new RegExp(`^/apps/${SOME_SDK_ID}/response-config`),
-          JSON.stringify(SOME_EXPECTATION)
+          JSON.stringify(SOME_RESPONSE_CONFIG)
         )
         .reply(400, {});
 
-      return expect(client.setExpectationForApplication(SOME_EXPECTATION))
+      return expect(client.configureApplicationResponse(SOME_RESPONSE_CONFIG))
         .rejects
         .toEqual(new DocScanSandboxError(new Error('Bad Request')));
     });

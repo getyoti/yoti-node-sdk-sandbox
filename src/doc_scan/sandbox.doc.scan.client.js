@@ -1,6 +1,6 @@
 const { RequestBuilder, Payload, constants } = require('yoti');
 const { Validation } = require('../util');
-const SandboxExpectation = require('./sandbox.expectation');
+const SandboxResponseConfig = require('./sandbox.response.config');
 const DocScanSandboxError = require('./doc.scan.sandbox.error');
 
 const DOC_SCAN_SANDBOX_API_BASE_URL = `${constants.API_BASE_URL}/sandbox/idverify/v1`;
@@ -31,19 +31,19 @@ class SandboxDocScanClient {
 
   /**
    * @param {string} sessionId
-   * @param {SandboxExpectation} sandboxExpectation
+   * @param {SandboxResponseConfig} responseConfig
    *
    * @returns {Promise}
    */
-  setExpectationForSession(sessionId, sandboxExpectation) {
+  configureSessionResponse(sessionId, responseConfig) {
     Validation.isString(sessionId, 'sessionId');
-    Validation.instanceOf(sandboxExpectation, SandboxExpectation, 'sandboxExpectation');
+    Validation.instanceOf(responseConfig, SandboxResponseConfig, 'responseConfig');
 
     const request = (new RequestBuilder())
       .withBaseUrl(this.sandboxUrl)
       .withEndpoint(`/sessions/${sessionId}/response-config`)
       .withPemString(this.pem)
-      .withPayload(new Payload(sandboxExpectation))
+      .withPayload(new Payload(responseConfig))
       .withMethod('PUT')
       .withQueryParam('sdkId', this.sdkId)
       .build();
@@ -56,18 +56,18 @@ class SandboxDocScanClient {
   }
 
   /**
-   * @param {SandboxExpectation} sandboxExpectation
+   * @param {SandboxResponseConfig} responseConfig
    *
    * @returns {Promise}
    */
-  setExpectationForApplication(sandboxExpectation) {
-    Validation.instanceOf(sandboxExpectation, SandboxExpectation, 'sandboxExpectation');
+  configureApplicationResponse(responseConfig) {
+    Validation.instanceOf(responseConfig, SandboxResponseConfig, 'responseConfig');
 
     const request = (new RequestBuilder())
       .withBaseUrl(this.sandboxUrl)
       .withEndpoint(`/apps/${this.sdkId}/response-config`)
       .withPemString(this.pem)
-      .withPayload(new Payload(sandboxExpectation))
+      .withPayload(new Payload(responseConfig))
       .withMethod('PUT')
       .withQueryParam('sdkId', this.sdkId)
       .build();
