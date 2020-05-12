@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const {
   SandboxDocScanClientBuilder,
-  SandboxExpectationBuilder,
+  SandboxResponseConfigBuilder,
   SandboxCheckReportsBuilder,
 } = require('../..');
 const SandboxDocScanClient = require('../../src/doc_scan/sandbox.doc.scan.client');
@@ -34,14 +34,14 @@ describe('SandboxDocScanClientBuilder', () => {
         .put(new RegExp(`^/sessions/${SOME_SESSION_ID}/response-config`))
         .reply(200);
 
-      const expectation = client.setExpectationForSession(
+      const response = client.configureSessionResponse(
         SOME_SESSION_ID,
-        new SandboxExpectationBuilder()
+        new SandboxResponseConfigBuilder()
           .withCheckReports(new SandboxCheckReportsBuilder().build())
           .build()
       );
 
-      expect(expectation).resolves.toBeUndefined();
+      expect(response).resolves.toBeUndefined();
     });
   });
 });

@@ -17,7 +17,7 @@ const {
   SandboxZoomLivenessCheckBuilder,
   SandboxDocumentTextDataCheckBuilder,
   SandboxDocumentTextDataExtractionTaskBuilder,
-  SandboxExpectationBuilder,
+  SandboxResponseConfigBuilder,
   SandboxDocumentFilterBuilder,
 } = require('./src/doc_scan');
 
@@ -37,6 +37,6 @@ module.exports = {
   SandboxZoomLivenessCheckBuilder,
   SandboxDocumentTextDataCheckBuilder,
   SandboxDocumentTextDataExtractionTaskBuilder,
-  SandboxExpectationBuilder,
+  SandboxResponseConfigBuilder,
   SandboxDocumentFilterBuilder,
 };

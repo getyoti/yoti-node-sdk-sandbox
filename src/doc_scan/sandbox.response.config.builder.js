@@ -1,9 +1,9 @@
 const { Validation } = require('../util');
 const SandboxTaskResults = require('./sandbox.task.results');
 const SandboxCheckReports = require('./sandbox.check.reports');
-const SandboxExpectation = require('./sandbox.expectation');
+const SandboxResponseConfig = require('./sandbox.response.config');
 
-class SandboxExpectationBuilder {
+class SandboxResponseConfigBuilder {
   /**
    * @param {SandboxTaskResults} taskResults
    */
@@ -23,11 +23,11 @@ class SandboxExpectationBuilder {
   }
 
   /**
-   * @returns {SandboxExpectation}
+   * @returns {SandboxResponseConfig}
    */
   build() {
-    return new SandboxExpectation(this.taskResults, this.checkReports);
+    return new SandboxResponseConfig(this.taskResults, this.checkReports);
   }
 }
 
-module.exports = SandboxExpectationBuilder;
+module.exports = SandboxResponseConfigBuilder;
