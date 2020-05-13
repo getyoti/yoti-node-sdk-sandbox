@@ -6,3 +6,6 @@ sonar-project.properties
 .dependabot
 .eslintignore
 .eslintrc.js
+CONTRIBUTING.md
+examples
+.vscode
