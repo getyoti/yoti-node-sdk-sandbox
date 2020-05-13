@@ -26,6 +26,7 @@ const APP_BASE_URL = process.env.YOTI_APP_BASE_URL;
 const CLIENT_SDK_ID = process.env.YOTI_SANDBOX_CLIENT_SDK_ID;
 const PEM_STRING = fs.readFileSync(process.env.YOTI_KEY_FILE_PATH, 'utf8');
 const DOCUMENT_IMAGE_PATH = '/usr/src/resources/image.jpg';
+const WD_PORT = process.env.WD_PORT;
 
 class World {
   constructor() {
@@ -36,7 +37,7 @@ class World {
 
     this.webDriver = new Builder()
       .forBrowser('chrome')
-      .usingServer('http://localhost:4444/wd/hub')
+      .usingServer(`http://localhost:${WD_PORT}/wd/hub`)
       .setChromeOptions(
         new chrome.Options()
           .headless()
