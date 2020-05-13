@@ -2,7 +2,11 @@ version: '3'
 
 services:
   app:
-    image: davidgrayston/doc-scan-demo
+    build:
+      context: ./docker
+      dockerfile: app.dockerfile
+      args:
+        VERSION: 0.1.0
     env_file:
         - ./.env
     environment:
