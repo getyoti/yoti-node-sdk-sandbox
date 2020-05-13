@@ -2,7 +2,7 @@ version: '3'
 
 services:
   app:
-    build: https://github.com/davidgrayston/doc-scan-demo.git#0.1.0
+    build: https://github.com/getyoti/doc-scan-sandbox-test-app.git#0.1.0
     env_file:
         - ./.env
     environment:
