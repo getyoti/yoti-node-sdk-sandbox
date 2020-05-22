@@ -64,11 +64,11 @@ describe('SandboxDocumentTextDataCheckBuilder', () => {
     });
   });
 
-  describe('#withBreakdownList', () => {
+  describe('#withBreakdowns', () => {
     it('Should build SandboxDocumentTextDataCheck with breakdown', () => {
       const check = new SandboxDocumentTextDataCheckBuilder()
         .withRecommendation(SOME_RECOMMENDATION)
-        .withBreakdownList([SOME_BREAKDOWN])
+        .withBreakdowns([SOME_BREAKDOWN])
         .build();
 
       expect(check)
