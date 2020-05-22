@@ -70,11 +70,11 @@ describe('SandboxZoomLivenessCheckBuilder', () => {
     });
   });
 
-  describe('#withBreakdownList', () => {
+  describe('#withBreakdowns', () => {
     it('Should build SandboxZoomLivenessCheck with breakdown', () => {
       const check = new SandboxZoomLivenessCheckBuilder()
         .withRecommendation(SOME_RECOMMENDATION)
-        .withBreakdownList([SOME_BREAKDOWN])
+        .withBreakdowns([SOME_BREAKDOWN])
         .build();
 
       expect(check)

@@ -62,11 +62,11 @@ describe('SandboxDocumentAuthenticityCheckBuilder', () => {
     });
   });
 
-  describe('#withBreakdownList', () => {
+  describe('#withBreakdowns', () => {
     it('Should build SandboxDocumentAuthenticityCheck with breakdown', () => {
       const check = new SandboxDocumentAuthenticityCheckBuilder()
         .withRecommendation(SOME_RECOMMENDATION)
-        .withBreakdownList([SOME_BREAKDOWN])
+        .withBreakdowns([SOME_BREAKDOWN])
         .build();
 
       expect(check)

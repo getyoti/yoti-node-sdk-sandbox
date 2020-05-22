@@ -37,13 +37,13 @@ class SandboxCheckBuilder {
   }
 
   /**
-   * @param {SandboxBreakdown[]} breakdownList
+   * @param {SandboxBreakdown[]} breakdowns
    *
    * @returns {this}
    */
-  withBreakdownList(breakdownList) {
-    Validation.isArrayOfType(breakdownList, SandboxBreakdown, 'breakdownList');
-    this.breakdown = breakdownList;
+  withBreakdowns(breakdowns) {
+    Validation.isArrayOfType(breakdowns, SandboxBreakdown, 'breakdowns');
+    this.breakdown = breakdowns;
     return this;
   }
 }

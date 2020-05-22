@@ -62,11 +62,11 @@ describe('SandboxDocumentFaceMatchCheckBuilder', () => {
     });
   });
 
-  describe('#withBreakdownList', () => {
+  describe('#withBreakdowns', () => {
     it('Should build SandboxDocumentFaceMatchCheck with breakdown', () => {
       const check = new SandboxDocumentFaceMatchCheckBuilder()
         .withRecommendation(SOME_RECOMMENDATION)
-        .withBreakdownList([SOME_BREAKDOWN])
+        .withBreakdowns([SOME_BREAKDOWN])
         .build();
 
       expect(check)
