@@ -1,5 +1,5 @@
-const { SandboxBreakdownBuilder } = require('../../..');
-const SandboxBreakdown = require('../../../src/doc_scan/request/sandbox.breakdown');
+const { SandboxBreakdownBuilder } = require('../../../../..');
+const SandboxBreakdown = require('../../../../../src/doc_scan/request/check/report/sandbox.breakdown');
 
 const SOME_SUB_CHECK = 'some-sub-check';
 const SOME_DETAIL_KEY = 'some-detail-key';

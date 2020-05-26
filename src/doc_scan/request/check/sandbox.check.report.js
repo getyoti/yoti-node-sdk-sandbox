@@ -1,6 +1,6 @@
 const { Validation } = require('../../../util');
-const SandboxRecommendation = require('../sandbox.recommendation');
-const SandboxBreakdown = require('../sandbox.breakdown');
+const SandboxRecommendation = require('./report/sandbox.recommendation');
+const SandboxBreakdown = require('./report/sandbox.breakdown');
 
 class SandboxCheckReport {
   /**

@@ -1,7 +1,7 @@
 const {
   SandboxRecommendationBuilder,
-} = require('../../..');
-const SandboxRecommendation = require('../../../src/doc_scan/request/sandbox.recommendation');
+} = require('../../../../..');
+const SandboxRecommendation = require('../../../../../src/doc_scan/request/check/report/sandbox.recommendation');
 
 const SOME_VALUE = 'some-value';
 const SOME_REASON = 'some-reason';

@@ -1,4 +1,4 @@
-const { Validation } = require('../../util');
+const { Validation } = require('../../../../util');
 const SandboxRecommendation = require('./sandbox.recommendation');
 
 class SandboxRecommendationBuilder {
