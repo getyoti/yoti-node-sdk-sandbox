@@ -3,7 +3,7 @@
   "description": "Yoti NodeJS Doc Scan Sandbox Example",
   "private": true,
   "scripts": {
-    "test": "cucumber-js features -f node_modules/cucumber-pretty"
+    "test": "docker-compose up -d && sleep 5 && cucumber-js features -f node_modules/cucumber-pretty && docker-compose down"
   },
   "node": ">=10",
   "license": "MIT",
