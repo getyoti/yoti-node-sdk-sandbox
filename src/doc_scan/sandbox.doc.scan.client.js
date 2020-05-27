@@ -69,7 +69,6 @@ class SandboxDocScanClient {
       .withPemString(this.pem)
       .withPayload(new Payload(responseConfig))
       .withMethod('PUT')
-      .withQueryParam('sdkId', this.sdkId)
       .build();
 
     return new Promise((resolve, reject) => {

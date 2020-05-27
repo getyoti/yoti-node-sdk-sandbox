@@ -32,7 +32,7 @@ describe('SandboxDocScanClient', () => {
 
       nock(SOME_URL)
         .put(
-          new RegExp(`^/sessions/${SOME_SESSION_ID}/response-config`),
+          new RegExp(`^/sessions/${SOME_SESSION_ID}/response-config\\?sdkId=${SOME_SDK_ID}&nonce=.*&timestamp=.*`),
           JSON.stringify(SOME_RESPONSE_CONFIG)
         )
         .reply(200);
@@ -49,7 +49,7 @@ describe('SandboxDocScanClient', () => {
 
       nock(SOME_URL)
         .put(
-          new RegExp(`^/sessions/${SOME_SESSION_ID}/response-config`),
+          new RegExp(`^/sessions/${SOME_SESSION_ID}/response-config\\?sdkId=${SOME_SDK_ID}&nonce=.*&timestamp=.*`),
           JSON.stringify(SOME_RESPONSE_CONFIG)
         )
         .reply(400, {});
@@ -68,7 +68,7 @@ describe('SandboxDocScanClient', () => {
 
       nock(SOME_URL)
         .put(
-          new RegExp(`^/apps/${SOME_SDK_ID}/response-config`),
+          new RegExp(`^/apps/${SOME_SDK_ID}/response-config\\?nonce=.*&timestamp=.*`),
           JSON.stringify(SOME_RESPONSE_CONFIG)
         )
         .reply(200);
@@ -85,7 +85,7 @@ describe('SandboxDocScanClient', () => {
 
       nock(SOME_URL)
         .put(
-          new RegExp(`^/apps/${SOME_SDK_ID}/response-config`),
+          new RegExp(`^/apps/${SOME_SDK_ID}/response-config\\?nonce=.*&timestamp=.*`),
           JSON.stringify(SOME_RESPONSE_CONFIG)
         )
         .reply(400, {});
