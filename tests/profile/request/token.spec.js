@@ -39,7 +39,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'family_name',
       value: SOME_VALUE,
-      optional: false,
     });
   });
   it('should build with family name with anchors', () => {
@@ -50,7 +49,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'family_name',
       value: SOME_VALUE,
-      optional: false,
       anchors: [SOME_ANCHOR],
     });
   });
@@ -62,7 +60,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'email_address',
       value: SOME_VALUE,
-      optional: false,
     });
   });
   it('should build with email address with anchors', () => {
@@ -73,7 +70,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'email_address',
       value: SOME_VALUE,
-      optional: false,
       anchors: [SOME_ANCHOR],
     });
   });
@@ -85,7 +81,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'full_name',
       value: SOME_VALUE,
-      optional: false,
     });
   });
   it('should build with full name with anchors', () => {
@@ -96,7 +91,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'full_name',
       value: SOME_VALUE,
-      optional: false,
       anchors: [SOME_ANCHOR],
     });
   });
@@ -108,7 +102,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'date_of_birth',
       value: SOME_DATE_OF_BIRTH_STRING,
-      optional: false,
     });
   });
   it('should build with date of birth with anchors', () => {
@@ -119,7 +112,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'date_of_birth',
       value: SOME_DATE_OF_BIRTH_STRING,
-      optional: false,
       anchors: [SOME_ANCHOR],
     });
   });
@@ -131,7 +123,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'date_of_birth',
       value: SOME_DATE_OF_BIRTH_STRING,
-      optional: false,
     });
   });
   it('should build with date of birth with anchors string', () => {
@@ -142,7 +133,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'date_of_birth',
       value: SOME_DATE_OF_BIRTH_STRING,
-      optional: false,
       anchors: [SOME_ANCHOR],
     });
   });
@@ -154,7 +144,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'gender',
       value: SOME_VALUE,
-      optional: false,
     });
   });
   it('should build with gender with anchors', () => {
@@ -165,7 +154,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'gender',
       value: SOME_VALUE,
-      optional: false,
       anchors: [SOME_ANCHOR],
     });
   });
@@ -177,7 +165,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'given_names',
       value: SOME_VALUE,
-      optional: false,
     });
   });
   it('should build with given names with anchors', () => {
@@ -188,7 +175,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'given_names',
       value: SOME_VALUE,
-      optional: false,
       anchors: [SOME_ANCHOR],
     });
   });
@@ -200,7 +186,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'nationality',
       value: SOME_VALUE,
-      optional: false,
     });
   });
   it('should build with nationality with anchors', () => {
@@ -211,7 +196,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'nationality',
       value: SOME_VALUE,
-      optional: false,
       anchors: [SOME_ANCHOR],
     });
   });
@@ -223,7 +207,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'phone_number',
       value: SOME_VALUE,
-      optional: false,
     });
   });
   it('should build with phone number with anchors', () => {
@@ -234,7 +217,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'phone_number',
       value: SOME_VALUE,
-      optional: false,
       anchors: [SOME_ANCHOR],
     });
   });
@@ -246,7 +228,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'postal_address',
       value: SOME_VALUE,
-      optional: false,
     });
   });
   it('should build with postal address with anchors', () => {
@@ -257,7 +238,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'postal_address',
       value: SOME_VALUE,
-      optional: false,
       anchors: [SOME_ANCHOR],
     });
   });
@@ -269,7 +249,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'selfie',
       value: Buffer.from(SOME_VALUE).toString('base64'),
-      optional: false,
     });
   });
   it('should build with selfie with anchors', () => {
@@ -280,7 +259,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'selfie',
       value: Buffer.from(SOME_VALUE, [SOME_ANCHOR]).toString('base64'),
-      optional: false,
       anchors: [SOME_ANCHOR],
     });
   });
@@ -292,7 +270,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'selfie',
       value: SOME_VALUE,
-      optional: false,
     });
   });
   it('should build with structured postal address', () => {
@@ -303,7 +280,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'structured_postal_address',
       value: SOME_VALUE,
-      optional: false,
     });
   });
   it('should build with structured postal address with anchors', () => {
@@ -314,7 +290,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'structured_postal_address',
       value: SOME_VALUE,
-      optional: false,
       anchors: [SOME_ANCHOR],
     });
   });
@@ -326,7 +301,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'document_details',
       value: SOME_VALUE,
-      optional: true,
     });
   });
   it('should build with Document Details with anchors', () => {
@@ -337,7 +311,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'document_details',
       value: SOME_VALUE,
-      optional: true,
       anchors: [SOME_ANCHOR],
     });
   });
@@ -354,7 +327,6 @@ describe('TokenRequest', () => {
     expect(tokenRequest).toContainAttribute({
       name: 'date_of_birth',
       value: SOME_DATE_OF_BIRTH_STRING,
-      optional: false,
       derivation: 'age_over:18',
     });
   });

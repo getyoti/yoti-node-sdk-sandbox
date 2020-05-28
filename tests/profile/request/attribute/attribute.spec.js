@@ -23,7 +23,6 @@ describe('SandboxAttribute', () => {
     const expectedData = {
       name: SOME_NAME,
       value: SOME_VALUE,
-      optional: false,
     };
 
     expect(JSON.stringify(sandboxAttribute))
@@ -39,7 +38,6 @@ describe('SandboxAttribute', () => {
     const expectedData = {
       name: SOME_NAME,
       value: SOME_VALUE,
-      optional: false,
       derivation: SOME_DERIVATION,
     };
 
@@ -63,7 +61,6 @@ describe('SandboxAttribute', () => {
     const expectedData = {
       name: SOME_NAME,
       value: SOME_VALUE,
-      optional: false,
       anchors: [
         sandboxAnchor,
       ],
@@ -72,7 +69,7 @@ describe('SandboxAttribute', () => {
     expect(JSON.stringify(sandboxAttribute))
       .toBe(JSON.stringify(expectedData));
   });
-  it('should build with optional true', () => {
+  it('should not include optional property in JSON', () => {
     const sandboxAttribute = new SandboxAttributeBuilder()
       .withName(SOME_NAME)
       .withValue(SOME_VALUE)
@@ -82,10 +79,11 @@ describe('SandboxAttribute', () => {
     const expectedData = {
       name: SOME_NAME,
       value: SOME_VALUE,
-      optional: true,
     };
 
     expect(JSON.stringify(sandboxAttribute))
       .toBe(JSON.stringify(expectedData));
+
+    expect(sandboxAttribute.getOptional()).toBe(true);
   });
 });

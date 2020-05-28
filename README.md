@@ -22,26 +22,65 @@ npm install @getyoti/sdk-sandbox
 
 * `/path/to/your-pem-file.pem` is the path to the application pem file. It can be downloaded only once from the Keys tab in your Yoti Hub.
 
-* Point the Yoti client at the sandbox by setting environment variable `YOTI_CONNECT_API` to https://api.yoti.com/sandbox/v1
-
 Please do not open the pem file as this might corrupt the key and you will need to recreate the keys on the Yoti Hub.
 
+### Profile
+
+#### Yoti Client
+
+Point the Yoti client at the sandbox by setting environment variable `YOTI_API_URL` to https://api.yoti.com/sandbox/v1
+
 ```javascript
-const { SandboxProfileClientBuilder } = require('@getyoti/sdk-sandbox');
 const { Client } = require('yoti');
 const fs = require('fs');
 
 const SANDBOX_CLIENT_SDK_ID = 'SANDBOX_CLIENT_SDK_ID';
 const PEM = fs.readFileSync('/path/to/your-pem-file.pem', 'utf8');
 
+const yotiClient = new Client(SANDBOX_CLIENT_SDK_ID, PEM);
+```
+
+#### Profile Sandbox Client
+
+```javascript
+const { SandboxProfileClientBuilder } = require('@getyoti/sdk-sandbox');
+
 const sandboxProfileClient = new SandboxProfileClientBuilder()
   .withClientSdkId(SANDBOX_CLIENT_SDK_ID)
   .withPemString(PEM)
   .build();
+```
 
-const yotiClient = new Client(SANDBOX_CLIENT_SDK_ID, PEM);
+### Doc Scan
+
+#### Doc Scan Client
+
+Point the Doc Scan client at the sandbox by setting environment variable `YOTI_DOC_SCAN_API_URL` to https://api.yoti.com/sandbox/idverify/v1
+
+```javascript
+const { DocScanClient } = require('yoti');
+const fs = require('fs');
+
+const SANDBOX_CLIENT_SDK_ID = 'SANDBOX_CLIENT_SDK_ID';
+const PEM = fs.readFileSync('/path/to/your-pem-file.pem', 'utf8');
+
+const docScanClient = new DocScanClient(SANDBOX_CLIENT_SDK_ID, PEM);
+```
+
+#### Doc Scan Sandbox Client
+
+```javascript
+const { SandboxDocScanClientBuilder } = require('@getyoti/sdk-sandbox');
+
+const sandboxClient = new SandboxDocScanClientBuilder()
+  .withClientSdkId(SANDBOX_CLIENT_SDK_ID)
+  .withPemString(PEM)
+  .build();
 ```
 
 ## Examples
 
-- See [examples/profile](examples/profile) for a general example of how to use the Profile Sandbox in your tests.
+## Examples
+
+- [Profile Sandbox](examples/profile)
+- [Doc Scan Sandbox](examples/doc_scan)

@@ -55,6 +55,8 @@ class SandboxAttribute {
   }
 
   /**
+   * @deprecated Since 1.1.0
+   *
    * @returns {boolean}
    */
   getOptional() {
@@ -75,7 +77,6 @@ class SandboxAttribute {
     const json = {
       name: this.getName(),
       value: this.getValue(),
-      optional: this.getOptional(),
     };
 
     if (this.getDerivation() !== null) {

@@ -1,8 +1,25 @@
-const SandboxProfileClientBuilder = require('./src/profile/client.builder');
-const SandboxAttributeBuilder = require('./src/profile/request/attribute/attribute.builder');
-const SandboxAgeVerificationBuilder = require('./src/profile/request/attribute/derivation/age.verification.builder');
-const SandboxAnchorBuilder = require('./src/profile/request/attribute/anchor.builder');
-const TokenRequestBuilder = require('./src/profile/request/token.builder');
+const {
+  SandboxProfileClientBuilder,
+  SandboxAttributeBuilder,
+  SandboxAgeVerificationBuilder,
+  SandboxAnchorBuilder,
+  TokenRequestBuilder,
+} = require('./src/profile');
+
+const {
+  SandboxDocScanClientBuilder,
+  SandboxCheckReportsBuilder,
+  SandboxTaskResultsBuilder,
+  SandboxBreakdownBuilder,
+  SandboxRecommendationBuilder,
+  SandboxDocumentAuthenticityCheckBuilder,
+  SandboxDocumentFaceMatchCheckBuilder,
+  SandboxZoomLivenessCheckBuilder,
+  SandboxDocumentTextDataCheckBuilder,
+  SandboxDocumentTextDataExtractionTaskBuilder,
+  SandboxResponseConfigBuilder,
+  SandboxDocumentFilterBuilder,
+} = require('./src/doc_scan');
 
 module.exports = {
   SandboxProfileClientBuilder,
@@ -10,4 +27,16 @@ module.exports = {
   SandboxAgeVerificationBuilder,
   SandboxAnchorBuilder,
   TokenRequestBuilder,
+  SandboxDocScanClientBuilder,
+  SandboxCheckReportsBuilder,
+  SandboxTaskResultsBuilder,
+  SandboxBreakdownBuilder,
+  SandboxRecommendationBuilder,
+  SandboxDocumentAuthenticityCheckBuilder,
+  SandboxDocumentFaceMatchCheckBuilder,
+  SandboxZoomLivenessCheckBuilder,
+  SandboxDocumentTextDataCheckBuilder,
+  SandboxDocumentTextDataExtractionTaskBuilder,
+  SandboxResponseConfigBuilder,
+  SandboxDocumentFilterBuilder,
 };
