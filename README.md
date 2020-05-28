@@ -80,4 +80,7 @@ const sandboxClient = new SandboxDocScanClientBuilder()
 
 ## Examples
 
-- See [examples/profile](examples/profile) for a general example of how to use the Profile Sandbox in your tests.
+## Examples
+
+- [Profile Sandbox](examples/profile)
+- [Doc Scan Sandbox](examples/doc_scan)
