@@ -22,12 +22,12 @@ class SandboxAttributeIssuanceDetailsBuilder {
   }
 
   /**
-   * @param {YotiDate} expiryDate
+   * @param {Date} expiryDate
    *
    * @returns {this}
    */
   withExpiryDate(expiryDate) {
-    Validation.isYotiDate(expiryDate, 'expiryDate');
+    Validation.instanceOf(expiryDate, Date, 'expiryDate');
     this.expiryDate = expiryDate;
     return this;
   }
