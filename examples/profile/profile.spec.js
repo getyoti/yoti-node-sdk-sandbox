@@ -43,7 +43,7 @@ describe('Sandbox Example', () => {
       .withAgeOver(18)
       .build();
 
-    const expiryDate = new YotiDate(Date.now() * 1000);
+    const expiryDate = new Date();
     expiryDate.setDate(expiryDate.getDate() + 1);
 
     const dataEntry = new SandboxAttributeIssuanceDetailsBuilder()
@@ -130,8 +130,8 @@ describe('Sandbox Example', () => {
     const attributeIssuanceDetails = activityDetails.getExtraData().getAttributeIssuanceDetails();
     expect(attributeIssuanceDetails.getToken())
       .toEqual(Buffer.from('some-token').toString('base64'));
-    expect(attributeIssuanceDetails.getExpiryDate().getMicrosecondTimestamp())
-      .toEqual(expiryDate.getMicrosecondTimestamp());
+    expect(attributeIssuanceDetails.getExpiryDate().getTime())
+      .toEqual(expiryDate.getTime());
     expect(attributeIssuanceDetails.getIssuingAttributes()[0].getName())
       .toEqual('some-definition');
   });
