@@ -3,11 +3,11 @@ const SandboxDefinition = require('./definition');
 
 class SandboxIssuingAttributes {
   /**
-   * @param {YotiDate} expiryDate
+   * @param {Date} expiryDate
    * @param {SandboxDefinition[]} definitions
    */
   constructor(expiryDate, definitions) {
-    Validation.isYotiDate(expiryDate, 'expiryDate');
+    Validation.instanceOf(expiryDate, Date, 'expiryDate');
     this.expiryDate = expiryDate;
 
     Validation.isArrayOfType(definitions, SandboxDefinition, 'definitions');
@@ -19,7 +19,7 @@ class SandboxIssuingAttributes {
    */
   toJSON() {
     return {
-      expiry_date: this.expiryDate.getMicrosecondTimestamp(),
+      expiry_date: this.expiryDate.toISOString(),
       definitions: this.definitions,
     };
   }
