@@ -7,7 +7,8 @@ git:
 
 jobs:
   include:
-    - stage: Test
+    - &test
+      stage: Test
       node_js: "10"
       before_install: npm install -g npm@latest
       install: npm ci
@@ -31,3 +32,14 @@ jobs:
       node_js: "12"
     - <<: *test-compatibility
       node_js: "13"
+    - <<: *test
+      stage: Analyze
+      name: Sonarcloud
+      dist: trusty
+      addons:
+        sonarcloud:
+          organization: "getyoti"
+      if: type == pull_request OR branch = master
+      script:
+        - npm test
+        - sonar-scanner
