@@ -86,7 +86,5 @@ const sandboxClient = new SandboxDocScanClientBuilder()
 
 ## Examples
 
-## Examples
-
 - [Profile Sandbox](examples/profile)
 - [Doc Scan Sandbox](examples/doc_scan)
