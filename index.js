@@ -2,6 +2,8 @@ const {
   SandboxProfileClientBuilder,
   SandboxAttributeBuilder,
   SandboxAgeVerificationBuilder,
+  SandboxAttributeIssuanceDetailsBuilder,
+  SandboxExtraDataBuilder,
   SandboxAnchorBuilder,
   TokenRequestBuilder,
 } = require('./src/profile');
@@ -26,6 +28,8 @@ module.exports = {
   SandboxAttributeBuilder,
   SandboxAgeVerificationBuilder,
   SandboxAnchorBuilder,
+  SandboxAttributeIssuanceDetailsBuilder,
+  SandboxExtraDataBuilder,
   TokenRequestBuilder,
   SandboxDocScanClientBuilder,
   SandboxCheckReportsBuilder,

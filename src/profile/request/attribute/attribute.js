@@ -1,4 +1,4 @@
-const Validation = require('yoti/src/yoti_common/validation');
+const { Validation } = require('../../../util');
 const SandboxAnchor = require('./anchor');
 
 /**

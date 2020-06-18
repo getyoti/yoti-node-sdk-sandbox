@@ -1,5 +1,11 @@
 # Yoti NodeJS Sandbox SDK
 
+[![Build Status](https://travis-ci.com/getyoti/yoti-node-sdk-sandbox.svg?branch=master)](https://travis-ci.com/getyoti/yoti-node-sdk-sandbox)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=getyoti%3Anode-sandbox&metric=coverage)](https://sonarcloud.io/dashboard?id=getyoti%3Anode-sandbox)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=getyoti%3Anode-sandbox&metric=bugs)](https://sonarcloud.io/dashboard?id=getyoti%3Anode-sandbox)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=getyoti%3Anode-sandbox&metric=code_smells)](https://sonarcloud.io/dashboard?id=getyoti%3Anode-sandbox)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=getyoti%3Anode-sandbox&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=getyoti%3Anode-sandbox)
+
 Welcome to the Yoti NodeJS Sandbox. This repo contains the tools you need to test your NodeJS back-end integration.
 
 ## Requirements
@@ -77,8 +83,6 @@ const sandboxClient = new SandboxDocScanClientBuilder()
   .withPemString(PEM)
   .build();
 ```
-
-## Examples
 
 ## Examples
 
