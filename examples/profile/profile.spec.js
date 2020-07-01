@@ -11,6 +11,7 @@ const {
   SandboxAnchorBuilder,
   SandboxExtraDataBuilder,
   SandboxAttributeIssuanceDetailsBuilder,
+  SandboxDocumentImagesBuilder,
   TokenRequestBuilder,
 } = require('@getyoti/sdk-sandbox');
 
@@ -56,6 +57,11 @@ describe('Sandbox Example', () => {
       .withDataEntry(dataEntry)
       .build();
 
+    const documentImages = new SandboxDocumentImagesBuilder()
+      .withJpegContent(Buffer.from('some-jpeg'))
+      .withPngContent(Buffer.from('some-png'))
+      .build();
+
     const tokenRequest = new TokenRequestBuilder()
       .withRememberMeId('Some Remember Me ID')
       .withGivenNames('Some Given Names', anchors)
@@ -73,6 +79,7 @@ describe('Sandbox Example', () => {
       }))
       .withBase64Selfie(Buffer.from('Some Selfie').toString('base64'))
       .withDocumentDetails('PASSPORT USA 1234abc', anchors)
+      .withDocumentImages(documentImages, anchors)
       .withExtraData(extraData)
       .build();
 
@@ -110,6 +117,8 @@ describe('Sandbox Example', () => {
         building_number: 1,
         address_line1: 'Some Address',
       });
+
+    expect(profile.getDocumentImages().getValue()).toHaveLength(2);
 
     expect(profile.getSelfie().getValue().getContent().toBuffer())
       .toEqual(Buffer.from('Some Selfie'));

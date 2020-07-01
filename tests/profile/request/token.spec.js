@@ -3,7 +3,12 @@ const {
   SandboxAgeVerificationBuilder,
   SandboxAnchorBuilder,
   SandboxExtraDataBuilder,
+  SandboxDocumentImagesBuilder,
 } = require('../../..');
+
+const {
+  dataUrl,
+} = require('../helpers');
 
 const { YotiDate } = require('yoti');
 
@@ -17,6 +22,7 @@ const SOME_ANCHOR = new SandboxAnchorBuilder()
   .build();
 const SOME_DATE_OF_BIRTH_STRING = '1989-01-02';
 const SOME_DATE_OF_BIRTH = YotiDate.fromDateString(SOME_DATE_OF_BIRTH_STRING);
+const SOME_IMAGE_CONTENT = Buffer.from('someStringValue');
 
 describe('TokenRequest', () => {
   it('should build with remember me ID', () => {
@@ -343,6 +349,35 @@ describe('TokenRequest', () => {
         profile_attributes: [],
         extra_data: extraData,
       }));
+  });
+  it('should build with Document Images', () => {
+    const documentImages = new SandboxDocumentImagesBuilder()
+      .withJpegContent(SOME_IMAGE_CONTENT)
+      .build();
+
+    const tokenRequest = new TokenRequestBuilder()
+      .withDocumentImages(documentImages)
+      .build();
+
+    expect(tokenRequest).toContainAttribute({
+      name: 'document_images',
+      value: dataUrl(SOME_IMAGE_CONTENT, 'image/jpeg'),
+    });
+  });
+  it('should build with Document Images with anchors', () => {
+    const documentImages = new SandboxDocumentImagesBuilder()
+      .withJpegContent(SOME_IMAGE_CONTENT)
+      .build();
+
+    const tokenRequest = new TokenRequestBuilder()
+      .withDocumentImages(documentImages, [SOME_ANCHOR])
+      .build();
+
+    expect(tokenRequest).toContainAttribute({
+      name: 'document_images',
+      value: dataUrl(SOME_IMAGE_CONTENT, 'image/jpeg'),
+      anchors: [SOME_ANCHOR],
+    });
   });
 });
 

@@ -1,9 +1,10 @@
+const { YotiDate, constants } = require('yoti');
+const { Validation } = require('../../util');
 const TokenRequest = require('./token');
 const SandboxAttributeBuilder = require('./attribute/attribute.builder');
 const SandboxAgeVerification = require('./attribute/derivation/age.verification');
 const SandboxExtraData = require('./extra_data/extra.data');
-const { YotiDate, constants } = require('yoti');
-const { Validation } = require('../../util');
+const SandboxDocumentImages = require('./attribute/document.images');
 
 /**
  * @param {string} name
@@ -224,11 +225,23 @@ class TokenRequestBuilder {
    * @returns {this}
    */
   withDocumentDetails(value, anchors = null) {
-    const sandboxAttribute = new SandboxAttributeBuilder()
-      .withName(constants.ATTR_DOCUMENT_DETAILS)
-      .withValue(value)
-      .withAnchors(anchors)
-      .build();
+    const sandboxAttribute = createAttribute(constants.ATTR_DOCUMENT_DETAILS, value, anchors);
+    return this.withAttribute(sandboxAttribute);
+  }
+
+  /**
+   * @param {SandboxDocumentImages} documentImages
+   * @param {SandboxAnchor[]}
+   *
+   * @returns {this}
+   */
+  withDocumentImages(documentImages, anchors = null) {
+    Validation.instanceOf(documentImages, SandboxDocumentImages, 'documentImages');
+    const sandboxAttribute = createAttribute(
+      constants.ATTR_DOCUMENT_IMAGES,
+      documentImages.getValue(),
+      anchors
+    );
     return this.withAttribute(sandboxAttribute);
   }
 
