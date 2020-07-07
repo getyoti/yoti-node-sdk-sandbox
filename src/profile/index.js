@@ -5,6 +5,7 @@ const SandboxAnchorBuilder = require('./request/attribute/anchor.builder');
 const TokenRequestBuilder = require('./request/token.builder');
 const SandboxAttributeIssuanceDetailsBuilder = require('./request/extra_data/third_party/attribute.issuance.details.builder');
 const SandboxExtraDataBuilder = require('./request/extra_data/extra.data.builder');
+const SandboxDocumentImagesBuilder = require('./request/attribute/document.images.builder');
 
 module.exports = {
   SandboxProfileClientBuilder,
@@ -14,4 +15,5 @@ module.exports = {
   TokenRequestBuilder,
   SandboxAttributeIssuanceDetailsBuilder,
   SandboxExtraDataBuilder,
+  SandboxDocumentImagesBuilder,
 };
