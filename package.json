@@ -16,6 +16,9 @@
   "bugs": {
     "url": "https://github.com/getyoti/yoti-node-sdk-sandbox/issues"
   },
+  "engines": {
+    "node": ">= 10"
+  },
   "homepage": "https://github.com/getyoti/yoti-node-sdk-sandbox#readme",
   "dependencies": {
     "yoti": "^3.9.0"
