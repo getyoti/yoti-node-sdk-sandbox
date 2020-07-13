@@ -1,8 +1,8 @@
+const { YotiDate } = require('yoti');
+
 const {
   SandboxAnchorBuilder,
 } = require('../../../..');
-
-const { YotiDate } = require('yoti');
 
 const SOME_ANCHOR_TYPE = 'someAnchorType';
 const SOME_ANCHOR_SUB_TYPE = 'someAnchorSubType';
