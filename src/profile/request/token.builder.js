@@ -48,8 +48,9 @@ class TokenRequestBuilder {
    * @returns {this}
    */
   withAttribute(sandboxAttribute) {
-    const key = sandboxAttribute.getDerivation() != null ?
-      sandboxAttribute.getDerivation() : sandboxAttribute.getName();
+    const key = sandboxAttribute.getDerivation() != null
+      ? sandboxAttribute.getDerivation()
+      : sandboxAttribute.getName();
     this.attributes[key] = sandboxAttribute;
     return this;
   }

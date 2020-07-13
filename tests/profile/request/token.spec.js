@@ -1,3 +1,5 @@
+const { YotiDate } = require('yoti');
+
 const {
   TokenRequestBuilder,
   SandboxAgeVerificationBuilder,
@@ -9,8 +11,6 @@ const {
 const {
   dataUrl,
 } = require('../helpers');
-
-const { YotiDate } = require('yoti');
 
 const SOME_REMEMEBER_ME_ID = 'someRememberMeId';
 const SOME_VALUE = 'someStringValue';
@@ -396,8 +396,7 @@ expect.extend({
       .toBe(JSON.stringify(expectedData));
 
     return {
-      message: () =>
-        'TokenRequest contains expected attribute',
+      message: () => 'TokenRequest contains expected attribute',
       pass: true,
     };
   },

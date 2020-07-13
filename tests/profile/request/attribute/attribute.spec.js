@@ -1,9 +1,9 @@
+const { YotiDate } = require('yoti');
+
 const {
   SandboxAttributeBuilder,
   SandboxAnchorBuilder,
 } = require('../../../..');
-
-const { YotiDate } = require('yoti');
 
 const SOME_NAME = 'someName';
 const SOME_VALUE = 'someValue';

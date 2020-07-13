@@ -1,7 +1,7 @@
 
+const fs = require('fs');
 const SandboxProfileClient = require('./client');
 const { Validation } = require('../util');
-const fs = require('fs');
 
 /**
  * @class SandboxProfileClientBuilder

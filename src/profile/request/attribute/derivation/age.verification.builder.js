@@ -1,6 +1,9 @@
+const {
+  YotiDate,
+  constants,
+} = require('yoti');
 const SandboxAgeVerification = require('./age.verification');
 const SandboxAnchor = require('../anchor');
-const { YotiDate, constants } = require('yoti');
 const { Validation } = require('../../../../util');
 
 /**
