@@ -1,4 +1,3 @@
-
 const SandboxDocumentTextDataExtractionTask = require('../../../../src/doc_scan/request/task/sandbox.document.text.data.extraction.task');
 
 const {

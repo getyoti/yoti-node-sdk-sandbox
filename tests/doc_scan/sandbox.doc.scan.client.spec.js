@@ -1,8 +1,6 @@
-
 const fs = require('fs');
 const path = require('path');
 const nock = require('nock');
-
 
 const {
   SandboxDocScanClientBuilder,

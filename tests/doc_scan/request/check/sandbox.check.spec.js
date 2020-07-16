@@ -1,4 +1,3 @@
-
 const SandboxCheck = require('../../../../src/doc_scan/request/check/sandbox.check');
 
 describe('SandboxCheck', () => {

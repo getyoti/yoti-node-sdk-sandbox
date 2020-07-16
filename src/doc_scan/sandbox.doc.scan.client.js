@@ -51,7 +51,7 @@ class SandboxDocScanClient {
     return new Promise((resolve, reject) => {
       request.execute()
         .then(() => resolve())
-        .catch(err => reject(new DocScanSandboxError(err)));
+        .catch((err) => reject(new DocScanSandboxError(err)));
     });
   }
 
@@ -74,7 +74,7 @@ class SandboxDocScanClient {
     return new Promise((resolve, reject) => {
       request.execute()
         .then(() => resolve())
-        .catch(err => reject(new DocScanSandboxError(err)));
+        .catch((err) => reject(new DocScanSandboxError(err)));
     });
   }
 }

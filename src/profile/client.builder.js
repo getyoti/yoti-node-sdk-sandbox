@@ -1,4 +1,3 @@
-
 const fs = require('fs');
 const SandboxProfileClient = require('./client');
 const { Validation } = require('../util');

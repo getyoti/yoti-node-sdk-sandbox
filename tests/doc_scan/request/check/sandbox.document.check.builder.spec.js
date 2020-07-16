@@ -1,4 +1,3 @@
-
 const SandboxDocumentCheckBuilder = require('../../../../src/doc_scan/request/check/sandbox.document.check.builder');
 
 describe('SandboxDocumentCheckBuilder', () => {
