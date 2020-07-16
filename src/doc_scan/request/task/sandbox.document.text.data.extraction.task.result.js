@@ -6,7 +6,7 @@ class SandboxDocumentTextDataExtractionTaskResult {
    */
   constructor(documentFields) {
     Validation.isArrayOfStrings(
-      Object.keys(documentFields).map(k => documentFields[k]),
+      Object.keys(documentFields).map((k) => documentFields[k]),
       'documentFields'
     );
     this.documentFields = documentFields;

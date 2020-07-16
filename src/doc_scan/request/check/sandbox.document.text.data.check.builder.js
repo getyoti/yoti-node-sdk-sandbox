@@ -26,7 +26,7 @@ class SandboxDocumentTextDataCheckBuilder extends SandboxDocumentCheckBuilder {
    */
   withDocumentFields(documentFields) {
     Validation.isArrayOfStrings(
-      Object.keys(documentFields).map(k => documentFields[k]),
+      Object.keys(documentFields).map((k) => documentFields[k]),
       'documentFields'
     );
     Validation.instanceOf(documentFields, Object, 'documentFields');

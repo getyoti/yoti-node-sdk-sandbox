@@ -263,7 +263,7 @@ class TokenRequestBuilder {
   build() {
     return new TokenRequest(
       this.rememberMeId,
-      Object.keys(this.attributes).map(k => this.attributes[k]),
+      Object.keys(this.attributes).map((k) => this.attributes[k]),
       this.extraData
     );
   }

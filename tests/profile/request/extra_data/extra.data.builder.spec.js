@@ -2,7 +2,7 @@ const { YotiDate } = require('yoti');
 const {
   SandboxExtraDataBuilder,
   SandboxAttributeIssuanceDetailsBuilder,
-} = require('../../../../');
+} = require('../../../..');
 const SandboxExtraData = require('../../../../src/profile/request/extra_data/extra.data');
 
 describe('SandboxExtraDataBuilder', () => {

@@ -19,7 +19,7 @@ class SandboxDocumentImages {
   getValue() {
     return this
       .images
-      .map(image => image.getBase64Content())
+      .map((image) => image.getBase64Content())
       .join('&');
   }
 }

@@ -10,7 +10,7 @@ class SandboxDocumentTextDataCheckResult extends SandboxCheckResult {
     super(report);
 
     Validation.isArrayOfStrings(
-      Object.keys(documentFields).map(k => documentFields[k]),
+      Object.keys(documentFields).map((k) => documentFields[k]),
       'documentFields'
     );
     this.documentFields = documentFields;
