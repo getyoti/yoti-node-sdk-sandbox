@@ -137,8 +137,8 @@ describe('Sandbox Example', () => {
       .toEqual('YOTI_ADMIN');
 
     const attributeIssuanceDetails = activityDetails.getExtraData().getAttributeIssuanceDetails();
-    expect(attributeIssuanceDetails.getToken())
-      .toEqual(Buffer.from('some-token').toString('base64'));
+    expect(Buffer.from(attributeIssuanceDetails.getToken(), 'base64').toString())
+      .toEqual('some-token');
     expect(attributeIssuanceDetails.getExpiryDate().getTime())
       .toEqual(expiryDate.getTime());
     expect(attributeIssuanceDetails.getIssuingAttributes()[0].getName())
