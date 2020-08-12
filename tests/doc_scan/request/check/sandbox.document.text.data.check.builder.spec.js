@@ -18,6 +18,13 @@ const SOME_BREAKDOWN = new SandboxBreakdownBuilder()
 
 const SOME_FILTER = new SandboxDocumentFilterBuilder().build();
 
+const SOME_KEY = 'some-key';
+const SOME_VALUE = 'some-value';
+const SOME_OTHER_KEY = 'some-other-key';
+const SOME_NESTED_VALUE = {
+  'some-nested-key': 'some-nested-value',
+};
+
 describe('SandboxDocumentTextDataCheckBuilder', () => {
   describe('#withRecommendation', () => {
     it('Should build SandboxDocumentTextDataCheck with recommendation', () => {
@@ -90,7 +97,8 @@ describe('SandboxDocumentTextDataCheckBuilder', () => {
   describe('#withDocumentFields', () => {
     it('Should build SandboxDocumentTextDataCheck with document fields', () => {
       const SOME_DOCUMENT_FIELDS = {
-        'some-key': 'some-value',
+        [SOME_KEY]: SOME_VALUE,
+        [SOME_OTHER_KEY]: SOME_NESTED_VALUE,
       };
 
       const check = new SandboxDocumentTextDataCheckBuilder()
@@ -118,8 +126,8 @@ describe('SandboxDocumentTextDataCheckBuilder', () => {
     it('Should build SandboxDocumentTextDataCheck with document fields', () => {
       const check = new SandboxDocumentTextDataCheckBuilder()
         .withRecommendation(SOME_RECOMMENDATION)
-        .withDocumentField('some-key', 'some-value')
-        .withDocumentField('some-other-key', 'some-other-value')
+        .withDocumentField(SOME_KEY, SOME_VALUE)
+        .withDocumentField(SOME_OTHER_KEY, SOME_NESTED_VALUE)
         .build();
 
       expect(check)
@@ -133,8 +141,8 @@ describe('SandboxDocumentTextDataCheckBuilder', () => {
               breakdown: [],
             },
             document_fields: {
-              'some-key': 'some-value',
-              'some-other-key': 'some-other-value',
+              [SOME_KEY]: SOME_VALUE,
+              [SOME_OTHER_KEY]: SOME_NESTED_VALUE,
             },
           },
         }));
