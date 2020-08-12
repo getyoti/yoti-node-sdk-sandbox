@@ -10,27 +10,22 @@ class SandboxDocumentTextDataExtractionTaskBuilder {
 
   /**
    * @param {string} key
-   * @param {string} value
+   * @param {*} value
    *
    * @returns {this}
    */
   withDocumentField(key, value) {
     Validation.isString(key, 'key');
-    Validation.isString(value, 'value');
     this.documentFields[key] = value;
     return this;
   }
 
   /**
-   * @param {Object<string, string>} documentFields
+   * @param {Object.<string,*>} documentFields
    *
    * @returns {this}
    */
   withDocumentFields(documentFields) {
-    Validation.isArrayOfStrings(
-      Object.keys(documentFields).map((k) => documentFields[k]),
-      'documentFields'
-    );
     this.documentFields = documentFields;
     return this;
   }
