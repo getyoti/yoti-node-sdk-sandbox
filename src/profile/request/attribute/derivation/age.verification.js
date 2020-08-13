@@ -1,6 +1,6 @@
+const { constants } = require('yoti');
 const SandboxAttributeBuilder = require('../attribute.builder');
 const SandboxAnchor = require('../anchor');
-const { constants } = require('yoti');
 const { Validation } = require('../../../../util');
 
 /**

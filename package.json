@@ -1,6 +1,6 @@
 {
   "name": "@getyoti/sdk-sandbox",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Yoti NodeJS Sandbox for back-end integration",
   "scripts": {
     "test": "npm run lint && npm run unit-test",
@@ -16,19 +16,22 @@
   "bugs": {
     "url": "https://github.com/getyoti/yoti-node-sdk-sandbox/issues"
   },
+  "engines": {
+    "node": ">= 10"
+  },
   "homepage": "https://github.com/getyoti/yoti-node-sdk-sandbox#readme",
   "dependencies": {
     "yoti": "^3.9.0"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^21.27.2",
-    "eslint-plugin-node": "8.0.1",
-    "husky": "^1.3.1",
-    "jest": "^25.1.0",
-    "nock": "^9.6.1"
+    "eslint-plugin-jest": "^23.18.0",
+    "eslint-plugin-node": "11.1.0",
+    "husky": "^4.2.5",
+    "jest": "^26.1.0",
+    "nock": "^13.0.2"
   },
   "jest": {
     "verbose": true,
@@ -36,6 +39,9 @@
     "collectCoverageFrom": [
       "*.js",
       "./src/**/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      ".eslintrc.js"
     ],
     "coverageDirectory": "./coverage",
     "testPathIgnorePatterns": [

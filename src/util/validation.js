@@ -9,8 +9,8 @@ class Validation extends YotiValidation {
    */
   static isYotiDate(value, name) {
     if (
-      (value instanceof Date) &&
-      typeof value.getMicrosecondTimestamp === 'function'
+      (value instanceof Date)
+      && typeof value.getMicrosecondTimestamp === 'function'
     ) {
       return;
     }

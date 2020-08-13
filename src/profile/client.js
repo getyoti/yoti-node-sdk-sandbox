@@ -1,6 +1,9 @@
-
+const {
+  RequestBuilder,
+  Payload,
+  constants,
+} = require('yoti');
 const TokenResponse = require('./response/token');
-const { RequestBuilder, Payload, constants } = require('yoti');
 const { Validation } = require('../util');
 
 /**

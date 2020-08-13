@@ -48,8 +48,9 @@ class TokenRequestBuilder {
    * @returns {this}
    */
   withAttribute(sandboxAttribute) {
-    const key = sandboxAttribute.getDerivation() != null ?
-      sandboxAttribute.getDerivation() : sandboxAttribute.getName();
+    const key = sandboxAttribute.getDerivation() != null
+      ? sandboxAttribute.getDerivation()
+      : sandboxAttribute.getName();
     this.attributes[key] = sandboxAttribute;
     return this;
   }
@@ -262,7 +263,7 @@ class TokenRequestBuilder {
   build() {
     return new TokenRequest(
       this.rememberMeId,
-      Object.keys(this.attributes).map(k => this.attributes[k]),
+      Object.keys(this.attributes).map((k) => this.attributes[k]),
       this.extraData
     );
   }

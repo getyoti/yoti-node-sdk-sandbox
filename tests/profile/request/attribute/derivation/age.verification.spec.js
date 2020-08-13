@@ -1,9 +1,9 @@
+const { YotiDate } = require('yoti');
+
 const {
   SandboxAgeVerificationBuilder,
   SandboxAnchorBuilder,
 } = require('../../../../..');
-
-const { YotiDate } = require('yoti');
 
 const SOME_DATE_OF_BIRTH_STRING = '1989-01-02';
 const SOME_DATE_OF_BIRTH = YotiDate.fromDateString(SOME_DATE_OF_BIRTH_STRING);
