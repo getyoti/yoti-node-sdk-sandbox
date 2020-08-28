@@ -13,6 +13,8 @@ class SandboxDocumentTextDataCheckBuilder extends SandboxDocumentCheckBuilder {
   /**
    * @param {string} key
    * @param {*} value
+   *
+   * @returns {this}
    */
   withDocumentField(key, value) {
     Validation.isString(key, 'key');
@@ -22,6 +24,8 @@ class SandboxDocumentTextDataCheckBuilder extends SandboxDocumentCheckBuilder {
 
   /**
    * @param {Object.<string,*>} documentFields
+   *
+   * @returns {this}
    */
   withDocumentFields(documentFields) {
     Validation.instanceOf(documentFields, Object, 'documentFields');

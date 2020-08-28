@@ -7,6 +7,7 @@ const {
   SandboxDocumentFaceMatchCheckBuilder,
 } = require('../../..');
 const SandboxCheckReports = require('../../../src/doc_scan/request/sandbox.check.reports');
+const { SandboxIdDocumentComparisonCheckBuilder } = require('../../../src/doc_scan');
 
 const SOME_VALUE = 'some-value';
 const SOME_RECOMMENDATION = new SandboxRecommendationBuilder()
@@ -26,6 +27,7 @@ describe('SandboxCheckReportsBuilder', () => {
           ID_DOCUMENT_AUTHENTICITY: [],
           ID_DOCUMENT_FACE_MATCH: [],
           LIVENESS: [],
+          ID_DOCUMENT_COMPARISON: [],
         }));
     });
   });
@@ -58,6 +60,7 @@ describe('SandboxCheckReportsBuilder', () => {
           ID_DOCUMENT_AUTHENTICITY: [],
           ID_DOCUMENT_FACE_MATCH: [],
           LIVENESS: [],
+          ID_DOCUMENT_COMPARISON: [],
         }));
     });
   });
@@ -89,6 +92,39 @@ describe('SandboxCheckReportsBuilder', () => {
           }],
           ID_DOCUMENT_FACE_MATCH: [],
           LIVENESS: [],
+          ID_DOCUMENT_COMPARISON: [],
+        }));
+    });
+  });
+
+  describe('#withIdDocumentComparisonCheck', () => {
+    it('builds a SandboxCheckReport with ID document comparison check', () => {
+      const check = new SandboxIdDocumentComparisonCheckBuilder()
+        .withRecommendation(SOME_RECOMMENDATION)
+        .build();
+
+      const checkReport = new SandboxCheckReportsBuilder()
+        .withIdDocumentComparisonCheck(check)
+        .build();
+
+      expect(checkReport).toBeInstanceOf(SandboxCheckReports);
+
+      expect(JSON.stringify(checkReport))
+        .toEqual(JSON.stringify({
+          ID_DOCUMENT_TEXT_DATA_CHECK: [],
+          ID_DOCUMENT_AUTHENTICITY: [],
+          ID_DOCUMENT_FACE_MATCH: [],
+          LIVENESS: [],
+          ID_DOCUMENT_COMPARISON: [{
+            result: {
+              report: {
+                recommendation: {
+                  value: SOME_VALUE,
+                },
+                breakdown: [],
+              },
+            },
+          }],
         }));
     });
   });
@@ -123,6 +159,7 @@ describe('SandboxCheckReportsBuilder', () => {
               liveness_type: 'ZOOM',
             },
           ],
+          ID_DOCUMENT_COMPARISON: [],
         }));
     });
   });
@@ -154,6 +191,7 @@ describe('SandboxCheckReportsBuilder', () => {
             },
           }],
           LIVENESS: [],
+          ID_DOCUMENT_COMPARISON: [],
         }));
     });
   });
@@ -172,6 +210,7 @@ describe('SandboxCheckReportsBuilder', () => {
           ID_DOCUMENT_AUTHENTICITY: [],
           ID_DOCUMENT_FACE_MATCH: [],
           LIVENESS: [],
+          ID_DOCUMENT_COMPARISON: [],
           async_report_delay: 5,
         }));
     });
