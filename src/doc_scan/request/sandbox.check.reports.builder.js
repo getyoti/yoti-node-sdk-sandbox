@@ -4,6 +4,7 @@ const SandboxLivenessCheck = require('./check/sandbox.liveness.check');
 const SandboxDocumentFaceMatchCheck = require('./check/sandbox.document.face.match.check');
 const SandboxDocumentAuthenticityCheck = require('./check/sandbox.document.authenticity.check');
 const SandboxCheckReports = require('./sandbox.check.reports');
+const SandboxIdDocumentComparisonCheck = require('./check/sandbox.id.document.comparison.check');
 
 class SandboxCheckReportsBuilder {
   constructor() {
@@ -11,6 +12,7 @@ class SandboxCheckReportsBuilder {
     this.documentTextDataChecks = [];
     this.documentAuthenticityChecks = [];
     this.documentFaceMatchChecks = [];
+    this.idDocumentComparisonChecks = [];
   }
 
   /**
@@ -58,6 +60,17 @@ class SandboxCheckReportsBuilder {
   }
 
   /**
+   * @param {SandboxIdDocumentComparisonCheck} idDocumentComparisonCheck
+   *
+   * @returns {this}
+   */
+  withIdDocumentComparisonCheck(idDocumentComparisonCheck) {
+    Validation.instanceOf(idDocumentComparisonCheck, SandboxIdDocumentComparisonCheck, 'idDocumentComparisonCheck');
+    this.idDocumentComparisonChecks.push(idDocumentComparisonCheck);
+    return this;
+  }
+
+  /**
    * @param {int} asyncReportDelay
    *
    * @returns {this}
@@ -77,7 +90,8 @@ class SandboxCheckReportsBuilder {
       this.documentAuthenticityChecks,
       this.livenessChecks,
       this.documentFaceMatchChecks,
-      this.asyncReportDelay
+      this.asyncReportDelay,
+      this.idDocumentComparisonChecks
     );
   }
 }
