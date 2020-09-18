@@ -54,7 +54,6 @@ describe('SandboxCheckReportsBuilder', () => {
                 },
                 breakdown: [],
               },
-              document_fields: {},
             },
           }],
           ID_DOCUMENT_AUTHENTICITY: [],
