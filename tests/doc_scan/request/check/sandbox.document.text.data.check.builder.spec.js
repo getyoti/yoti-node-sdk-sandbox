@@ -42,7 +42,6 @@ describe('SandboxDocumentTextDataCheckBuilder', () => {
               recommendation: SOME_RECOMMENDATION,
               breakdown: [],
             },
-            document_fields: {},
           },
         }));
     });
@@ -65,7 +64,6 @@ describe('SandboxDocumentTextDataCheckBuilder', () => {
               recommendation: SOME_RECOMMENDATION,
               breakdown: [SOME_BREAKDOWN],
             },
-            document_fields: {},
           },
         }));
     });
@@ -88,7 +86,6 @@ describe('SandboxDocumentTextDataCheckBuilder', () => {
               recommendation: SOME_RECOMMENDATION,
               breakdown: [SOME_BREAKDOWN],
             },
-            document_fields: {},
           },
         }));
     });
@@ -166,7 +163,6 @@ describe('SandboxDocumentTextDataCheckBuilder', () => {
               recommendation: SOME_RECOMMENDATION,
               breakdown: [],
             },
-            document_fields: {},
           },
           document_filter: SOME_FILTER,
         }));

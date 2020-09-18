@@ -4,10 +4,6 @@ const SandboxDocumentTextDataExtractionTaskResult = require('./sandbox.document.
 const SandboxDocumentFilter = require('../sandbox.document.filter');
 
 class SandboxDocumentTextDataExtractionTaskBuilder {
-  constructor() {
-    this.documentFields = {};
-  }
-
   /**
    * @param {string} key
    * @param {*} value
@@ -16,6 +12,7 @@ class SandboxDocumentTextDataExtractionTaskBuilder {
    */
   withDocumentField(key, value) {
     Validation.isString(key, 'key');
+    this.documentFields = this.documentFields || {};
     this.documentFields[key] = value;
     return this;
   }

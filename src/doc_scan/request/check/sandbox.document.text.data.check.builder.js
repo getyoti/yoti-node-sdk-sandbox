@@ -5,11 +5,6 @@ const SandboxCheckReport = require('./sandbox.check.report');
 const SandboxDocumentTextDataCheckResult = require('./sandbox.document.text.data.check.result');
 
 class SandboxDocumentTextDataCheckBuilder extends SandboxDocumentCheckBuilder {
-  constructor() {
-    super();
-    this.documentFields = {};
-  }
-
   /**
    * @param {string} key
    * @param {*} value
@@ -18,6 +13,7 @@ class SandboxDocumentTextDataCheckBuilder extends SandboxDocumentCheckBuilder {
    */
   withDocumentField(key, value) {
     Validation.isString(key, 'key');
+    this.documentFields = this.documentFields || {};
     this.documentFields[key] = value;
     return this;
   }

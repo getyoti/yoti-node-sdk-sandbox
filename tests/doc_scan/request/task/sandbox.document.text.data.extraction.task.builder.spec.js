@@ -76,9 +76,7 @@ describe('SandboxDocumentTextDataExtractionTaskBuilder', () => {
 
       expect(JSON.stringify(task))
         .toEqual(JSON.stringify({
-          result: {
-            document_fields: {},
-          },
+          result: {},
           document_filter: SOME_FILTER,
         }));
     });
