@@ -1,3 +1,5 @@
+'use strict';
+
 const { RequestBuilder, Payload, constants } = require('yoti');
 const { Validation } = require('../util');
 const SandboxResponseConfig = require('./request/sandbox.response.config');

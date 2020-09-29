@@ -1,3 +1,5 @@
+'use strict';
+
 const { Validation } = require('../../util');
 const SandboxDocumentFilter = require('./sandbox.document.filter');
 

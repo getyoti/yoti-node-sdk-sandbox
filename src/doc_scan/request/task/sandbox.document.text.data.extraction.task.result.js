@@ -1,3 +1,5 @@
+'use strict';
+
 const { Validation } = require('../../../util');
 const SandboxDocumentIdPhoto = require('./sandbox.document.id.photo');
 

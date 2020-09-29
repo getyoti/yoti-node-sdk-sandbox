@@ -1,3 +1,5 @@
+'use strict';
+
 const YotiValidation = require('yoti/src/yoti_common/validation');
 
 class Validation extends YotiValidation {

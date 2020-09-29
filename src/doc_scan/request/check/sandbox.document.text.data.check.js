@@ -1,3 +1,5 @@
+'use strict';
+
 const SandboxDocumentCheck = require('./sandbox.document.check');
 
 class SandboxDocumentTextDataCheck extends SandboxDocumentCheck {
