@@ -81,4 +81,27 @@ describe('SandboxDocumentTextDataExtractionTaskBuilder', () => {
         }));
     });
   });
+
+  describe('#withDocumentIdPhoto', () => {
+    it('Builds SandboxDocumentTextDataExtractionTask with document ID photo', () => {
+      const SOME_CONTENT_TYPE = 'image/jpeg';
+      const SOME_DATA = Buffer.from('some-image-data');
+
+      const task = new SandboxDocumentTextDataExtractionTaskBuilder()
+        .withDocumentIdPhoto(SOME_CONTENT_TYPE, SOME_DATA)
+        .build();
+
+      expect(task).toBeInstanceOf(SandboxDocumentTextDataExtractionTask);
+
+      expect(JSON.stringify(task))
+        .toEqual(JSON.stringify({
+          result: {
+            document_id_photo: {
+              content_type: SOME_CONTENT_TYPE,
+              data: SOME_DATA.toString('base64'),
+            },
+          },
+        }));
+    });
+  });
 });
