@@ -2,6 +2,7 @@ const { Validation } = require('../../../util');
 const SandboxDocumentTextDataExtractionTask = require('./sandbox.document.text.data.extraction.task');
 const SandboxDocumentTextDataExtractionTaskResult = require('./sandbox.document.text.data.extraction.task.result');
 const SandboxDocumentFilter = require('../sandbox.document.filter');
+const SandboxDocumentIdPhoto = require('./sandbox.document.id.photo');
 
 class SandboxDocumentTextDataExtractionTaskBuilder {
   /**
@@ -39,10 +40,22 @@ class SandboxDocumentTextDataExtractionTaskBuilder {
   }
 
   /**
+   * @param {string} contentType
+   * @param {Buffer} data
+   */
+  withDocumentIdPhoto(contentType, data) {
+    this.documentIdPhoto = new SandboxDocumentIdPhoto(contentType, data);
+    return this;
+  }
+
+  /**
    * @returns {SandboxDocumentTextDataExtractionTask}
    */
   build() {
-    const result = new SandboxDocumentTextDataExtractionTaskResult(this.documentFields);
+    const result = new SandboxDocumentTextDataExtractionTaskResult(
+      this.documentFields,
+      this.documentIdPhoto
+    );
     return new SandboxDocumentTextDataExtractionTask(result, this.documentFilter);
   }
 }
