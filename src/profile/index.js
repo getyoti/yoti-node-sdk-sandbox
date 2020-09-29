@@ -1,3 +1,5 @@
+'use strict';
+
 const SandboxProfileClientBuilder = require('./client.builder');
 const SandboxAttributeBuilder = require('./request/attribute/attribute.builder');
 const SandboxAgeVerificationBuilder = require('./request/attribute/derivation/age.verification.builder');

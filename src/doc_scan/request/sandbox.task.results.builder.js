@@ -1,3 +1,5 @@
+'use strict';
+
 const { Validation } = require('../../util');
 const SandboxDocumentTextDataExtractionTask = require('./task/sandbox.document.text.data.extraction.task');
 const SandboxTaskResults = require('./sandbox.task.results');

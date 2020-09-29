@@ -1,3 +1,5 @@
+'use strict';
+
 const SandboxDocScanClientBuilder = require('./sandbox.doc.scan.client.builder');
 const SandboxCheckReportsBuilder = require('./request/sandbox.check.reports.builder');
 const SandboxTaskResultsBuilder = require('./request/sandbox.task.results.builder');

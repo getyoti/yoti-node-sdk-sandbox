@@ -1,3 +1,5 @@
+'use strict';
+
 const Image = require('yoti/src/data_type/image');
 const { Validation } = require('../../../util');
 

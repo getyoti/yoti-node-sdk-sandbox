@@ -1,3 +1,5 @@
+'use strict';
+
 const { Validation } = require('../../util');
 const SandboxDocumentTextDataCheck = require('./check/sandbox.document.text.data.check');
 const SandboxDocumentFaceMatchCheck = require('./check/sandbox.document.face.match.check');

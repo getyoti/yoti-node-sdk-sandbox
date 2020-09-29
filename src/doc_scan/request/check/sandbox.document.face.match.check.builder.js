@@ -1,3 +1,5 @@
+'use strict';
+
 const SandboxDocumentCheckBuilder = require('./sandbox.document.check.builder');
 const SandboxDocumentFaceMatchCheck = require('./sandbox.document.face.match.check');
 const SandboxCheckReport = require('./sandbox.check.report');

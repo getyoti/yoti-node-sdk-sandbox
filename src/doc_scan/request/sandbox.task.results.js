@@ -1,3 +1,5 @@
+'use strict';
+
 const { DocScanConstants } = require('yoti');
 const { Validation } = require('../../util');
 const SandboxDocumentTextDataExtractionTask = require('./task/sandbox.document.text.data.extraction.task');

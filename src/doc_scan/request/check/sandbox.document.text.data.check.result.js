@@ -1,3 +1,5 @@
+'use strict';
+
 const SandboxCheckResult = require('./sandbox.check.result');
 
 class SandboxDocumentTextDataCheckResult extends SandboxCheckResult {

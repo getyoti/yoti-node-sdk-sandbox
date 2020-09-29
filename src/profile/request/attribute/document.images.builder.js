@@ -1,3 +1,5 @@
+'use strict';
+
 const ImageJpeg = require('yoti/src/data_type/image.jpeg');
 const ImagePng = require('yoti/src/data_type/image.png');
 const SandboxDocumentImages = require('./document.images');

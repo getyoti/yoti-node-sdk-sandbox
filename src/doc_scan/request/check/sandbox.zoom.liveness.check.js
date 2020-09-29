@@ -1,3 +1,5 @@
+'use strict';
+
 const { DocScanConstants } = require('yoti');
 const SandboxLivenessCheck = require('./sandbox.liveness.check');
 
