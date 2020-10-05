@@ -5,6 +5,7 @@ const SandboxResponseConfigBuilder = require('./request/sandbox.response.config.
 const SandboxBreakdownBuilder = require('./request/check/report/sandbox.breakdown.builder');
 const SandboxRecommendationBuilder = require('./request/check/report/sandbox.recommendation.builder');
 const SandboxDocumentAuthenticityCheckBuilder = require('./request/check/sandbox.document.authenticity.check.builder');
+const SandboxIdDocumentComparisonCheckBuilder = require('./request/check/sandbox.id.document.comparison.check.builder');
 const SandboxDocumentFaceMatchCheckBuilder = require('./request/check/sandbox.document.face.match.check.builder');
 const SandboxZoomLivenessCheckBuilder = require('./request/check/sandbox.zoom.liveness.check.builder');
 const SandboxDocumentTextDataCheckBuilder = require('./request/check/sandbox.document.text.data.check.builder');
@@ -18,6 +19,7 @@ module.exports = {
   SandboxBreakdownBuilder,
   SandboxRecommendationBuilder,
   SandboxDocumentAuthenticityCheckBuilder,
+  SandboxIdDocumentComparisonCheckBuilder,
   SandboxDocumentFaceMatchCheckBuilder,
   SandboxZoomLivenessCheckBuilder,
   SandboxDocumentTextDataCheckBuilder,
