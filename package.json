@@ -1,6 +1,6 @@
 {
   "name": "@getyoti/sdk-sandbox",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Yoti NodeJS Sandbox for back-end integration",
   "scripts": {
     "test": "npm run lint && npm run unit-test",
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/getyoti/yoti-node-sdk-sandbox#readme",
   "dependencies": {
-    "yoti": "^3.9.0"
+    "yoti": "^3.12.0"
   },
   "devDependencies": {
     "eslint": "^7.4.0",
