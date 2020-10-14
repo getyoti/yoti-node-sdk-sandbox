@@ -3,6 +3,7 @@ const SandboxDocumentTextDataExtractionTask = require('../../../../src/doc_scan/
 const {
   SandboxDocumentTextDataExtractionTaskBuilder,
   SandboxDocumentFilterBuilder,
+  SandboxTextDataExtractionRecommendationBuilder,
 } = require('../../../..');
 
 const SOME_KEY = 'some-key';
@@ -100,6 +101,42 @@ describe('SandboxDocumentTextDataExtractionTaskBuilder', () => {
               content_type: SOME_CONTENT_TYPE,
               data: SOME_DATA.toString('base64'),
             },
+          },
+        }));
+    });
+  });
+
+  describe('#withDetectedCountry', () => {
+    it('Builds SandboxDocumentTextDataExtractionTask with detected country', () => {
+      const SOME_COUNTRY = 'some-country';
+
+      const task = new SandboxDocumentTextDataExtractionTaskBuilder()
+        .withDetectedCountry(SOME_COUNTRY)
+        .build();
+
+      expect(JSON.stringify(task))
+        .toEqual(JSON.stringify({
+          result: {
+            detected_country: SOME_COUNTRY,
+          },
+        }));
+    });
+  });
+
+  describe('#withRecommendation', () => {
+    it('Builds SandboxDocumentTextDataExtractionTask with recommendation', () => {
+      const SOME_RECOMMENDATION = new SandboxTextDataExtractionRecommendationBuilder()
+        .forProgress()
+        .build();
+
+      const task = new SandboxDocumentTextDataExtractionTaskBuilder()
+        .withRecommendation(SOME_RECOMMENDATION)
+        .build();
+
+      expect(JSON.stringify(task))
+        .toEqual(JSON.stringify({
+          result: {
+            recommendation: SOME_RECOMMENDATION,
           },
         }));
     });
