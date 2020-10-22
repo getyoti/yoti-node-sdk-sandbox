@@ -2,7 +2,7 @@
 
 const SandboxCheckResult = require('./sandbox.check.result');
 
-class SandboxDocumentTextDataCheckResult extends SandboxCheckResult {
+class SandboxSupplementaryDocTextDataCheckResult extends SandboxCheckResult {
   /**
    * @param {SandboxCheckReport} report
    * @param {Object.<string,*>} documentFields
@@ -23,4 +23,4 @@ class SandboxDocumentTextDataCheckResult extends SandboxCheckResult {
   }
 }
 
-module.exports = SandboxDocumentTextDataCheckResult;
+module.exports = SandboxSupplementaryDocTextDataCheckResult;
