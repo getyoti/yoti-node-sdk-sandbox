@@ -25,6 +25,8 @@ const {
   SandboxDocumentFilterBuilder,
   SandboxTextDataExtractionRecommendationBuilder,
   SandboxTextDataExtractionReasonBuilder,
+  SandboxSupplementaryDocTextDataCheckBuilder,
+  SandboxSupplementaryDocTextDataExtractionTaskBuilder,
 } = require('./src/doc_scan');
 
 module.exports = {
@@ -51,4 +53,6 @@ module.exports = {
   SandboxDocumentFilterBuilder,
   SandboxTextDataExtractionRecommendationBuilder,
   SandboxTextDataExtractionReasonBuilder,
+  SandboxSupplementaryDocTextDataCheckBuilder,
+  SandboxSupplementaryDocTextDataExtractionTaskBuilder,
 };

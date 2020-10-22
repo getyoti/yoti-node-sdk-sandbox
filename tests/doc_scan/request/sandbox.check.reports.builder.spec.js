@@ -5,9 +5,10 @@ const {
   SandboxDocumentAuthenticityCheckBuilder,
   SandboxZoomLivenessCheckBuilder,
   SandboxDocumentFaceMatchCheckBuilder,
+  SandboxSupplementaryDocTextDataCheckBuilder,
+  SandboxIdDocumentComparisonCheckBuilder,
 } = require('../../..');
 const SandboxCheckReports = require('../../../src/doc_scan/request/sandbox.check.reports');
-const { SandboxIdDocumentComparisonCheckBuilder } = require('../../../src/doc_scan');
 
 const SOME_VALUE = 'some-value';
 const SOME_RECOMMENDATION = new SandboxRecommendationBuilder()
@@ -28,6 +29,7 @@ describe('SandboxCheckReportsBuilder', () => {
           ID_DOCUMENT_FACE_MATCH: [],
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [],
+          SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
         }));
     });
   });
@@ -46,32 +48,24 @@ describe('SandboxCheckReportsBuilder', () => {
 
       expect(JSON.stringify(checkReport))
         .toEqual(JSON.stringify({
-          ID_DOCUMENT_TEXT_DATA_CHECK: [{
-            result: {
-              report: {
-                recommendation: {
-                  value: SOME_VALUE,
-                },
-                breakdown: [],
-              },
-            },
-          }],
+          ID_DOCUMENT_TEXT_DATA_CHECK: [SOME_DOCUMENT_TEXT_DATA_CHECK],
           ID_DOCUMENT_AUTHENTICITY: [],
           ID_DOCUMENT_FACE_MATCH: [],
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [],
+          SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
         }));
     });
   });
 
   describe('#withDocumentAuthenticityCheck', () => {
     it('builds a SandboxCheckReport with authenticity check', () => {
-      const check = new SandboxDocumentAuthenticityCheckBuilder()
+      const SOME_AUTHENTICITY_CHECK = new SandboxDocumentAuthenticityCheckBuilder()
         .withRecommendation(SOME_RECOMMENDATION)
         .build();
 
       const checkReport = new SandboxCheckReportsBuilder()
-        .withDocumentAuthenticityCheck(check)
+        .withDocumentAuthenticityCheck(SOME_AUTHENTICITY_CHECK)
         .build();
 
       expect(checkReport).toBeInstanceOf(SandboxCheckReports);
@@ -79,31 +73,23 @@ describe('SandboxCheckReportsBuilder', () => {
       expect(JSON.stringify(checkReport))
         .toEqual(JSON.stringify({
           ID_DOCUMENT_TEXT_DATA_CHECK: [],
-          ID_DOCUMENT_AUTHENTICITY: [{
-            result: {
-              report: {
-                recommendation: {
-                  value: SOME_VALUE,
-                },
-                breakdown: [],
-              },
-            },
-          }],
+          ID_DOCUMENT_AUTHENTICITY: [SOME_AUTHENTICITY_CHECK],
           ID_DOCUMENT_FACE_MATCH: [],
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [],
+          SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
         }));
     });
   });
 
   describe('#withIdDocumentComparisonCheck', () => {
     it('builds a SandboxCheckReport with ID document comparison check', () => {
-      const check = new SandboxIdDocumentComparisonCheckBuilder()
+      const SOME_ID_COMPARISON_CHECK = new SandboxIdDocumentComparisonCheckBuilder()
         .withRecommendation(SOME_RECOMMENDATION)
         .build();
 
       const checkReport = new SandboxCheckReportsBuilder()
-        .withIdDocumentComparisonCheck(check)
+        .withIdDocumentComparisonCheck(SOME_ID_COMPARISON_CHECK)
         .build();
 
       expect(checkReport).toBeInstanceOf(SandboxCheckReports);
@@ -114,28 +100,20 @@ describe('SandboxCheckReportsBuilder', () => {
           ID_DOCUMENT_AUTHENTICITY: [],
           ID_DOCUMENT_FACE_MATCH: [],
           LIVENESS: [],
-          ID_DOCUMENT_COMPARISON: [{
-            result: {
-              report: {
-                recommendation: {
-                  value: SOME_VALUE,
-                },
-                breakdown: [],
-              },
-            },
-          }],
+          ID_DOCUMENT_COMPARISON: [SOME_ID_COMPARISON_CHECK],
+          SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
         }));
     });
   });
 
   describe('#withLivenessCheck', () => {
     it('builds a SandboxCheckReport with liveness check', () => {
-      const check = new SandboxZoomLivenessCheckBuilder()
+      const SOME_LIVENESS_CHECK = new SandboxZoomLivenessCheckBuilder()
         .withRecommendation(SOME_RECOMMENDATION)
         .build();
 
       const checkReport = new SandboxCheckReportsBuilder()
-        .withLivenessCheck(check)
+        .withLivenessCheck(SOME_LIVENESS_CHECK)
         .build();
 
       expect(checkReport).toBeInstanceOf(SandboxCheckReports);
@@ -145,32 +123,21 @@ describe('SandboxCheckReportsBuilder', () => {
           ID_DOCUMENT_TEXT_DATA_CHECK: [],
           ID_DOCUMENT_AUTHENTICITY: [],
           ID_DOCUMENT_FACE_MATCH: [],
-          LIVENESS: [
-            {
-              result: {
-                report: {
-                  recommendation: {
-                    value: SOME_VALUE,
-                  },
-                  breakdown: [],
-                },
-              },
-              liveness_type: 'ZOOM',
-            },
-          ],
+          LIVENESS: [SOME_LIVENESS_CHECK],
           ID_DOCUMENT_COMPARISON: [],
+          SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
         }));
     });
   });
 
   describe('#withDocumentFaceMatchCheck', () => {
     it('builds a SandboxCheckReport with FaceMatch check', () => {
-      const check = new SandboxDocumentFaceMatchCheckBuilder()
+      const SOME_FACE_MATCH_CHECK = new SandboxDocumentFaceMatchCheckBuilder()
         .withRecommendation(SOME_RECOMMENDATION)
         .build();
 
       const checkReport = new SandboxCheckReportsBuilder()
-        .withDocumentFaceMatchCheck(check)
+        .withDocumentFaceMatchCheck(SOME_FACE_MATCH_CHECK)
         .build();
 
       expect(checkReport).toBeInstanceOf(SandboxCheckReports);
@@ -179,18 +146,10 @@ describe('SandboxCheckReportsBuilder', () => {
         .toEqual(JSON.stringify({
           ID_DOCUMENT_TEXT_DATA_CHECK: [],
           ID_DOCUMENT_AUTHENTICITY: [],
-          ID_DOCUMENT_FACE_MATCH: [{
-            result: {
-              report: {
-                recommendation: {
-                  value: SOME_VALUE,
-                },
-                breakdown: [],
-              },
-            },
-          }],
+          ID_DOCUMENT_FACE_MATCH: [SOME_FACE_MATCH_CHECK],
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [],
+          SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
         }));
     });
   });
@@ -210,7 +169,32 @@ describe('SandboxCheckReportsBuilder', () => {
           ID_DOCUMENT_FACE_MATCH: [],
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [],
+          SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
           async_report_delay: 5,
+        }));
+    });
+  });
+
+  describe('#withDocumentTextDataCheck', () => {
+    it('builds a SandboxCheckReport with text data check', () => {
+      const SOME_SUPPLEMENTARY_TEXT_DATA_CHECK = new SandboxSupplementaryDocTextDataCheckBuilder()
+        .withRecommendation(SOME_RECOMMENDATION)
+        .build();
+
+      const checkReport = new SandboxCheckReportsBuilder()
+        .withSupplementaryDocTextDataCheck(SOME_SUPPLEMENTARY_TEXT_DATA_CHECK)
+        .build();
+
+      expect(checkReport).toBeInstanceOf(SandboxCheckReports);
+
+      expect(JSON.stringify(checkReport))
+        .toEqual(JSON.stringify({
+          ID_DOCUMENT_TEXT_DATA_CHECK: [],
+          ID_DOCUMENT_AUTHENTICITY: [],
+          ID_DOCUMENT_FACE_MATCH: [],
+          LIVENESS: [],
+          ID_DOCUMENT_COMPARISON: [],
+          SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [SOME_SUPPLEMENTARY_TEXT_DATA_CHECK],
         }));
     });
   });
