@@ -1,3 +1,5 @@
+'use strict';
+
 const { YotiDate, constants } = require('yoti');
 const { Validation } = require('../../util');
 const TokenRequest = require('./token');

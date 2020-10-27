@@ -1,3 +1,5 @@
+'use strict';
+
 const SandboxDocScanClientBuilder = require('./sandbox.doc.scan.client.builder');
 const SandboxCheckReportsBuilder = require('./request/sandbox.check.reports.builder');
 const SandboxTaskResultsBuilder = require('./request/sandbox.task.results.builder');
@@ -10,7 +12,11 @@ const SandboxDocumentFaceMatchCheckBuilder = require('./request/check/sandbox.do
 const SandboxZoomLivenessCheckBuilder = require('./request/check/sandbox.zoom.liveness.check.builder');
 const SandboxDocumentTextDataCheckBuilder = require('./request/check/sandbox.document.text.data.check.builder');
 const SandboxDocumentTextDataExtractionTaskBuilder = require('./request/task/sandbox.document.text.data.extraction.task.builder');
+const SandboxSupplementaryDocTextDataCheckBuilder = require('./request/check/sandbox.supplementary.doc.text.data.check.builder');
+const SandboxSupplementaryDocTextDataExtractionTaskBuilder = require('./request/task/sandbox.supplementary.doc.text.data.extraction.task.builder');
 const SandboxDocumentFilterBuilder = require('./request/sandbox.document.filter.builder');
+const SandboxTextDataExtractionRecommendationBuilder = require('./request/task/sandbox.text.data.extraction.recommendation.builder');
+const SandboxTextDataExtractionReasonBuilder = require('./request/task/sandbox.text.data.extraction.reason.builder');
 
 module.exports = {
   SandboxDocScanClientBuilder,
@@ -24,6 +30,10 @@ module.exports = {
   SandboxZoomLivenessCheckBuilder,
   SandboxDocumentTextDataCheckBuilder,
   SandboxDocumentTextDataExtractionTaskBuilder,
+  SandboxSupplementaryDocTextDataCheckBuilder,
+  SandboxSupplementaryDocTextDataExtractionTaskBuilder,
   SandboxResponseConfigBuilder,
   SandboxDocumentFilterBuilder,
+  SandboxTextDataExtractionReasonBuilder,
+  SandboxTextDataExtractionRecommendationBuilder,
 };

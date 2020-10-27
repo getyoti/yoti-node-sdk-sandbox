@@ -1,3 +1,5 @@
+'use strict';
+
 const { Validation } = require('../../util');
 const SandboxAttribute = require('./attribute/attribute');
 const SandboxExtraData = require('./extra_data/extra.data');

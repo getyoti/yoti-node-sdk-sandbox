@@ -3,6 +3,7 @@ const SandboxDocumentTextDataExtractionTask = require('../../../../src/doc_scan/
 const {
   SandboxDocumentTextDataExtractionTaskBuilder,
   SandboxDocumentFilterBuilder,
+  SandboxTextDataExtractionRecommendationBuilder,
 } = require('../../../..');
 
 const SOME_KEY = 'some-key';
@@ -78,6 +79,65 @@ describe('SandboxDocumentTextDataExtractionTaskBuilder', () => {
         .toEqual(JSON.stringify({
           result: {},
           document_filter: SOME_FILTER,
+        }));
+    });
+  });
+
+  describe('#withDocumentIdPhoto', () => {
+    it('Builds SandboxDocumentTextDataExtractionTask with document ID photo', () => {
+      const SOME_CONTENT_TYPE = 'image/jpeg';
+      const SOME_DATA = Buffer.from('some-image-data');
+
+      const task = new SandboxDocumentTextDataExtractionTaskBuilder()
+        .withDocumentIdPhoto(SOME_CONTENT_TYPE, SOME_DATA)
+        .build();
+
+      expect(task).toBeInstanceOf(SandboxDocumentTextDataExtractionTask);
+
+      expect(JSON.stringify(task))
+        .toEqual(JSON.stringify({
+          result: {
+            document_id_photo: {
+              content_type: SOME_CONTENT_TYPE,
+              data: SOME_DATA.toString('base64'),
+            },
+          },
+        }));
+    });
+  });
+
+  describe('#withDetectedCountry', () => {
+    it('Builds SandboxDocumentTextDataExtractionTask with detected country', () => {
+      const SOME_COUNTRY = 'some-country';
+
+      const task = new SandboxDocumentTextDataExtractionTaskBuilder()
+        .withDetectedCountry(SOME_COUNTRY)
+        .build();
+
+      expect(JSON.stringify(task))
+        .toEqual(JSON.stringify({
+          result: {
+            detected_country: SOME_COUNTRY,
+          },
+        }));
+    });
+  });
+
+  describe('#withRecommendation', () => {
+    it('Builds SandboxDocumentTextDataExtractionTask with recommendation', () => {
+      const SOME_RECOMMENDATION = new SandboxTextDataExtractionRecommendationBuilder()
+        .forProgress()
+        .build();
+
+      const task = new SandboxDocumentTextDataExtractionTaskBuilder()
+        .withRecommendation(SOME_RECOMMENDATION)
+        .build();
+
+      expect(JSON.stringify(task))
+        .toEqual(JSON.stringify({
+          result: {
+            recommendation: SOME_RECOMMENDATION,
+          },
         }));
     });
   });

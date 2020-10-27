@@ -1,3 +1,5 @@
+'use strict';
+
 const SandboxCheckResult = require('./sandbox.check.result');
 
 class SandboxDocumentTextDataCheckResult extends SandboxCheckResult {
@@ -12,9 +14,12 @@ class SandboxDocumentTextDataCheckResult extends SandboxCheckResult {
   }
 
   toJSON() {
-    const jsonData = super.toJSON();
-    jsonData.document_fields = this.documentFields;
-    return jsonData;
+    return Object.assign(
+      super.toJSON(),
+      {
+        document_fields: this.documentFields,
+      }
+    );
   }
 }
 

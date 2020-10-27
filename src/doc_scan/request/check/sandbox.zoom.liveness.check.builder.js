@@ -1,3 +1,5 @@
+'use strict';
+
 const SandboxCheckBuilder = require('./sandbox.check.builder');
 const SandboxZoomLivenessCheck = require('./sandbox.zoom.liveness.check');
 const SandboxCheckReport = require('./sandbox.check.report');

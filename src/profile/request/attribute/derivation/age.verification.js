@@ -1,3 +1,5 @@
+'use strict';
+
 const { constants } = require('yoti');
 const SandboxAttributeBuilder = require('../attribute.builder');
 const SandboxAnchor = require('../anchor');

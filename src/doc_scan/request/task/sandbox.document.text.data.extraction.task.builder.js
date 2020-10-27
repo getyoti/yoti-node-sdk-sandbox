@@ -1,7 +1,11 @@
+'use strict';
+
 const { Validation } = require('../../../util');
 const SandboxDocumentTextDataExtractionTask = require('./sandbox.document.text.data.extraction.task');
 const SandboxDocumentTextDataExtractionTaskResult = require('./sandbox.document.text.data.extraction.task.result');
 const SandboxDocumentFilter = require('../sandbox.document.filter');
+const SandboxDocumentIdPhoto = require('./sandbox.document.id.photo');
+const SandboxTextDataExtractionRecommendation = require('./sandbox.text.data.extraction.recommendation');
 
 class SandboxDocumentTextDataExtractionTaskBuilder {
   /**
@@ -39,10 +43,48 @@ class SandboxDocumentTextDataExtractionTaskBuilder {
   }
 
   /**
+   * @param {string} contentType
+   * @param {Buffer} data
+   *
+   * @return {this}
+   */
+  withDocumentIdPhoto(contentType, data) {
+    this.documentIdPhoto = new SandboxDocumentIdPhoto(contentType, data);
+    return this;
+  }
+
+  /**
+   * @param {SandboxTextDataExtractionRecommendation} recommendation
+   *
+   * @return {this}
+   */
+  withRecommendation(recommendation) {
+    Validation.instanceOf(recommendation, SandboxTextDataExtractionRecommendation, 'recommendation');
+    this.recommendation = recommendation;
+    return this;
+  }
+
+  /**
+   * @param detectedCountry
+   *
+   * @return {this}
+   */
+  withDetectedCountry(detectedCountry) {
+    Validation.isString(detectedCountry, 'detectedCountry');
+    this.detectedCountry = detectedCountry;
+    return this;
+  }
+
+  /**
    * @returns {SandboxDocumentTextDataExtractionTask}
    */
   build() {
-    const result = new SandboxDocumentTextDataExtractionTaskResult(this.documentFields);
+    const result = new SandboxDocumentTextDataExtractionTaskResult(
+      this.documentFields,
+      this.documentIdPhoto,
+      this.detectedCountry,
+      this.recommendation
+    );
     return new SandboxDocumentTextDataExtractionTask(result, this.documentFilter);
   }
 }

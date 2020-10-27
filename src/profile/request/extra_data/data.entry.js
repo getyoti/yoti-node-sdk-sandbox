@@ -1,3 +1,5 @@
+'use strict';
+
 const { Validation } = require('../../../util');
 
 class SandboxDataEntry {

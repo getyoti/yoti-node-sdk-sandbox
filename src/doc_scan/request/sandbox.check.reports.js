@@ -1,9 +1,12 @@
+'use strict';
+
 const { Validation } = require('../../util');
 const SandboxDocumentTextDataCheck = require('./check/sandbox.document.text.data.check');
 const SandboxDocumentFaceMatchCheck = require('./check/sandbox.document.face.match.check');
 const SandboxDocumentAuthenticityCheck = require('./check/sandbox.document.authenticity.check');
 const SandboxLivenessCheck = require('./check/sandbox.liveness.check');
 const SandboxIdDocumentComparisonCheck = require('./check/sandbox.id.document.comparison.check');
+const SandboxSupplementaryDocTextDataCheck = require('./check/sandbox.supplementary.doc.text.data.check');
 
 class SandboxCheckReports {
   /**
@@ -13,6 +16,7 @@ class SandboxCheckReports {
    * @param {SandboxDocumentFaceMatchCheck[]} documentFaceMatchChecks
    * @param {int} asyncReportDelay
    * @param {SandboxIdDocumentComparisonCheck[]} idDocumentComparisonChecks
+   * @param {SandboxSupplementaryDocTextDataCheck[]} supplementaryDocTextDataChecks
    */
   constructor(
     documentTextDataChecks,
@@ -20,7 +24,8 @@ class SandboxCheckReports {
     livenessChecks,
     documentFaceMatchChecks,
     asyncReportDelay,
-    idDocumentComparisonCheck
+    idDocumentComparisonCheck,
+    supplementaryDocTextDataChecks
   ) {
     Validation.isArrayOfType(documentTextDataChecks, SandboxDocumentTextDataCheck, 'documentTextDataCheck');
     this.documentTextDataChecks = documentTextDataChecks;
@@ -41,6 +46,11 @@ class SandboxCheckReports {
       Validation.isArrayOfType(idDocumentComparisonCheck, SandboxIdDocumentComparisonCheck, 'idDocumentComparisonCheck');
       this.idDocumentComparisonCheck = idDocumentComparisonCheck;
     }
+
+    if (supplementaryDocTextDataChecks) {
+      Validation.isArrayOfType(supplementaryDocTextDataChecks, SandboxSupplementaryDocTextDataCheck, 'supplementaryDocTextDataChecks');
+      this.supplementaryDocTextDataChecks = supplementaryDocTextDataChecks;
+    }
   }
 
   toJSON() {
@@ -50,6 +60,7 @@ class SandboxCheckReports {
       ID_DOCUMENT_FACE_MATCH: this.documentFaceMatchChecks,
       LIVENESS: this.livenessChecks,
       ID_DOCUMENT_COMPARISON: this.idDocumentComparisonCheck,
+      SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: this.supplementaryDocTextDataChecks,
       async_report_delay: this.asyncReportDelay,
     };
   }
