@@ -7,6 +7,8 @@ updates:
   open-pull-requests-limit: 3
   target-branch: development
   reviewers:
-  - echarrod
+  - laurent-yoti
+  - vishmimoney
+  - taranchauhan
   assignees:
-  - echarrod
+  - laurent-yoti
