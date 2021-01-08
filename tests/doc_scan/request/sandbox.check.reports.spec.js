@@ -14,4 +14,18 @@ describe('SandboxCheckReports', () => {
         }));
     });
   });
+
+  describe('without third party identity checks', () => {
+    it('serializes without third party identity checks', () => {
+      const checkReport = new SandboxCheckReports([], [], [], []);
+
+      expect(JSON.stringify(checkReport))
+        .toEqual(JSON.stringify({
+          ID_DOCUMENT_TEXT_DATA_CHECK: [],
+          ID_DOCUMENT_AUTHENTICITY: [],
+          ID_DOCUMENT_FACE_MATCH: [],
+          LIVENESS: [],
+        }));
+    });
+  });
 });

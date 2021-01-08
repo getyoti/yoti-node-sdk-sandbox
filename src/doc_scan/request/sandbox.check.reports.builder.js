@@ -8,6 +8,7 @@ const SandboxDocumentAuthenticityCheck = require('./check/sandbox.document.authe
 const SandboxCheckReports = require('./sandbox.check.reports');
 const SandboxIdDocumentComparisonCheck = require('./check/sandbox.id.document.comparison.check');
 const SandboxSupplementaryDocTextDataCheck = require('./check/sandbox.supplementary.doc.text.data.check');
+const SandboxThirdPartyIdentityCheck = require('./check/sandbox.third.party.identity.check');
 
 class SandboxCheckReportsBuilder {
   constructor() {
@@ -86,6 +87,17 @@ class SandboxCheckReportsBuilder {
   }
 
   /**
+ * @param {SandboxThirdPartyIdentityCheck} thirdPartyIdentityCheck
+ *
+ * @returns {this}
+ */
+  withThirdPartyIdentityCheck(thirdPartyIdentityCheck) {
+    Validation.instanceOf(thirdPartyIdentityCheck, SandboxThirdPartyIdentityCheck, 'thirdPartyIdentityCheck');
+    this.thirdPartyIdentityCheck = thirdPartyIdentityCheck;
+    return this;
+  }
+
+  /**
    * @param {int} asyncReportDelay
    *
    * @returns {this}
@@ -107,7 +119,8 @@ class SandboxCheckReportsBuilder {
       this.documentFaceMatchChecks,
       this.asyncReportDelay,
       this.idDocumentComparisonChecks,
-      this.supplementaryDocTextDataChecks
+      this.supplementaryDocTextDataChecks,
+      this.thirdPartyIdentityCheck
     );
   }
 }
