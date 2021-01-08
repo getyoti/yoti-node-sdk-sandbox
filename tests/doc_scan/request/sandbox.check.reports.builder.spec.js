@@ -7,6 +7,7 @@ const {
   SandboxDocumentFaceMatchCheckBuilder,
   SandboxSupplementaryDocTextDataCheckBuilder,
   SandboxIdDocumentComparisonCheckBuilder,
+  SandboxThirdPartyIdentityCheckBuilder,
 } = require('../../..');
 const SandboxCheckReports = require('../../../src/doc_scan/request/sandbox.check.reports');
 
@@ -30,6 +31,7 @@ describe('SandboxCheckReportsBuilder', () => {
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [],
           SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
+          THIRD_PARTY_IDENTITY: [],
         }));
     });
   });
@@ -54,6 +56,7 @@ describe('SandboxCheckReportsBuilder', () => {
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [],
           SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
+          THIRD_PARTY_IDENTITY: [],
         }));
     });
   });
@@ -78,6 +81,7 @@ describe('SandboxCheckReportsBuilder', () => {
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [],
           SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
+          THIRD_PARTY_IDENTITY: [],
         }));
     });
   });
@@ -102,6 +106,7 @@ describe('SandboxCheckReportsBuilder', () => {
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [SOME_ID_COMPARISON_CHECK],
           SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
+          THIRD_PARTY_IDENTITY: [],
         }));
     });
   });
@@ -126,6 +131,7 @@ describe('SandboxCheckReportsBuilder', () => {
           LIVENESS: [SOME_LIVENESS_CHECK],
           ID_DOCUMENT_COMPARISON: [],
           SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
+          THIRD_PARTY_IDENTITY: [],
         }));
     });
   });
@@ -150,6 +156,7 @@ describe('SandboxCheckReportsBuilder', () => {
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [],
           SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
+          THIRD_PARTY_IDENTITY: [],
         }));
     });
   });
@@ -170,6 +177,7 @@ describe('SandboxCheckReportsBuilder', () => {
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [],
           SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
+          THIRD_PARTY_IDENTITY: [],
           async_report_delay: 5,
         }));
     });
@@ -195,7 +203,33 @@ describe('SandboxCheckReportsBuilder', () => {
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [],
           SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [SOME_SUPPLEMENTARY_TEXT_DATA_CHECK],
+          THIRD_PARTY_IDENTITY: [],
         }));
+    });
+
+    describe('#withThirdPartyIdentityCheck', () => {
+      it('builds a SandboxCheckReport with third party identity check', () => {
+        const SOME_THIRD_PARTY_IDENTITY_CHECK = new SandboxThirdPartyIdentityCheckBuilder()
+          .withRecommendation(SOME_RECOMMENDATION)
+          .build();
+
+        const checkReport = new SandboxCheckReportsBuilder()
+          .withThirdPartyIdentityCheck(SOME_THIRD_PARTY_IDENTITY_CHECK)
+          .build();
+
+        expect(checkReport).toBeInstanceOf(SandboxCheckReports);
+
+        expect(JSON.stringify(checkReport))
+          .toEqual(JSON.stringify({
+            ID_DOCUMENT_TEXT_DATA_CHECK: [],
+            ID_DOCUMENT_AUTHENTICITY: [],
+            ID_DOCUMENT_FACE_MATCH: [],
+            LIVENESS: [],
+            ID_DOCUMENT_COMPARISON: [],
+            SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
+            THIRD_PARTY_IDENTITY: [SOME_THIRD_PARTY_IDENTITY_CHECK],
+          }));
+      });
     });
   });
 });

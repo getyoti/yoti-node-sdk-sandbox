@@ -7,6 +7,7 @@ const SandboxDocumentAuthenticityCheck = require('./check/sandbox.document.authe
 const SandboxLivenessCheck = require('./check/sandbox.liveness.check');
 const SandboxIdDocumentComparisonCheck = require('./check/sandbox.id.document.comparison.check');
 const SandboxSupplementaryDocTextDataCheck = require('./check/sandbox.supplementary.doc.text.data.check');
+const SandboxThirdPartyIdentityCheck = require('./check/sandbox.third.party.identity.check');
 
 class SandboxCheckReports {
   /**
@@ -17,6 +18,7 @@ class SandboxCheckReports {
    * @param {int} asyncReportDelay
    * @param {SandboxIdDocumentComparisonCheck[]} idDocumentComparisonChecks
    * @param {SandboxSupplementaryDocTextDataCheck[]} supplementaryDocTextDataChecks
+   * @param {SandboxThirdPartyIdentityCheck[]} thirdPartyIdentityChecks
    */
   constructor(
     documentTextDataChecks,
@@ -25,7 +27,8 @@ class SandboxCheckReports {
     documentFaceMatchChecks,
     asyncReportDelay,
     idDocumentComparisonCheck,
-    supplementaryDocTextDataChecks
+    supplementaryDocTextDataChecks,
+    thirdPartyIdentityChecks
   ) {
     Validation.isArrayOfType(documentTextDataChecks, SandboxDocumentTextDataCheck, 'documentTextDataCheck');
     this.documentTextDataChecks = documentTextDataChecks;
@@ -51,6 +54,11 @@ class SandboxCheckReports {
       Validation.isArrayOfType(supplementaryDocTextDataChecks, SandboxSupplementaryDocTextDataCheck, 'supplementaryDocTextDataChecks');
       this.supplementaryDocTextDataChecks = supplementaryDocTextDataChecks;
     }
+
+    if (thirdPartyIdentityChecks) {
+      Validation.isArrayOfType(thirdPartyIdentityChecks, SandboxThirdPartyIdentityCheck, 'thirdPartyIdentityChecks');
+      this.thirdPartyIdentityChecks = thirdPartyIdentityChecks;
+    }
   }
 
   toJSON() {
@@ -61,6 +69,7 @@ class SandboxCheckReports {
       LIVENESS: this.livenessChecks,
       ID_DOCUMENT_COMPARISON: this.idDocumentComparisonCheck,
       SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: this.supplementaryDocTextDataChecks,
+      THIRD_PARTY_IDENTITY: this.thirdPartyIdentityChecks,
       async_report_delay: this.asyncReportDelay,
     };
   }
