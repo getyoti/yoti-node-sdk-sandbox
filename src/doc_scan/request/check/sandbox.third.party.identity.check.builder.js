@@ -7,7 +7,7 @@ const SandboxThirdPartyIdentityCheck = require('./sandbox.third.party.identity.c
 
 class SandboxThirdPartyIdentityCheckBuilder extends SandboxDocumentCheckBuilder {
   /**
-   * @returns {SandboxIdDocumentComparisonCheck}
+   * @returns {SandboxThirdPartyIdentityCheck}
    */
   build() {
     const report = new SandboxCheckReport(this.recommendation, this.breakdown);

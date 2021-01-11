@@ -15,6 +15,11 @@ const SOME_BREAKDOWN = new SandboxBreakdownBuilder()
   .withSubCheck('some-check')
   .build();
 
+const ANOTHER_BREAKDOWN = new SandboxBreakdownBuilder()
+  .withResult('another-result')
+  .withSubCheck('another-check')
+  .build();
+
 describe('SandboxThirdPartyIdentityCheckBuilder', () => {
   describe('#withRecommendation', () => {
     it('Should build SandboxThirdPartyIdentityCheck with recommendation', () => {
@@ -63,7 +68,7 @@ describe('SandboxThirdPartyIdentityCheckBuilder', () => {
     it('Should build SandboxThirdPartyIdentityCheck with breakdown', () => {
       const check = new SandboxThirdPartyIdentityCheckBuilder()
         .withRecommendation(SOME_RECOMMENDATION)
-        .withBreakdowns([SOME_BREAKDOWN])
+        .withBreakdowns([SOME_BREAKDOWN, ANOTHER_BREAKDOWN])
         .build();
 
       expect(check)
@@ -74,7 +79,7 @@ describe('SandboxThirdPartyIdentityCheckBuilder', () => {
           result: {
             report: {
               recommendation: SOME_RECOMMENDATION,
-              breakdown: [SOME_BREAKDOWN],
+              breakdown: [SOME_BREAKDOWN, ANOTHER_BREAKDOWN],
             },
           },
         }));
