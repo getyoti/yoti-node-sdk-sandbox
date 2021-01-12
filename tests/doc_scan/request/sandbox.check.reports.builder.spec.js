@@ -31,7 +31,6 @@ describe('SandboxCheckReportsBuilder', () => {
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [],
           SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
-          THIRD_PARTY_IDENTITY: [],
         }));
     });
   });
@@ -56,7 +55,6 @@ describe('SandboxCheckReportsBuilder', () => {
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [],
           SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
-          THIRD_PARTY_IDENTITY: [],
         }));
     });
   });
@@ -81,7 +79,6 @@ describe('SandboxCheckReportsBuilder', () => {
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [],
           SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
-          THIRD_PARTY_IDENTITY: [],
         }));
     });
   });
@@ -106,7 +103,6 @@ describe('SandboxCheckReportsBuilder', () => {
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [SOME_ID_COMPARISON_CHECK],
           SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
-          THIRD_PARTY_IDENTITY: [],
         }));
     });
   });
@@ -131,7 +127,6 @@ describe('SandboxCheckReportsBuilder', () => {
           LIVENESS: [SOME_LIVENESS_CHECK],
           ID_DOCUMENT_COMPARISON: [],
           SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
-          THIRD_PARTY_IDENTITY: [],
         }));
     });
   });
@@ -156,7 +151,6 @@ describe('SandboxCheckReportsBuilder', () => {
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [],
           SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
-          THIRD_PARTY_IDENTITY: [],
         }));
     });
   });
@@ -177,7 +171,6 @@ describe('SandboxCheckReportsBuilder', () => {
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [],
           SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
-          THIRD_PARTY_IDENTITY: [],
           async_report_delay: 5,
         }));
     });
@@ -203,7 +196,6 @@ describe('SandboxCheckReportsBuilder', () => {
           LIVENESS: [],
           ID_DOCUMENT_COMPARISON: [],
           SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [SOME_SUPPLEMENTARY_TEXT_DATA_CHECK],
-          THIRD_PARTY_IDENTITY: [],
         }));
     });
 
@@ -227,7 +219,7 @@ describe('SandboxCheckReportsBuilder', () => {
             LIVENESS: [],
             ID_DOCUMENT_COMPARISON: [],
             SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: [],
-            THIRD_PARTY_IDENTITY: [SOME_THIRD_PARTY_IDENTITY_CHECK],
+            THIRD_PARTY_IDENTITY: SOME_THIRD_PARTY_IDENTITY_CHECK,
           }));
       });
     });

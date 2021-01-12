@@ -18,7 +18,7 @@ class SandboxCheckReports {
    * @param {int} asyncReportDelay
    * @param {SandboxIdDocumentComparisonCheck[]} idDocumentComparisonChecks
    * @param {SandboxSupplementaryDocTextDataCheck[]} supplementaryDocTextDataChecks
-   * @param {SandboxThirdPartyIdentityCheck[]} thirdPartyIdentityChecks
+   * @param {SandboxThirdPartyIdentityCheck} thirdPartyIdentityCheck
    */
   constructor(
     documentTextDataChecks,
@@ -28,7 +28,7 @@ class SandboxCheckReports {
     asyncReportDelay,
     idDocumentComparisonCheck,
     supplementaryDocTextDataChecks,
-    thirdPartyIdentityChecks
+    thirdPartyIdentityCheck
   ) {
     Validation.isArrayOfType(documentTextDataChecks, SandboxDocumentTextDataCheck, 'documentTextDataCheck');
     this.documentTextDataChecks = documentTextDataChecks;
@@ -55,9 +55,9 @@ class SandboxCheckReports {
       this.supplementaryDocTextDataChecks = supplementaryDocTextDataChecks;
     }
 
-    if (thirdPartyIdentityChecks) {
-      Validation.isArrayOfType(thirdPartyIdentityChecks, SandboxThirdPartyIdentityCheck, 'thirdPartyIdentityChecks');
-      this.thirdPartyIdentityChecks = thirdPartyIdentityChecks;
+    if (thirdPartyIdentityCheck) {
+      Validation.instanceOf(thirdPartyIdentityCheck, SandboxThirdPartyIdentityCheck, 'thirdPartyIdentityCheck');
+      this.thirdPartyIdentityCheck = thirdPartyIdentityCheck;
     }
   }
 
@@ -69,7 +69,7 @@ class SandboxCheckReports {
       LIVENESS: this.livenessChecks,
       ID_DOCUMENT_COMPARISON: this.idDocumentComparisonCheck,
       SUPPLEMENTARY_DOCUMENT_TEXT_DATA_CHECK: this.supplementaryDocTextDataChecks,
-      THIRD_PARTY_IDENTITY: this.thirdPartyIdentityChecks,
+      THIRD_PARTY_IDENTITY: this.thirdPartyIdentityCheck,
       async_report_delay: this.asyncReportDelay,
     };
   }

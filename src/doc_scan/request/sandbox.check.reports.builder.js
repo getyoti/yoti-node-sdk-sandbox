@@ -18,7 +18,6 @@ class SandboxCheckReportsBuilder {
     this.documentFaceMatchChecks = [];
     this.idDocumentComparisonChecks = [];
     this.supplementaryDocTextDataChecks = [];
-    this.thirdPartyIdentityChecks = [];
   }
 
   /**
@@ -94,7 +93,7 @@ class SandboxCheckReportsBuilder {
  */
   withThirdPartyIdentityCheck(thirdPartyIdentityCheck) {
     Validation.instanceOf(thirdPartyIdentityCheck, SandboxThirdPartyIdentityCheck, 'thirdPartyIdentityCheck');
-    this.thirdPartyIdentityChecks.push(thirdPartyIdentityCheck);
+    this.thirdPartyIdentityCheck = thirdPartyIdentityCheck;
     return this;
   }
 
@@ -121,7 +120,7 @@ class SandboxCheckReportsBuilder {
       this.asyncReportDelay,
       this.idDocumentComparisonChecks,
       this.supplementaryDocTextDataChecks,
-      this.thirdPartyIdentityChecks
+      this.thirdPartyIdentityCheck
     );
   }
 }
