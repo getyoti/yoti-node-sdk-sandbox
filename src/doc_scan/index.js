@@ -17,6 +17,7 @@ const SandboxSupplementaryDocTextDataExtractionTaskBuilder = require('./request/
 const SandboxDocumentFilterBuilder = require('./request/sandbox.document.filter.builder');
 const SandboxTextDataExtractionRecommendationBuilder = require('./request/task/sandbox.text.data.extraction.recommendation.builder');
 const SandboxTextDataExtractionReasonBuilder = require('./request/task/sandbox.text.data.extraction.reason.builder');
+const SandboxThirdPartyIdentityCheckBuilder = require('./request/check/sandbox.third.party.identity.check.builder');
 
 module.exports = {
   SandboxDocScanClientBuilder,
@@ -36,4 +37,5 @@ module.exports = {
   SandboxDocumentFilterBuilder,
   SandboxTextDataExtractionReasonBuilder,
   SandboxTextDataExtractionRecommendationBuilder,
+  SandboxThirdPartyIdentityCheckBuilder,
 };
