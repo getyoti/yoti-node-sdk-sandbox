@@ -6,7 +6,8 @@
     "node": ">=10"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint *.spec.js"
   },
   "dependencies": {
     "yoti": "^3.10.0"
@@ -14,6 +15,10 @@
   "devDependencies": {
     "@getyoti/sdk-sandbox": "file:../..",
     "dotenv": "^8.2.0",
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "11.1.0",
     "jest": "^25.5.4"
   },
   "jest": {

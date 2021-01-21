@@ -69,5 +69,5 @@ jobs:
 
       - run: npm update
 
-      - run: npm unit-test
+      - run: npm run unit-test
 
