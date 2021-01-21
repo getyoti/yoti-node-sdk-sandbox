@@ -42,7 +42,7 @@ jobs:
 
       - run: pushd ./examples/profile && npm install && npm update && npm run lint && popd
 
-      - run: pushd ./examples/doc-scan && npm install && npm update && npm run lint && popd
+      - run: pushd ./examples/doc_scan && npm install && npm update && npm run lint && popd
 
   compatibility:
     name: Compatibility ${{ matrix.os }} (Node ${{ matrix.node-version }})
