@@ -27,7 +27,8 @@ jobs:
 
       - run: npm test
 
-      - run: npm install
+      - name: Fix code coverage paths
+        run: sed -i 's/\/home\/runner\/work\/yoti-node-sdk-sandbox\/yoti-node-sdk-sandbox\//\/github\/workspace\//g' ./coverage/lcov.info
 
       - uses: sonarsource/sonarcloud-github-action@master
         env:
