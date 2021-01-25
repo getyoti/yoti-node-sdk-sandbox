@@ -31,6 +31,7 @@
     "eslint-plugin-node": "8.0.1",
     "husky": "^4.2.3",
     "jest": "^24.9.0",
+    "jest-sonar-reporter": "^2.0.0",
     "nock": "^9.6.1"
   },
   "jest": {
@@ -46,7 +47,8 @@
     "coverageDirectory": "./coverage",
     "testPathIgnorePatterns": [
       "./examples/"
-    ]
+    ],
+    "testResultsProcessor": "jest-sonar-reporter"
   },
   "husky": {
     "hooks": {
