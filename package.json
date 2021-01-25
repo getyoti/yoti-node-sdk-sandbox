@@ -47,8 +47,7 @@
     "coverageDirectory": "./coverage",
     "testPathIgnorePatterns": [
       "./examples/"
-    ],
-    "testResultsProcessor": "jest-sonar-reporter"
+    ]
   },
   "husky": {
     "hooks": {
