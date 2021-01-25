@@ -44,9 +44,9 @@ jobs:
 
       - run: pushd ./examples/doc_scan && npm install && npm update && npm run lint && popd
 
-  compatibility:
-    name: Compatibility ${{ matrix.os }} (Node ${{ matrix.node-version }})
-    runs-on: ${{ matrix.os }}
+  node-compatibility:
+    name: Node ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
     # always run on push events
     # only run on pull_request_target event when pull request pulls from fork repository
     if: >
@@ -56,7 +56,6 @@ jobs:
       fail-fast: false
       matrix:
         node-version: [6, 8, 9, 10, 11, 12, 13, 14]
-        os: [ubuntu-latest, macos-latest]
 
     steps:
       - uses: actions/checkout@v2
@@ -64,6 +63,30 @@ jobs:
       - uses: actions/setup-node@v2.1.2
         with:
           node-version: ${{ matrix.node-version }}
+
+      - run: npm install
+
+      - run: npm update
+
+      - run: npm run unit-test
+
+  os-compatibility:
+    name: Running in ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    # always run on push events
+    # only run on pull_request_target event when pull request pulls from fork repository
+    if: >
+      github.event_name == 'push' ||
+      github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name != github.repository
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2.1.2
 
       - run: npm install
 
