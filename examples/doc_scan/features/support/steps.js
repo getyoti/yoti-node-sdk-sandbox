@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 const { Given, Then } = require('cucumber');
 const expect = require('expect');
 
