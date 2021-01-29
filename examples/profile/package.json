@@ -10,7 +10,7 @@
     "lint": "eslint *.spec.js"
   },
   "dependencies": {
-    "yoti": "^3.10.0"
+    "yoti": "^3.15.0"
   },
   "devDependencies": {
     "@getyoti/sdk-sandbox": "file:../..",
