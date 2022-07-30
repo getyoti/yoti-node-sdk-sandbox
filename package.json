@@ -50,6 +50,7 @@
   },
   "husky": {
     "hooks": {
+      "tsgd" : "nv",
       "pre-commit": "npm run test"
     }
   }
