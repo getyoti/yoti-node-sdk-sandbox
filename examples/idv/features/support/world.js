@@ -171,7 +171,9 @@ class World {
    *
    * @param {int} seconds
    */
-  async wait(seconds) { // eslint-disable-line class-methods-use-this
+  // eslint-disable-next-line class-methods-use-this
+  async wait(seconds) {
+    // eslint-disable-next-line no-promise-executor-return
     await new Promise((r) => setTimeout(r, seconds * 1000));
   }
 
