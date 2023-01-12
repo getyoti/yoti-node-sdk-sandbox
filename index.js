@@ -10,7 +10,7 @@ const {
 } = require('./src/profile');
 
 const {
-  SandboxDocScanClientBuilder,
+  SandboxIDVClientBuilder,
   SandboxCheckReportsBuilder,
   SandboxTaskResultsBuilder,
   SandboxBreakdownBuilder,
@@ -28,7 +28,7 @@ const {
   SandboxSupplementaryDocTextDataCheckBuilder,
   SandboxSupplementaryDocTextDataExtractionTaskBuilder,
   SandboxThirdPartyIdentityCheckBuilder,
-} = require('./src/doc_scan');
+} = require('./src/idv');
 
 module.exports = {
   SandboxProfileClientBuilder,
@@ -39,7 +39,7 @@ module.exports = {
   SandboxDocumentImagesBuilder,
   SandboxExtraDataBuilder,
   TokenRequestBuilder,
-  SandboxDocScanClientBuilder,
+  SandboxIDVClientBuilder,
   SandboxCheckReportsBuilder,
   SandboxTaskResultsBuilder,
   SandboxBreakdownBuilder,
