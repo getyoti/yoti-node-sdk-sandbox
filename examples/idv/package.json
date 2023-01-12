@@ -7,19 +7,20 @@
     "lint": "eslint './features/**/*.js'"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=16",
+    "npm": ">=8"
   },
   "license": "MIT",
   "dependencies": {
-    "cucumber": "^6.0.5",
-    "cucumber-pretty": "^6.0.0",
-    "eslint": "^7.4.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.18.2",
+    "@getyoti/sdk-sandbox": "file:../..",
+    "cucumber": "6.0.7",
+    "cucumber-pretty": "6.0.1",
+    "dotenv": "16.0.2",
+    "eslint": "8.23.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "2.26.0",
     "eslint-plugin-node": "11.1.0",
     "expect": "^25.1.0",
-    "selenium-webdriver": "^4.0.0-alpha.5",
-    "@getyoti/sdk-sandbox": "file:../..",
-    "dotenv": "^8.2.0"
+    "selenium-webdriver": "^4.0.0-alpha.5"
   }
 }
