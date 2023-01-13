@@ -141,7 +141,7 @@ class World {
   }
 
   /**
-   * Switch to the Doc Scan iframe.
+   * Switch to the IDV iframe.
    */
   async switchToIframe() {
     await this.webDriver.switchTo().frame(0);

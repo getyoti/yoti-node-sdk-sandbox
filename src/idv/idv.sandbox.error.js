@@ -36,7 +36,7 @@ function errorMessage(error) {
 }
 
 /**
- * Signals that a problem occurred in a Yoti Doc Scan Sandbox
+ * Signals that a problem occurred in a Yoti IDV Sandbox
  *
  * @class IDVSandboxError
  */

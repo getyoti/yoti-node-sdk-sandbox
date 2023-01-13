@@ -1,4 +1,4 @@
-# Doc Scan Sandbox Example
+# IDV Sandbox Example
 
 An example of configuring a session response can be found in the [World](./features/support/world.js)
 

@@ -57,11 +57,11 @@ const sandboxProfileClient = new SandboxProfileClientBuilder()
   .build();
 ```
 
-### Doc Scan
+### IDV
 
-#### Doc Scan Client
+#### IDV Client
 
-Point the Doc Scan client at the sandbox by setting environment variable `YOTI_DOC_SCAN_API_URL` to https://api.yoti.com/sandbox/idverify/v1
+Point the IDV client at the sandbox by setting environment variable `YOTI_DOC_SCAN_API_URL` to https://api.yoti.com/sandbox/idverify/v1
 
 ```javascript
 const { IDVClient } = require('yoti');
@@ -73,7 +73,7 @@ const PEM = fs.readFileSync('/path/to/your-pem-file.pem', 'utf8');
 const idvClient = new IDVClient(SANDBOX_CLIENT_SDK_ID, PEM);
 ```
 
-#### Doc Scan Sandbox Client
+#### IDV Sandbox Client
 
 ```javascript
 const { SandboxIDVClientBuilder } = require('@getyoti/sdk-sandbox');
@@ -87,4 +87,4 @@ const sandboxClient = new SandboxIDVClientBuilder()
 ## Examples
 
 - [Profile Sandbox](examples/profile)
-- [Doc Scan Sandbox](examples/idv)
+- [IDV Sandbox](examples/idv)
