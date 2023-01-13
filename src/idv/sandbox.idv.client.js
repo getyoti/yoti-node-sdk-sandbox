@@ -5,7 +5,7 @@ const { Validation } = require('../util');
 const SandboxResponseConfig = require('./request/sandbox.response.config');
 const IDVSandboxError = require('./idv.sandbox.error');
 
-const DOC_SCAN_SANDBOX_API_BASE_URL = `${constants.API_BASE_URL}/sandbox/idverify/v1`;
+const IDV_SANDBOX_API_BASE_URL = `${constants.API_BASE_URL}/sandbox/idverify/v1`;
 
 /**
  * @class SandboxIDVClient
@@ -27,7 +27,7 @@ class SandboxIDVClient {
       Validation.isString(sandboxUrl, 'sandboxUrl');
       this.sandboxUrl = sandboxUrl;
     } else {
-      this.sandboxUrl = DOC_SCAN_SANDBOX_API_BASE_URL;
+      this.sandboxUrl = IDV_SANDBOX_API_BASE_URL;
     }
   }
 

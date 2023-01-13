@@ -1,6 +1,6 @@
 {
-  "name": "@getyoti/sdk-sandbox-doc-scan-example",
-  "description": "Yoti NodeJS Doc Scan Sandbox Example",
+  "name": "@getyoti/sdk-sandbox-idv-example",
+  "description": "Yoti NodeJS IDV Sandbox Example",
   "private": true,
   "scripts": {
     "test": "docker-compose up -d && sleep 5 && cucumber-js features -f node_modules/cucumber-pretty && docker-compose down",

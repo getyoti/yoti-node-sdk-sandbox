@@ -8,7 +8,7 @@ services:
     environment:
         - YOTI_KEY_FILE_PATH=/usr/src/keys/privateKey.pem
         - YOTI_CLIENT_SDK_ID=${YOTI_SANDBOX_CLIENT_SDK_ID}
-        - YOTI_DOC_SCAN_API_URL=${YOTI_DOC_SCAN_API_URL}
+        - YOTI_DOC_SCAN_API_URL=${YOTI_IDV_API_URL}
     volumes:
         - ${YOTI_KEY_FILE_PATH}:/usr/src/keys/privateKey.pem
     ports:

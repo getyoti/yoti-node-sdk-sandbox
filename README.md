@@ -61,7 +61,7 @@ const sandboxProfileClient = new SandboxProfileClientBuilder()
 
 #### IDV Client
 
-Point the IDV client at the sandbox by setting environment variable `YOTI_DOC_SCAN_API_URL` to https://api.yoti.com/sandbox/idverify/v1
+Point the IDV client at the sandbox by setting environment variable `YOTI_IDV_API_URL` to https://api.yoti.com/sandbox/idverify/v1
 
 ```javascript
 const { IDVClient } = require('yoti');
