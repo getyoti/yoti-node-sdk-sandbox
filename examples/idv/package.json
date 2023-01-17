@@ -1,0 +1,26 @@
+{
+  "name": "@getyoti/sdk-sandbox-idv-example",
+  "description": "Yoti NodeJS IDV Sandbox Example",
+  "private": true,
+  "scripts": {
+    "test": "docker-compose up -d && sleep 5 && cucumber-js features -f node_modules/cucumber-pretty && docker-compose down",
+    "lint": "eslint './features/**/*.js'"
+  },
+  "engines": {
+    "node": ">=16",
+    "npm": ">=8"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@getyoti/sdk-sandbox": "file:../..",
+    "cucumber": "6.0.7",
+    "cucumber-pretty": "6.0.1",
+    "dotenv": "16.0.2",
+    "eslint": "8.23.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-node": "11.1.0",
+    "expect": "^25.1.0",
+    "selenium-webdriver": "^4.0.0-alpha.5"
+  }
+}

@@ -138,7 +138,7 @@ describe('SandboxClient', () => {
           .catch((err) => {
             expect(err.message).toBe(invalidResponse.error);
             expect(consoleLog)
-              .toHaveBeenCalledWith(`Error getting data from Connect API: ${invalidResponse.error}`);
+              .toHaveBeenCalledWith(`Error getting data from Yoti API: ${invalidResponse.error}`);
             done();
           });
       });

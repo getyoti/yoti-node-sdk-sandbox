@@ -8,7 +8,9 @@ updates:
   target-branch: development
   reviewers:
   - laurent-yoti
-  - vishmimoney
-  - taranchauhan
+  - michaelyoti
+  - liam-yoti
+  - manuel-yoti
+  - abdalmajeed-yoti
   assignees:
   - laurent-yoti
