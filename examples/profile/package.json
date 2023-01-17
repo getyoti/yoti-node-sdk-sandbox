@@ -3,23 +3,25 @@
   "description": "Yoti NodeJS Profile Sandbox Example",
   "private": true,
   "engines": {
-    "node": ">=10"
+    "node": ">=16",
+    "npm": ">=8"
   },
   "scripts": {
     "test": "jest",
     "lint": "eslint *.spec.js"
   },
   "dependencies": {
-    "yoti": "^3.15.0"
+    "yoti": "^4.1.0"
   },
   "devDependencies": {
     "@getyoti/sdk-sandbox": "file:../..",
-    "dotenv": "^8.2.0",
-    "eslint": "^7.4.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.18.2",
+    "@types/jest": "29.0.1",
+    "dotenv": "16.0.2",
+    "eslint": "8.23.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "2.26.0",
     "eslint-plugin-node": "11.1.0",
-    "jest": "^25.5.4"
+    "jest": "29.0.1"
   },
   "jest": {
     "verbose": true
